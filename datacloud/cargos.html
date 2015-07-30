@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <style>
+        #cloud { border-radius:3px;border:1px solid #d0d0d0; }
+        #cloud span { cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div id='cloud' style="width:1040px;height:650px;position:relative;"></div>
+    <div id="details" style="width:640px;text-align:center;line-height:2em;margin-top:0.5em"></div>
+    <script src='wordcloud2.js'></script>
+    <script>
+
+var tags = [
+["ADMINISTRADOR GENERAL",29],
+["ASES. GRAL. ADJUNTO",2],
+["ASES. TUT. 1 INS",101],
+["ASESOR",197],
+["AUXILIAR",355],
+["AUXILIAR DE SERVICIO",137],
+["AUXILIAR PRINCIPAL",15],
+["CONSEJERO",1001],
+["DEFENSOR 1 INSTANCIA",23],
+["DEFENSOR DE CAMARA",2],
+["DIRECTOR",6],
+["DIRECTOR GENERAL",1],
+["ESCRIBIENTE",263],
+["ESCRIBIENTE 1º",10],
+["FISCAL 1 INSTANCIA",10],
+["FISCAL DE CAMARA",8],
+["JEFE DE DEPARTAMENTO",17],
+["JEFE DE DESPACHO DE 1º",38],
+["JEFE DE DIVISION",1],
+["JEFE DE SECCION",3],
+["JUEZ 1 INSTANCIA",23],
+["JUEZ DE CAMARA",5],
+["LETRADO UN. CON",5],
+["OFICIAL",204],
+["OFICIAL DE JUSTICIA",6],
+["OFICIAL MAYOR",53],
+["OFICIAL NOTIFICADOR",3],
+["OTRO",2129],
+["PROSEC. ADM",235],
+["PROSEC. ADM. CAMARA",40],
+["PROSEC. CAMARA",17],
+["PROSEC. COADYUV.",159],
+["PROSEC. JEFE",24],
+["PROSEC. LETRADO/A",51],
+["RELATOR",124],
+["RESPONSABLE DE OFICINA",13],
+["SEC. CAMARA",8],
+["SEC. DE FISC. CAMARA",3],
+["SEC. FISCALIA DE CAMARA",5],
+["SECRET. DEFEN.",43],
+["SECRET. FISCALIA",3],
+["SECRET. PRIVADO",55],
+["SECRETARIO",93],
+["SECRETARIO GENERAL",2],
+["SECRETARIO JUDICIAL",9],
+["SECRETARIO JUZGADO",7],
+["SECRETARIO LETRADO",41],
+["SECRETARIO LETRADO COMISION",1],
+["SECRETARIO/A CAMARA",15],
+["SECRETARIO/A COADYUVANTE",9]
+];        
+
+
+        WordCloud(document.getElementById('cloud'), { //Math.round( (word[1]+100000)/5500 )
+          list : tags.map(function(word) {  return [word[0],  Math.round( (word[1]*2000)/5500 )  ]; })
+          ,backgroundColor:'#6796C8'         
+        });
+        console.debug(tags);
+        var clicked = function(ev) {
+          if (ev.target.nodeName === "SPAN") {
+            var tag = ev.target.textContent;
+            var tagElem;
+            if (tags.some(function(el) { if (el[0] === tag) {tagElem = el; return true;} return false; })) {
+            document.getElementById("details").innerText = "Hay " + tagElem[1] + 
+                " del cargo “" + tag + "”";
+            }
+          } else {
+            document.getElementById("details").innerText = "";
+          }
+        }
+        document.getElementById("cloud").addEventListener("click", clicked)
+
+    </script>
+</body>
+</html>
