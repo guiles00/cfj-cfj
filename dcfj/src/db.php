@@ -5,9 +5,13 @@ class DBConn {
 
 function connect() {
 //Archivo temporal
-$username = 'guiles';
-$password = 'guiles';
-$dbname = 'sitio_cfj';
+//$username = 'guiles';
+//$password = 'guiles';
+//$dbname = 'sitio_cfj';
+$username = 'uv1777';
+$password = 'astro5578pep';
+$dbname = 'uv1777_sitio';
+
 
 
 $connection = mysqli_connect('localhost',$username,$password,$dbname);
