@@ -16,7 +16,10 @@
 		color:#333; font-size:12px; 
 		font-family:dotum, Verdana, Arial, Helvetica, AppleGothic, sans-serif;
 	}
-	#testIframe {margin-left: 10px;}
+	#content {margin-left: 10px;}
+
+	@media print {  }
+
   </style>
 <script type="text/javascript" src="./js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="./js/jquery.ztree.core-3.5.js"></script>
@@ -56,9 +59,9 @@
 	var zNodes = [
 		{id:1, pId:0, name:"Cursos", open:false},
 		{id:101, pId:1, name:"Alta Curso", file:"alta_curso"},
-		{id:102, pId:1, name:"Cierre Inscripcion", file:"construccion"},
+		{id:102, pId:1, name:"Cierre Inscripcion", file:"cierre_inscripcion"},
 		{id:103, pId:1, name:"Cierre Curso", file:"cierre_curso"},
-		{id:104, pId:1, name:"Proc. C", file:"construccion"},
+		{id:104, pId:1, name:"Pago", file:"construccion"},
 		
 		{id:2, pId:0, name:"Becas", open:false},
 		{id:202, pId:2, name:"Proc. A", file:"construccion"},
@@ -106,7 +109,7 @@
 	$(document).ready(function(){
 		var t = $("#tree");
 		t = $.fn.zTree.init(t, setting, zNodes);
-		demoIframe = $("#testIframe");
+		demoIframe = $("#content");
 		demoIframe.bind("load", loadReady);
 		var zTree = $.fn.zTree.getZTreeObj("tree");
 		zTree.selectNode(zTree.getNodeByParam("id", 101));
@@ -124,6 +127,23 @@
 	}
 
   //-->
+
+
+  //Imprimir
+
+  function printDiv(divName) {
+     //var printContents = document.getElementById(divName).innerHTML;
+    // var printContents = document.getElementById(divName).textContent;
+
+    // var originalContents = document.body.innerHTML;
+    // console.debug(printContents)
+    // console.debug(document.getElementById(divName));
+    // document.body.innerHTML = printContents;
+
+     window.print();
+
+    // document.body.innerHTML = originalContents;
+	}
   </SCRIPT>
  </HEAD>
 
@@ -133,8 +153,19 @@
 		<TD width=200px align=left valign=top style="BORDER-RIGHT: #999999 1px dashed">
 			<ul id="tree" class="ztree" style="width:200px; overflow:auto;"></ul>
 		</TD>
-		<TD width="100%" align=left valign=top><IFRAME ID="testIframe" Name="testIframe" FRAMEBORDER=0 SCROLLING=AUTO width=100%  height=600px SRC="alta_curso.html"></IFRAME></TD>
+		<TD width="100%" align=left valign=top>
+		<IFRAME ID="content" Name="content" FRAMEBORDER=0 SCROLLING=AUTO width=100%  height=600px SRC="alta_curso.html">
+			<script>
+			function printMe() {
+ 			 window.print()
+			}
+			</script>
+		</IFRAME>
+		</TD>
 	</TR>
+	<!--tr>
+	<td></td><td><a href="#" onclick="printDiv('content')"> bajar pdf </a></td>
+	</tr-->
 </TABLE>
 
  </BODY>
