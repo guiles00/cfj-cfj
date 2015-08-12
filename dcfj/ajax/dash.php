@@ -23,7 +23,14 @@ $db = Db::getInstance();
 $sql_cursos_vencidos = "SELECT count(*) as vencidos FROM curso INNER JOIN grupo_curso3 ON curso.cur_gcu3_id = grupo_curso3.gcu3_id WHERE curso.cur_ecu_id =1 AND curso.cur_fechaFin < CURDATE()";
 $cant_cursos_vencidos = $db->exec_query($sql_cursos_vencidos);
 $res_cursos_vencidos = mysqli_fetch_array($cant_cursos_vencidos);		
-//print_r($res_cursos_vencidos);
+
+$sql_ls_cursos_vencidos = "SELECT * FROM curso INNER JOIN grupo_curso3 ON curso.cur_gcu3_id = grupo_curso3.gcu3_id WHERE curso.cur_ecu_id =1 AND curso.cur_fechaFin < CURDATE()";
+$cursos_vencidos = $db->exec_query($sql_ls_cursos_vencidos);
+
+while ($row = mysqli_fetch_array($cursos_vencidos)) {
+        $cursos_vencidos[] = $row;
+    }
+
 ?>
 <div class="row">
 	<div id="breadcrumb" class="col-xs-12">
@@ -96,7 +103,7 @@ $res_cursos_vencidos = mysqli_fetch_array($cant_cursos_vencidos);
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Cursos Finalizados sin cerrar</span>
+							<a href="#cursos_vencidos" class="pull-left">Cursos Finalizados sin cerrar</a>
                                 <!--span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span-->
                                 <div class="clearfix"></div>
                             </div>
@@ -150,7 +157,7 @@ $res_cursos_vencidos = mysqli_fetch_array($cant_cursos_vencidos);
 							<th class="col-md-3">Fec. Inicio</th>
 							<th class="col-md-3">Fec. Fin</th>
 							<th>T&iacute;tulo</th>
-							<th>Validar</th>
+							<th>Validado</th>
 							<th>Inscriptos</th>
 							<th>Cupo</th>
 						</tr>
@@ -201,7 +208,51 @@ $res_cursos_vencidos = mysqli_fetch_array($cant_cursos_vencidos);
 			</div>
 		</div>
 	</div>
-
+	<a name="cursos_vencidos"></a> 
+<div class="col-xs-12 col-sm-12">
+		<div class="box">
+			<div class="box-header">
+				<div class="box-name">
+					<i class="fa fa-table"></i>
+					<span>Cursos Finalizados sin cerrar</span>
+				</div>
+				<div class="box-icons">
+					<a class="collapse-link">
+						<i class="fa fa-chevron-up"></i>
+					</a>
+					<a class="expand-link">
+						<i class="fa fa-expand"></i>
+					</a>
+					<a class="close-link">
+						<i class="fa fa-times"></i>
+					</a>
+				</div>
+				<div class="no-move"></div>
+			</div>
+			<div class="box-content">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th class="col-md-3">Fec. Inicio</th>
+							<th class="col-md-3">Fec. Fin</th>
+							<th>T&iacute;tulo</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php foreach ($cursos_vencidos as $curso_v):?>
+						<tr>
+							<td class="col-md-3"><?=$curso_v['cur_fechaInicio'];?></td>
+							<td class="col-md-3"><?=$curso_v['cur_fechaFin'];?></td>
+							<!--td></td-->
+							<td><?=utf8_encode($curso_v['gcu3_titulo']);?></td>
+						</tr>
+				
+					<?php endforeach;?>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 <!--div class="row full-calendar"-->
 	<!--div class="col-sm-3">
 		<div id="add-new-event">
@@ -299,102 +350,8 @@ $res_cursos_vencidos = mysqli_fetch_array($cant_cursos_vencidos);
 		</div>
 	</div-->
 </div>
+
 <!--div class="row">
-	<div class="col-xs-12">
-		<div class="box">
-			<div class="box-header">
-				<div class="box-name">
-					<i class="fa fa-table"></i>
-					<span>Combined Table</span>
-				</div>
-				<div class="box-icons">
-					<a class="collapse-link">
-						<i class="fa fa-chevron-up"></i>
-					</a>
-					<a class="expand-link">
-						<i class="fa fa-expand"></i>
-					</a>
-					<a class="close-link">
-						<i class="fa fa-times"></i>
-					</a>
-				</div>
-				<div class="no-move"></div>
-			</div>
-			<div class="box-content no-padding">
-				<table class="table table-striped table-bordered table-hover table-heading no-border-bottom">
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>Company</th>
-							<th>Product</th>
-							<th>Homepage</th>
-							<th>Product description</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>1</td>
-							<td>Oracle</td>
-							<td>OracleDB</td>
-							<td>http://oracle.com</td>
-							<td>SQL server</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>RedHat</td>
-							<td>RedHat Advanced Server</td>
-							<td>http://redhat.com</td>
-							<td>Operation System</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>Microsoft</td>
-							<td>Windows</td>
-							<td>http://microsoft.com</td>
-							<td>Operation System</td>
-						</tr>
-						<tr>
-							<td>4</td>
-							<td>Apple</td>
-							<td>MacOSX</td>
-							<td>http://apple.com</td>
-							<td>Operation System</td>
-						</tr>
-						<tr>
-							<td>5</td>
-							<td>Adobe</td>
-							<td>Adobe Photoshop</td>
-							<td>http://adobe.com</td>
-							<td>Design suite</td>
-						</tr>
-						<tr>
-							<td>6</td>
-							<td>Corel</td>
-							<td>Corel Draw!</td>
-							<td>http://corel.com</td>
-							<td>Design suite</td>
-						</tr>
-						<tr>
-							<td>7</td>
-							<td>Google</td>
-							<td>Chrome</td>
-							<td>http://google.com</td>
-							<td>Web-browser</td>
-						</tr>
-						<tr>
-							<td>8</td>
-							<td>Mozilla</td>
-							<td>Firefox</td>
-							<td>http://mozilla.org</td>
-							<td>Web-browser</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
-</div-->
-<div class="row">
 	<div class="col-xs-12">
 		<div class="box">
 			<div class="box-header">
@@ -494,7 +451,7 @@ $res_cursos_vencidos = mysqli_fetch_array($cant_cursos_vencidos);
 			</div>
 		</div>
 	</div>
-</div>
+</div-->
 <script type="text/javascript">
 $(document).ready(function() {
 	// Drag-n-Drop feature
