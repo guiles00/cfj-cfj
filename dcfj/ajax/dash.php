@@ -1,5 +1,6 @@
 <?php 
 require_once('../src/db.php');
+require_once('../src/Db.php');
 
 $conn = new DBConn();
 $c = $conn->connect();
@@ -16,6 +17,13 @@ $cant_cursos_activos = sizeof($cursos_activos);
 $query = "SELECT count(*) as validar FROM usuario_sitio WHERE usi_validado =  '-'";
 $r = mysqli_query($c,$query);
 $cant_validar = mysqli_fetch_assoc($r);
+
+$db = Db::getInstance();
+
+$sql_cursos_vencidos = "SELECT count(*) as vencidos FROM curso INNER JOIN grupo_curso3 ON curso.cur_gcu3_id = grupo_curso3.gcu3_id WHERE curso.cur_ecu_id =1 AND curso.cur_fechaFin < CURDATE()";
+$cant_cursos_vencidos = $db->exec_query($sql_cursos_vencidos);
+$res_cursos_vencidos = mysqli_fetch_array($cant_cursos_vencidos);		
+//print_r($res_cursos_vencidos);
 ?>
 <div class="row">
 	<div id="breadcrumb" class="col-xs-12">
@@ -37,14 +45,14 @@ $cant_validar = mysqli_fetch_assoc($r);
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge"><?=$cant_validar['validar']?></div>
-                                    <div>Usuarios para validar</div>
+                                    <!--div>Pend. de Registraci&oacute;n</div-->
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <a href="http://cfj.gov.ar/test/src/index.php?frm=principal&nxt=usuario&t=2" class="pull-left">Ver m&aacute;s...</a>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <a href="http://cfj.gov.ar/src/index.php?frm=principal&nxt=usuario&t=2" class="pull-left">Pendientes de Registraci&oacute;n</a>
+                                <!--span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span-->
                                 <div class="clearfix"></div>
                             </div>
                         </a>
@@ -59,14 +67,14 @@ $cant_validar = mysqli_fetch_assoc($r);
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge"><?=$cant_cursos_activos?></div>
-                                    <div>Cursos Activos</div>
+                                    <!--div>Cursos Activos</div-->
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <a href="http://cfj.gov.ar/test/src/index.php?frm=principal&nxt=curso" class="pull-left">Ver m&aacute;s...</a>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <a href="http://cfj.gov.ar/src/index.php?frm=principal&nxt=curso" class="pull-left">Cursos Activos</a>
+                                <!--span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span-->
                                 <div class="clearfix"></div>
                             </div>
                         </a>
@@ -81,15 +89,15 @@ $cant_validar = mysqli_fetch_assoc($r);
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">18</div>
-                                    <div>............</div>
+                                    <div class="huge"><?=$res_cursos_vencidos['vencidos']?></div>
+                                    <!--div>Cursos sin cerrar</div-->
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Ver m&aacute;s...</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <span class="pull-left">Cursos Finalizados sin cerrar</span>
+                                <!--span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span-->
                                 <div class="clearfix"></div>
                             </div>
                         </a>
@@ -101,13 +109,13 @@ $cant_validar = mysqli_fetch_assoc($r);
                             <div class="row">
                                 <div class="col-xs-9 text-center">
                                     <div class="huge">108</div>
-                                    <div>...............</div>
+                                    <!--div>...............</div-->
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Ver m&aacute;s...</span>
+                                <span class="pull-left">Cursos Finalizados sin cerrar</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -115,7 +123,7 @@ $cant_validar = mysqli_fetch_assoc($r);
                     </div>
                 </div>
 
-<div class="col-xs-12 col-sm-6">
+<div class="col-xs-12 col-sm-12">
 		<div class="box">
 			<div class="box-header">
 				<div class="box-name">
@@ -141,20 +149,34 @@ $cant_validar = mysqli_fetch_assoc($r);
 						<tr>
 							<th class="col-md-3">Fec. Inicio</th>
 							<th class="col-md-3">Fec. Fin</th>
-							<!--th>Categor&iacute;a</th-->
-							<th>Curso</th>
+							<th>T&iacute;tulo</th>
+							<th>Validar</th>
+							<th>Inscriptos</th>
+							<th>Cupo</th>
 						</tr>
 					</thead>
 					<tbody>
-					<?php foreach ($cursos_activos as $curso) {?>
+					<?php foreach ($cursos_activos as $curso): 
+					$sql_cant_inscriptos = "select count(*) as inscriptos from curso_usuario_sitio inner join curso on curso.cur_id = curso_usuario_sitio.cus_cur_id inner join usuario_sitio on usuario_sitio.usi_id = curso_usuario_sitio.cus_usi_id where curso.cur_id = $curso[cur_id]";
+					$sql_cant_validar = "select count(*) as validar from curso_usuario_sitio inner join curso on curso.cur_id = curso_usuario_sitio.cus_cur_id inner join usuario_sitio on usuario_sitio.usi_id = curso_usuario_sitio.cus_usi_id where curso.cur_id = $curso[cur_id] and cus_validado='Si'";
+					//execute query
+					$cant_inscriptos = $db->exec_query($sql_cant_inscriptos);
+					$res_cant_inscriptos = mysqli_fetch_array($cant_inscriptos);
+
+					$cant_validar = $db->exec_query($sql_cant_validar);
+					$res_cant_validar = mysqli_fetch_array($cant_validar);
+					?>
 						<tr>
 							<td class="col-md-3"><?=$curso['cur_fechaInicio'];?></td>
 							<td class="col-md-3"><?=$curso['cur_fechaFin'];?></td>
 							<!--td></td-->
 							<td><?=utf8_encode($curso['gcu3_titulo']);?></td>
+							<td><?=$res_cant_validar['validar']?></td>
+							<td><?=$res_cant_inscriptos['inscriptos']?></td>
+							<td>100</td>
 						</tr>
 				
-					<?php }?>
+					<?php endforeach;?>
 						
 						<!--tr>
 							<td>02/01/2015</td>
@@ -180,7 +202,7 @@ $cant_validar = mysqli_fetch_assoc($r);
 		</div>
 	</div>
 
-<div class="row full-calendar">
+<!--div class="row full-calendar"-->
 	<!--div class="col-sm-3">
 		<div id="add-new-event">
 			<h4 class="page-header">Add new event</h4>
@@ -210,9 +232,9 @@ $cant_validar = mysqli_fetch_assoc($r);
 			</div>
 		</div>
 	</div-->
-	<div class="col-sm-6">
+	<!--div class="col-sm-6">
 		<div id="calendar"></div>
-	</div>
+	</div-->
 </div>
 
 <!-- -->
