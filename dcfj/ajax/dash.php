@@ -5,13 +5,19 @@ require_once('../src/Db.php');
 $conn = new DBConn();
 $c = $conn->connect();
 
-$query = "SELECT * FROM curso INNER JOIN grupo_curso3 ON curso.cur_gcu3_id = grupo_curso3.gcu3_id WHERE curso.cur_ecu_id =1";
+$query = "SELECT * FROM curso INNER JOIN grupo_curso3 ON curso.cur_gcu3_id = grupo_curso3.gcu3_id WHERE curso.cur_ecu_id =1 ORDER BY cur_fechaInicio";
 $r = mysqli_query($c,$query);
 $cursos_activos = array();
-
+//echo "<pre>";
 while ($row = mysqli_fetch_assoc($r)) {
+       	        
+        $row['cur_fechaInicio'] =date("d-m-Y", strtotime($row['cur_fechaInicio']));
+        $row['cur_fechaFin'] =date("d-m-Y", strtotime($row['cur_fechaFin']));
+        
         $cursos_activos[] = $row;
+
     }
+   // print_r($cursos_activos);
 $cant_cursos_activos = sizeof($cursos_activos);
 //Usuarios para validar
 $query = "SELECT count(*) as validar FROM usuario_sitio WHERE usi_validado =  '-'";
@@ -58,7 +64,7 @@ while ($row = mysqli_fetch_array($cursos_vencidos)) {
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <a href="http://cfj.gov.ar/src/index.php?frm=principal&nxt=usuario&t=2" class="pull-left">Pendientes de Registraci&oacute;n</a>
+                                <a href="http://cfj.gov.ar/src/index.php?frm=principal&nxt=usuario&t=2" class="pull-left" target="_blank">Pendientes de Registraci&oacute;n</a>
                                 <!--span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span-->
                                 <div class="clearfix"></div>
                             </div>
@@ -80,7 +86,7 @@ while ($row = mysqli_fetch_array($cursos_vencidos)) {
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <a href="http://cfj.gov.ar/src/index.php?frm=principal&nxt=curso" class="pull-left">Cursos Activos</a>
+                                <a href="http://cfj.gov.ar/src/index.php?frm=principal&nxt=curso" class="pull-left" target="_blank">Cursos Activos</a>
                                 <!--span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span-->
                                 <div class="clearfix"></div>
                             </div>
@@ -103,7 +109,7 @@ while ($row = mysqli_fetch_array($cursos_vencidos)) {
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-							<a href="#cursos_vencidos" class="pull-left">Cursos Finalizados sin cerrar</a>
+							<a href="#" class="pull-left">Cursos Finalizados sin cerrar</a>
                                 <!--span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span-->
                                 <div class="clearfix"></div>
                             </div>
@@ -122,7 +128,7 @@ while ($row = mysqli_fetch_array($cursos_vencidos)) {
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Cursos Finalizados sin cerrar</span>
+                                <span class="pull-left">Alg&uacute;n otro indicador</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -172,13 +178,21 @@ while ($row = mysqli_fetch_array($cursos_vencidos)) {
 
 					$cant_validar = $db->exec_query($sql_cant_validar);
 					$res_cant_validar = mysqli_fetch_array($cant_validar);
+					$warning = ($res_cant_validar['validar'] < $res_cant_inscriptos['inscriptos'])?"1":'0';
+					
+					$validar = $res_cant_validar['validar'];//.$warning
 					?>
-						<tr>
+					<?if($warning == '1'):?>
+					<tr style="background-color:#ff4c4c">
+					<?else:?>
+					<tr>
+					<?endif;?>
+						
 							<td class="col-md-3"><?=$curso['cur_fechaInicio'];?></td>
 							<td class="col-md-3"><?=$curso['cur_fechaFin'];?></td>
 							<!--td></td-->
 							<td><?=utf8_encode($curso['gcu3_titulo']);?></td>
-							<td><?=$res_cant_validar['validar']?></td>
+							<td><?=$validar?></td>
 							<td><?=$res_cant_inscriptos['inscriptos']?></td>
 							<td>100</td>
 						</tr>
