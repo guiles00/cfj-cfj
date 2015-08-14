@@ -3,6 +3,7 @@
 	<head>
 		<!--meta charset="utf-8"-->
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+  		<meta http-equiv="refresh" content="300" >
 
 		<title>CFJ</title>
 		<meta name="description" content="description">
@@ -201,6 +202,22 @@
 
 		$("#load-tables").load('./ajax/dash.php');
 	});
+</script>
+<script>
+	//Esto es para refrescar la pagina si no hay actividad
+    /* var time = new Date().getTime();
+     $(document.body).bind("mousemove keypress", function(e) {
+         time = new Date().getTime();
+     });
+
+     function refresh() {
+         if(new Date().getTime() - time >= 60000) 
+             window.location.reload(true);
+         else 
+             setTimeout(refresh, 10000);
+     }
+
+     setTimeout(refresh, 10000);*/
 </script>
 </body>
 </html>
