@@ -29,13 +29,15 @@ $db = Db::getInstance();
 $sql_cursos_vencidos = "SELECT count(*) as vencidos FROM curso INNER JOIN grupo_curso3 ON curso.cur_gcu3_id = grupo_curso3.gcu3_id WHERE curso.cur_ecu_id =1 AND curso.cur_fechaFin < CURDATE()";
 $cant_cursos_vencidos = $db->exec_query($sql_cursos_vencidos);
 $res_cursos_vencidos = mysqli_fetch_array($cant_cursos_vencidos);		
-
 $sql_ls_cursos_vencidos = "SELECT * FROM curso INNER JOIN grupo_curso3 ON curso.cur_gcu3_id = grupo_curso3.gcu3_id WHERE curso.cur_ecu_id =1 AND curso.cur_fechaFin < CURDATE()";
-$cursos_vencidos = $db->exec_query($sql_ls_cursos_vencidos);
-
-while ($row = mysqli_fetch_array($cursos_vencidos)) {
+$r_cursos_vencidos = $db->exec_query($sql_ls_cursos_vencidos);
+//echo "<pre>";
+//print_r(mysqli_fetch_array($cursos_vencidos));
+$cursos_vencidos = array();
+while ($row = mysqli_fetch_array($r_cursos_vencidos)) {
         $cursos_vencidos[] = $row;
-    }
+    }	
+
 
 ?>
 <div class="row">
