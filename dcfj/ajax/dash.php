@@ -17,7 +17,6 @@ while ($row = mysqli_fetch_assoc($r)) {
         $cursos_activos[] = $row;
 
     }
-   // print_r($cursos_activos);
 $cant_cursos_activos = sizeof($cursos_activos);
 //Usuarios para validar
 $query = "SELECT count(*) as validar FROM usuario_sitio WHERE usi_validado =  '-'";
@@ -37,6 +36,8 @@ $cursos_vencidos = array();
 while ($row = mysqli_fetch_array($r_cursos_vencidos)) {
         $cursos_vencidos[] = $row;
     }	
+
+$cant_validado = $cant_validar['validar'];
 
 
 ?>
@@ -159,7 +160,7 @@ while ($row = mysqli_fetch_array($r_cursos_vencidos)) {
 				<div class="no-move"></div>
 			</div>
 			<div class="box-content">
-				<table class="table table-striped table-hover">
+				<table class="table  table-hover"> <!-- table-striped -->
 					<thead>
 						<tr>
 							<th class="col-md-3">Fec. Inicio</th>
@@ -172,8 +173,8 @@ while ($row = mysqli_fetch_array($r_cursos_vencidos)) {
 					</thead>
 					<tbody>
 					<?php foreach ($cursos_activos as $curso): 
-					$sql_cant_inscriptos = "select count(*) as inscriptos from curso_usuario_sitio inner join curso on curso.cur_id = curso_usuario_sitio.cus_cur_id inner join usuario_sitio on usuario_sitio.usi_id = curso_usuario_sitio.cus_usi_id where curso.cur_id = $curso[cur_id]";
-					$sql_cant_validar = "select count(*) as validar from curso_usuario_sitio inner join curso on curso.cur_id = curso_usuario_sitio.cus_cur_id inner join usuario_sitio on usuario_sitio.usi_id = curso_usuario_sitio.cus_usi_id where curso.cur_id = $curso[cur_id] and cus_validado='Si'";
+					$sql_cant_inscriptos = "select count(*) as inscriptos from curso_usuario_sitio inner join curso on curso.cur_id = curso_usuario_sitio.cus_cur_id inner join usuario_sitio on usuario_sitio.usi_id = curso_usuario_sitio.cus_usi_id where curso.cur_id = $curso[cur_id] and cus_habilitado =1";
+					$sql_cant_validar = "select count(*) as validar from curso_usuario_sitio inner join curso on curso.cur_id = curso_usuario_sitio.cus_cur_id inner join usuario_sitio on usuario_sitio.usi_id = curso_usuario_sitio.cus_usi_id where curso.cur_id = $curso[cur_id] and cus_validado='Si' and cus_habilitado =1";
 					//execute query
 					$cant_inscriptos = $db->exec_query($sql_cant_inscriptos);
 					$res_cant_inscriptos = mysqli_fetch_array($cant_inscriptos);
@@ -181,7 +182,6 @@ while ($row = mysqli_fetch_array($r_cursos_vencidos)) {
 					$cant_validar = $db->exec_query($sql_cant_validar);
 					$res_cant_validar = mysqli_fetch_array($cant_validar);
 					$warning = ($res_cant_validar['validar'] < $res_cant_inscriptos['inscriptos'])?"1":'0';
-					
 					$validar = $res_cant_validar['validar'];//.$warning
 					?>
 					<?if($warning == '1'):?>
@@ -246,7 +246,7 @@ while ($row = mysqli_fetch_array($r_cursos_vencidos)) {
 				<div class="no-move"></div>
 			</div>
 			<div class="box-content">
-				<table class="table table-striped table-hover">
+				<table class="table table-hover"> <!-- table-striped -->
 					<thead>
 						<tr>
 							<th class="col-md-3">Fec. Inicio</th>
@@ -260,7 +260,7 @@ while ($row = mysqli_fetch_array($r_cursos_vencidos)) {
 							<td class="col-md-3"><?=$curso_v['cur_fechaInicio'];?></td>
 							<td class="col-md-3"><?=$curso_v['cur_fechaFin'];?></td>
 							<!--td></td-->
-							<td><?=utf8_encode($curso_v['gcu3_titulo']);?></td>
+							<td><?=$curso_v['gcu3_titulo'];?></td>
 						</tr>
 				
 					<?php endforeach;?>
