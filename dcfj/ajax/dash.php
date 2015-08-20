@@ -169,6 +169,7 @@ $cant_validado = $cant_validar['validar'];
 							<th>Validado</th>
 							<th>Inscriptos</th>
 							<th>Cupo</th>
+							<th>-</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -197,6 +198,7 @@ $cant_validado = $cant_validar['validar'];
 							<td><?=$validar?></td>
 							<td><?=$res_cant_inscriptos['inscriptos']?></td>
 							<td>100</td>
+							<td><a href="http://cfj.gov.ar/src/index.php?frm=curso&nxt=curso_usuario&cur_id=<?=$curso['cur_id'];?>">Ver</a></td>
 						</tr>
 				
 					<?php endforeach;?>
