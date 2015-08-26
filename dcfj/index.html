@@ -3,7 +3,7 @@
 	<head>
 		<!--meta charset="utf-8"-->
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
-  		<meta http-equiv="refresh" content="300" >
+  		<!--meta http-equiv="refresh" content="300"-->
 
 		<title>CFJ</title>
 		<meta name="description" content="description">
@@ -82,17 +82,15 @@
 						<li><a class="ajax-link" href="ajax/charts_coindesk.html">CoinDesk realtime</a></li>
 					</ul>
 				</li>
-				<!--li class="dropdown">
+				<li class="dropdown">
 					<a href="#" class="dropdown-toggle">
 						<i class="fa fa-table"></i>
-						 <span class="hidden-xs">Tables</span>
+						 <span class="hidden-xs">Calendarios</span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a class="ajax-link" href="ajax/tables_simple.html">Simple Tables</a></li>
-						<li><a class="ajax-link" href="ajax/tables_datatables.html">Data Tables</a></li>
-						<li><a class="ajax-link" href="ajax/tables_beauty.html">Beauty Tables</a></li>
+						<li><a class="ajax-link" href="ajax/calendario.html" id="calendario">Calendario</a></li>
 					</ul>
-				</li-->
+				</li>
 				<!--li class="dropdown">
 					<a href="#" class="dropdown-toggle">
 						<i class="fa fa-pencil-square-o"></i>
@@ -197,15 +195,23 @@
 <script src="plugins/tinymce/jquery.tinymce.min.js"></script>
 <!-- All functions for this theme + document.ready processing -->
 <script src="js/devoops.js"></script>
+<script src="plugins/moment/moment.min.js"></script>
+<script src="plugins/fullcalendar/fullcalendar.js"></script>
 <script>
 	$(document).ready(function () {
 
 		$("#load-tables").load('./ajax/dash.php');
+
+		$('#calendario').click(function(){
+
+			$("#load-tables").load('./ajax/calendario.html');
+		});
+		
 	});
 </script>
 <script>
 	//Esto es para refrescar la pagina si no hay actividad
-    /* var time = new Date().getTime();
+     var time = new Date().getTime();
      $(document.body).bind("mousemove keypress", function(e) {
          time = new Date().getTime();
      });
@@ -217,7 +223,7 @@
              setTimeout(refresh, 10000);
      }
 
-     setTimeout(refresh, 10000);*/
+     setTimeout(refresh, 10000);
 </script>
 </body>
 </html>
