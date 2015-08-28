@@ -40,6 +40,14 @@ while ($row = mysqli_fetch_array($r_cursos_vencidos)) {
 $cant_validado = $cant_validar['validar'];
 
 
+
+/**PROBANDO UN DOS TRES**/
+//print_r($_SESSION['sess_sitio_usi_id']);
+session_start();
+    $_SESSION['sess_sitio_usi_id'] = 1474;
+    $_SESSION['sess_sitio_usi_email'] = 'gcaserotto@jusbaires.gov.ar';
+    $_SESSION['sess_sitio_usi_nombre'] = 'G Caserotto';
+/****/
 ?>
 <div class="row">
 	<div id="breadcrumb" class="col-xs-12">
