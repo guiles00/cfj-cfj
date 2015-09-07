@@ -8,15 +8,26 @@ $c = $conn->connect();
 $query = "SELECT * FROM curso INNER JOIN grupo_curso3 ON curso.cur_gcu3_id = grupo_curso3.gcu3_id WHERE curso.cur_ecu_id =1 ORDER BY cur_fechaInicio";
 $r = mysqli_query($c,$query);
 $cursos_activos = array();
+$cursos_actuales = array();
 //echo "<pre>";
 while ($row = mysqli_fetch_assoc($r)) {
        	        
-        $row['cur_fechaInicio'] =date("d-m-Y", strtotime($row['cur_fechaInicio']));
-        $row['cur_fechaFin'] =date("d-m-Y", strtotime($row['cur_fechaFin']));
+        $row['cur_fechaInicio'] = date("d-m-Y", strtotime($row['cur_fechaInicio']));
+        $row['cur_fechaFin'] = date("d-m-Y", strtotime($row['cur_fechaFin']));
         
         $cursos_activos[] = $row;
 
+        //echo 'compara esto '.date("d-m-Y", time()); 
+        //echo ' con esto:'. date("d-m-Y", strtotime($row['cur_fechaInicio'])). '<br>';
+
+        if( date("d-m-Y") >= $row['cur_fechaInicio'] )
+        $cursos_actuales[] = $row;
+        //	echo "<br>este lo agrega".date("d-m-Y", strtotime($row['cur_fechaInicio']));
     }
+
+   // echo "<pre>";
+  //  print_r($cursos_actuales);
+  //  exit;
 $cant_cursos_activos = sizeof($cursos_activos);
 //Usuarios para validar
 $query = "SELECT count(*) as validar FROM usuario_sitio WHERE usi_validado =  '-'";
@@ -146,6 +157,91 @@ session_start();
                         </a>
                     </div>
                 </div>
+
+<!-- Cursos Actuales -->
+
+
+<div class="col-xs-12 col-sm-12">
+		<div class="box">
+			<div class="box-header">
+				<div class="box-name">
+					<i class="fa fa-table"></i>
+					<span>Actividades en cursos</span>
+				</div>
+				<div class="box-icons">
+					<a class="collapse-link">
+						<i class="fa fa-chevron-up"></i>
+					</a>
+					<a class="expand-link">
+						<i class="fa fa-expand"></i>
+					</a>
+					<a class="close-link">
+						<i class="fa fa-times"></i>
+					</a>
+				</div>
+				<div class="no-move"></div>
+			</div>
+			<div class="box-content">
+				<table class="table  table-hover"> <!-- table-striped -->
+					<thead>
+						<tr>
+							<th class="col-md-3">Fec. Inicio</th>
+							<th class="col-md-3">Fec. Fin</th>
+							<th>T&iacute;tulo</th>
+							<th>Validado</th>
+							<th>Inscriptos</th>
+							<th>Cupo</th>
+							<th>-</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php foreach ($cursos_actuales as $curso): 
+					$sql_cant_inscriptos = "select count(*) as inscriptos from curso_usuario_sitio inner join curso on curso.cur_id = curso_usuario_sitio.cus_cur_id inner join usuario_sitio on usuario_sitio.usi_id = curso_usuario_sitio.cus_usi_id where curso.cur_id = $curso[cur_id] and cus_habilitado =1";
+					$sql_cant_validar = "select count(*) as validar from curso_usuario_sitio inner join curso on curso.cur_id = curso_usuario_sitio.cus_cur_id inner join usuario_sitio on usuario_sitio.usi_id = curso_usuario_sitio.cus_usi_id where curso.cur_id = $curso[cur_id] and cus_validado='Si' and cus_habilitado =1";
+					//execute query
+					$cant_inscriptos = $db->exec_query($sql_cant_inscriptos);
+					$res_cant_inscriptos = mysqli_fetch_array($cant_inscriptos);
+
+					$cant_validar = $db->exec_query($sql_cant_validar);
+					$res_cant_validar = mysqli_fetch_array($cant_validar);
+					$warning = ($res_cant_validar['validar'] < $res_cant_inscriptos['inscriptos'])?"1":'0';
+					$validar = $res_cant_validar['validar'];//.$warning
+					?>
+					<?if($warning == '1'):?>
+					<tr style="background-color:#ff4c4c">
+					<?else:?>
+					<tr>
+					<?endif;?>
+						
+							<td class="col-md-3"><?=$curso['cur_fechaInicio'];?></td>
+							<td class="col-md-3"><?=$curso['cur_fechaFin'];?></td>
+							<!--td></td-->
+							<td><?=utf8_encode($curso['gcu3_titulo']);?></td>
+							<td><?=$validar?></td>
+							<td><?=$res_cant_inscriptos['inscriptos']?></td>
+							<td>100</td>
+							<td><a href="http://cfj.gov.ar/src/index.php?frm=curso&nxt=curso_usuario&cur_id=<?=$curso['cur_id'];?>">Ver</a></td>
+						</tr>
+				
+					<?php endforeach;?>
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- FIN CURSOS ACTUALES -->
+
+
+
+
+
+
+
+
+
 
 <div class="col-xs-12 col-sm-12">
 		<div class="box">
