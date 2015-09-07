@@ -17,10 +17,10 @@ while ($row = mysqli_fetch_assoc($r)) {
         
         $cursos_activos[] = $row;
 
-        //echo 'compara esto '.date("d-m-Y", time()); 
+        //echo 'compara esto '.date("d-m-Y").' con '. $row['cur_fechaInicio']. '<br>';
         //echo ' con esto:'. date("d-m-Y", strtotime($row['cur_fechaInicio'])). '<br>';
 
-        if( date("d-m-Y") >= $row['cur_fechaInicio'] )
+        if( strtotime(date("d-m-Y")) >= strtotime($row['cur_fechaInicio']) )
         $cursos_actuales[] = $row;
         //	echo "<br>este lo agrega".date("d-m-Y", strtotime($row['cur_fechaInicio']));
     }
