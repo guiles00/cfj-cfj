@@ -1,0 +1,393 @@
+<html lang="es">
+<head>
+<!--script type="text/javascript" charset="utf8" src="./js/jquery-1.11.2.js"></script-->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <!--link rel="stylesheet" href="./jquery.autocomplete.css"-->
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="./js/jquery.validate.js"></script>
+  <script src="./js/datepicker.es.js"></script>
+  
+  <!--link rel="stylesheet" href="/resources/demos/style.css"-->
+<script src="./js/formulario.js"></script>
+
+<style type="text/css">
+
+  p {
+    font-family: Georgia;
+    /*font-size: 28px;*/
+	}
+
+	td {
+    font-family: Georgia, Times, serif;
+    /*font-size: 24px;*/
+	}
+	.large{
+
+		width: 300px;
+	}
+	input {
+		/*border-style: bold;*/
+		width: 300px;
+   /*font-size: 11px;*/ 
+	}
+
+
+	.field-row {
+  		overflow: hidden;
+	}
+
+	.field-row label {
+	  display: block;
+	  width: 30%;
+	  float: left;
+    padding-bottom: 5;
+	}
+
+	.field-row .field-container {
+	  width: 50%;
+	  float: left;
+    padding-bottom: 5;
+	}
+
+td{
+  padding: 5px 15px 5px 15px;
+  font-family: Arial;
+  }
+input[type=text]{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: Arial;
+    /*color: #777;*/ 
+}
+legend,p{
+  font-family: Arial;
+}
+
+select {
+  background: transparent;
+  /*border: none;*/
+   
+}
+
+#aceptar{
+  width: 600px;
+  height: 100px;
+  background-color:#b0b1b3; 
+}
+
+
+#g_formulario_beca label.error {
+    color: #FB3A3A;
+    display: block;
+    text-align: left;
+    font-size: 11px; 
+}
+
+#steps li {
+  font-size: 24px;
+  float: left;
+  padding: 10px;
+  color: #b0b1b3;
+}
+ /*body { font-family:Lucida Sans, Arial, Helvetica, Sans-Serif; font-size:13px; margin:20px;}
+        #main { width:960px; margin: 0px auto; border:solid 1px #b2b3b5; -moz-border-radius:10px; padding:20px; background-color:#f6f6f6;}*/
+        #header { text-align:center; border-bottom:solid 1px #b2b3b5; margin: 0 0 20px 0; }
+      /*  fieldset { border:none; width:320px;}*/
+        legend { font-size:18px; margin:0px; padding:10px 0px; color:#6796C8; font-weight:bold;}
+        label { display:block; margin:15px 0 5px;}
+        input[type=text], input[type=password] { width:300px; padding:5px; border:solid 1px #000;}
+        .prev, .next { background-color:#6796C8; padding:5px 10px; color:#fff; text-decoration:none;}
+        .prev:hover, .next:hover { background-color:#000; text-decoration:none;}
+        .prev { float:left;}
+        .next { float:right;}
+        #steps { list-style:none; width:100%; overflow:hidden; margin:0px; padding:0px;}
+        #steps li {font-size:24px; float:left; padding:10px; color:#b0b1b3;}
+        #steps li span {font-size:11px; display:block;}
+        #steps li.current { color:#000;}
+        #makeWizard { background-color:#b0232a; color:#fff; padding:5px 10px; text-decoration:none; font-size:18px;}
+        #makeWizard:hover { background-color:#000;}
+
+
+
+</style>
+</head>
+<body style="margin-left:10px">
+<div align="center" style="background-color:#6796C8;">
+<img src="./iso-logo.png" width="205" height="89"></img>
+</div>
+<br>
+<p align="center">
+<b>
+ANEXO II</br>
+SISTEMA DE BECAS DEL CENTRO DE FORMACI&Oacute;N JUDICIAL  
+(Res. CACFJ Nro 25/11)
+<a class="notaArt6" name="notaArt6" href="#notaArt6"><sup>1</sup></a></font></font></sup><font face="Verdana, sans-serif"><font size="2" style="font-size: 8pt"></font></font>
+</br>
+</p></b>
+<hr>
+<div align="right">
+<i style="size 10px" >*Todos los campos son obligatorios</i>
+</div>
+<div align="center">
+<b><p>FORMULARIO DE SOLICITUD DE BECA</p></b>
+</div>
+<div id="g_container" align="left" style="margin-left:0px">
+<form id="g_formulario_beca"  action="./ingresa_formulario.php" method="POST">
+
+<fieldset>
+  <legend>Datos Personales</legend>
+  <table style="margin-left:10px;padding: 10px; ">
+    <tr>
+    <td>DNI:</td><td><input type='text' value='' id='g_dni' name='nro_documento' required></td>
+    <td>Legajo:</td><td><input type='text' value='' id='g_legajo' name="legajo" required></input></td>    
+    </tr>
+    <tr>
+    <td>Nombre:</td><td><input type='text' value='' id='g_nombre' name="nombre" required ></input></td>
+    <td>Apellido:</td><td><input type='text' value='' id='g_apellido' name="apellido" required></input></td>
+    </tr>
+    <tr>
+    <td>Domicilio Constitu&iacute;do:</td><td><input type='text' value='' id='g_domicilio' name="domicilio" required></input></td>
+    <td>Tel. Particular:</td><td><input type='text' value='' id='g_tel' name="tel" requiredd></input></td>
+    </tr>
+    <tr><td>G&eacute;nero</td><td>
+      <select>
+      <option>Masculino</option>
+      <option>Femenino</option>
+      <option>Otro</option>
+      </select>
+    </td>
+    <td>Fecha Nacimiento:</td><td><input type="text" value="" id="g_fec_nac"></input></td></tr>
+  </table>
+</fieldset>
+
+<fieldset>
+  <legend>Datos Laborales</legend>
+  <table style="margin-left:10px">
+    <tr>
+    <td>Fecha de Ingreso PJCABA</td><td><input type='text' value='' id='g_f_ingreso_caba' name='f_ingreso_caba' placeholder='dd/mm/yyyy'required></td>
+    <td>Cargo Actual:</td><td><input type='text' value='' id='g_cargo_actual_label' name="cargo_actual_label" placeholder='Ingrese Cargo ej. Auxiliar' required></input>
+    <input type='hidden' value='' id='g_cargo_actual_id' name="cargo_id"></input>
+    </td>
+    </tr>
+    <tr><td>Remuneraci&oacute;n</td><td><input type="text" value='' id="g_remuneracion" name="remuneracion" required></input></td></tr>
+    <tr>
+    <td>Fuero:</td>
+    <td>
+    <select>
+    <option value="1">CAyT</option>
+    <option value="1">PCyF</option>
+    <option value="1">MPF</option>
+    <option value="1">MPD</option>
+    <option value="1">MPT</option>
+    <option value="1">CMCABA</option>
+    </select>
+    </td>
+    
+    <td>Dependencia:</td><td><input type='text' value='' id='g_dependencia_label' name="dependencia_label" placeholder='Ingrese Dependencia, ej. Juzgado' required></input>
+    <input type='hidden' value='' id='g_dependencia_id' name="dependencia_id" required></input>
+    </td>
+    <tr>
+    <td>Tel. Laboral:</td><td><input type='text' value='' id='g_telefono_laboral' name="telefono_laboral" requiredd></input></td>
+    
+    <td>Titulo de grado:</td><td>
+    <input type='text' value='' id='g_titulo_label' name="titulo_label" placeholder='Ingrese Titulo, ej. Abogado' required>
+    <input type='text' style="display:none" value='' id='g_titulo_otro' name="titulo_otro" placeholder="Ingrese el nombre del titulo"></input>
+
+    <input type='hidden' value='' id='g_titulo_id' name="titulo_id" required>  
+    </input></td>
+    
+    </tr>
+    <tr>
+    <td>Universidad:</td><td><input type='text' value='' id='g_universidad_label' name="universidad_label" placeholder='Ingrese Universidad, ej. UBA' required></input>
+    <input type='text' style="display:none" value='' id='g_universidad_otro' name="universidad_otro" placeholder="Ingrese el nombre de la Universidad"></input>
+    
+    <input type='hidden' value='' id='g_universidad_id' name="universidad_id"></input>
+    </td>
+    
+    <td>Facultad:</td><td>
+    <input type='text' value='' id='g_facultad_label' name="facultad_label" placeholder='Ingrese Facultad, ej. Facultad Derecho' required></input>
+    <input type='text' style="display:none" value='' id='g_facultad_otro' name="inst_facultad_otro" placeholder="Ingrese el nombre de la Facultad"></input>
+    
+    <input type='hidden' value='' id='g_facultad_id' name="facultad_id"></input></td>
+    </tr>
+   <tr>
+    <td>Correo Electronico(Oficial)</td><td>
+    <input type='text' id='g_email' name="email" value='' placeholder="@jusbaires.gov.ar" required></input></td>
+    <td>Repetir Correo</td><td>
+    <input type='text' id='g_email_again' name="r_email" value='' placeholder="@jusbaires.gov.ar" ></input></td>
+    </tr>
+    
+  </table>
+</fieldset>
+
+<fieldset>
+  <legend>Datos Beca</legend>
+  <table style="margin-left:10px">
+    <tr>
+    <td>Tipo de Beca:</td><td><select id="g_tipo_beca" name="tipo_beca_id">
+      <option value="1">Acogimiento a beneficio convenio</option>
+      <option value="2">Acogimiento a beneficio convenio y beca</option>
+      <option value="3">Beca (Sin Convenio)</option>
+    </select>
+    </td>
+    <td>Renovaci&oacute;n:</td><td><select id="g_tipo_beca" name="tipo_beca_id">
+      <option value="1">NO</option>
+      <option value="2">SI</option>
+    </select>
+    </td>
+    
+    </tr>
+    <tr>
+    <td>Instituci&oacute;n propuesta para la actividad:</td><td><input type='text' value='' id='g_inst_prop_label' name="inst_prop_label" placeholder="Ingrese institucion Ej. UBA " required></input>
+    <input type='text' style="display:none" value='' id='g_inst_prop_otro' name="inst_prop_otro" placeholder="Ingrese el nombre de la institucion "></input>
+    <input type='hidden' value='' id='g_inst_prop_id' name="inst_prop_id" required></input></td>    
+    </tr> <td>Carrea/Curso/Actividad:</td><td> 
+    <select name="tipo_actividad_id" id="g_tipo_actividad_id">
+    <option value="1">Carrera</option>
+    <option value="2">Curso</option>
+    <option value="3">Actividad</option>
+    </select>
+    </td>
+    <td>Nombre(Carrea/Curso/Actividad):</td><td>
+    <input type='text' value='' id='g_actividad_label' name="actividad_label" required></input>
+    <input type='text' style="display:none" value='' id='g_actividad_otro' name="inst_actividad_otro" placeholder="Ingrese el nombre de la actividad"></input>
+    <input type='hidden' value='' id='g_actividad_id' name="actividad_id" required></input></td>
+    </tr>
+    <tr>
+    <td>Fecha de inicio:</td><td><input type='text' value='' id='g_f_inicio_b' name="f_inicio_b" placeholder='dd/mm/yyyy' required></input></td>
+    <td>Fecha de finalizaci&oacute;n</td><td><input type='text' value='' id='g_f_final_b' name="f_final_b" placeholder='dd/mm/yyyy' required></input></td>
+    <tr>
+    <td>Duraci&oacute;n total(hs):</td><td><input type='text' value='' id='g_duracion' name="duracion" required></input></td>
+    </tr>
+    <tr>
+    <td>Costo total:</td><td><input type='text' value='' id='g_costo' name="costo" placeholder="999.99" required></input></td>
+    <td><span id="g_monto_show">Monto Solicitado(M&aacute;x. 13478.4$)</span>
+    <a class="notaArt6" name="notaArt6" href="#notaArt6"><sup>1</sup></a></font></font></sup><font face="Verdana, sans-serif"><font size="2" style="font-size: 8pt"></font></font>
+    :</td><td><input type='text' value='' id='g_monto' name="monto" placeholder="999.99" required></input></td>
+    </tr>
+    <tr>
+    <td>Dictamen evaluativo suscripto por:</td><td><input type='text' value='' id='g_dictamen' name="dictamen" required></input></td>
+    </tr>
+    <tr><td>Superposici&oacute;n horaria:</td>  
+    <td><select id="g_s_horaria" name="s_horaria">
+    <option value="0">NO</option>
+    <option value="1">SI</option>
+    </select>
+    </td>
+    </tr>
+    <tr><td>
+    <input style="none"type="submit" value="Confirmar y Enviar Solicitud" id="aceptar"></input></td>
+    <td></td> <!--onclick="return confirm('Desear confirmar la solicitud, todos los datos son correctos?')" -->
+    </tr>
+  </table>
+<div align="right">
+<i  style= "font-size:15px" >*Todos los campos son obligatorios</i>
+</div>
+<div id="notaArt6"><p><i style= "font-size:15px">
+Art&iacute;culo 6&#176;(Res. CACFJ Nro 25/11): Una vez conocido el importe asignado en el presupuesto para becas, el
+Consejo Acad&eacute;mico del Centro de Formaci&oacute;n Judicial establecer&aacute; los montos m&aacute;ximos
+a otorgar para cada tipo de actividad, de acuerdo al siguiente criterio:<br>
+1. Carreras de Doctorado, Maestr&iacute;a y Especializaci&oacute;n: hasta el noventa por ciento
+(90%) del valor de la Carrera de Especializaci&oacute;n en Administraci&oacute;n de Justicia
+de la Facultad de Derecho de la Universidad de Buenos Aires, luego de aplicarle
+los descuentos que correspondan, en virtud de los convenios celebrados o que
+celebrare el Consejo de la Magistratura de la Ciudad o el Consejo Acad&eacute;mico del
+Centro de Formaci&oacute;n Judicial.<br>
+2. Programas de Actualizaci&oacute;n: hasta el ochenta por ciento (80%) del monto que
+se otorga en las carreras enunciadas en el inciso 1&#176; de este articulo.
+<br>
+3. Cursos y Seminarios Independientes de Posgrado y otras actividades de
+formaci&oacute;n y capacitaci&oacute;n: hasta el noventa por ciento (90%) del arancel de
+inscripci&oacute;n. Este monto en ning&uacute;n caso podr&aacute; exceder el cincuenta por ciento
+(50%) del que se otorga en las carreras enunciadas en el inciso 1&#176; de este
+art&iacute;culo.
+</i></p>
+</div>
+</fieldset>
+</form>
+</div>
+<div align="center" id="g_result"></div>
+<script>
+  
+  var steps = $("#g_formulario_beca fieldset");
+  $("#g_formulario_beca").before("<ul id='steps'></ul>");
+
+  var count = steps.size();
+
+  steps.each(function(i) {
+    $(this).wrap("<div id='step" + i + "'></div>");
+    $(this).append("<p id='step" + i + "commands'></p>");
+
+     var name = $(this).find("legend").html();
+    $("#steps").append("<li id='stepDesc" + i + "'> " + (i + 1) + "<span>" + name + "</span></li>");
+
+    if (i == 0) {
+        createNextButton(i);        // to do
+        selectStep(i);                  // to do
+      }
+      else if (i == count - 1) {
+        $("#step" + i).hide();
+        createPrevButton(i);       // to do
+      }
+      else {
+        $("#step" + i).hide();
+        createPrevButton(i);       // to do
+        createNextButton(i);       // to do
+      }
+    });
+
+    function createPrevButton(i) {
+
+      var stepName = "step" + i;
+
+      $("#" + stepName + "commands").append("<a href='#' id='" + stepName + "Prev' class='prev'>< Anterior</a>");
+
+      $("#" + stepName + "Prev").bind("click", function(e) {
+        $("#" + stepName).hide();
+        $("#step" + (i - 1)).show();
+        selectStep(i - 1);
+      });
+    }
+
+    function createNextButton(i) {
+      var stepName = "step" + i;
+      $("#" + stepName + "commands").append("<a href='#' id='" + stepName + "Next' class='next'>Siguiente ></a>");
+      $("#" + stepName + "Next").bind("click", function(e) {
+        console.debug(i);
+        
+        var validator = $( "#g_formulario_beca" ).validate();
+
+        if(i == 0){
+          if( ! validator.element( "#g_dni" ) )return;;
+          if( ! validator.element( "#g_nombre" ) )return;
+          if( ! validator.element( "#g_apellido" ) )return;
+          if( ! validator.element( "#g_legajo" ) )return;
+          if( ! validator.element( "#g_domicilio" ) )return;
+          if( ! validator.element( "#g_tel" ) )return;
+          
+        }else if(i == 1){
+          if( ! validator.element( "#g_remuneracion" ) )return;
+          if( ! validator.element( "#g_email" ) )return;
+
+
+          
+
+        }else if(i == 2){
+
+        }
+
+        $("#" + stepName).hide();
+        $("#step" + (i + 1)).show();
+        selectStep(i + 1);
+      });
+    }
+
+    function selectStep(i) {
+    $("#steps li").removeClass("current");
+    $("#stepDesc" + i).addClass("current");
+    }
+
+</script>
+</body>
+</html>

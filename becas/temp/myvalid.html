@@ -1,0 +1,44 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>jQuery validation plug-in - main demo</title>
+	<link rel="stylesheet" href="css/screen.css">
+		<script src="./js/jquery-1.11.2.js"></script>
+	<script src="./js/jquery.validate.js"></script>
+	<script>
+
+	$(document).ready(function() {
+		// validate the comment form when it is submitted
+		$("#formulario").validate({
+			rules:{
+				dni:{
+					required:true
+					,minlength:8
+				}
+			}
+			,messages: {
+				dni: {
+					required: "esto es un DNI",
+					minlength: "sin puntos"
+				} 
+
+			}
+
+			});
+	
+	});	
+	</script>
+
+</head>
+<body>
+<form id="formulario" method="get" action="">
+DNI <input id="dni" name="dni" type="text" value='' ></input>
+<input class="submit" type="submit" value="Submit">
+	
+</form>
+
+
+
+	
+</body>
+</html>

@@ -1,0 +1,317 @@
+<style type="text/css">
+
+	#g_table_content td{
+		border: 1px solid #000000; 
+		padding: 0in 0.05in;
+	}
+	#g_table_content p {
+		align:"justify";
+		font-family: "Times New Roman", serif; font-size: 12pt;
+	}
+</style>
+<div title="header">
+	<p align="center"><img src="./print-logo.jpg" align="bottom" width="197" height="80" border="0"></p>
+	<p align="center"><font face="Verdana, sans-serif"><font size="2" style="font-size: 9pt"><i>"2015,
+	Buenos Aires Capital Mundial de la milanesa"</i></font></font></p>
+	<p class="western" align="left" style="margin-right: 0.2in">
+	<font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt"><b>ANEXO II
+	</b></font></font></p>
+	<p class="western" align="left" style="margin-right: 0.2in">
+	<font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt"><b>RES.
+	CACFJ N°: 25/11</b></font></font></p>
+</div>
+<p  align="justify"><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt"><b>SISTEMA
+DE BECAS DEL CENTRO DE FORMACIÓN JUDICIAL</b></font></font>
+</p>
+<p  align="justify"><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt"><b>(Res.
+CACFJ Nº 25/11)</b></font></font></p>
+<p  class="western" align="justify" style="margin-left: 1.5in; text-indent: 0.5in">
+<font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt"><b>FORMULARIO
+DE SOLICITUD</b></font></font><sup><font face="Verdana, sans-serif">
+<font size="2" style="font-size: 10pt"><a class="sdfootnoteanc" name="sdfootnote1anc" href="#sdfootnote1sym"><sup>1</sup></a></font></font></sup></p>
+<p  class="western" align="right">
+<font size="2" style="font-size: 10pt" face="Verdana, sans-serif">Buenos
+Aires, <?=$datetime->format("d");?> de <?=$datetime->format("m");?> de <?=$datetime->format("Y");?></font></p>
+</p>
+
+<div id="g_table_content">
+<table>
+	<tr>
+		<td>
+			<?if($n_beca['tipo_beca_id']==1) echo "X";?>
+		</td>
+		<td>
+			<font face="Verdana, sans-serif">
+			<font size="2" style="font-size: 10pt">Acogimiento
+			a beneficio convenio</font></font>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td>
+			<?if($n_beca['tipo_beca_id']==2) echo "X";?>
+		</td>
+		<td>
+			<font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">Acogimiento
+			a beneficio convenio y beca</font></font>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<?if($n_beca['tipo_beca_id']==3) echo "X";?>
+		</td>
+		<td>
+			<font face="Verdana, sans-serif">
+			<font size="2" style="font-size: 10pt">Beca
+			(sin convenio)</font></font>
+		</td>
+	</tr>
+</table>
+
+
+<p><br>
+</p>
+<table width="575" cellpadding="5" cellspacing="0">
+	<tr valign="top">
+		<td width="280">
+			<p><font face="Verdana, sans-serif">
+			<font size="2" style="font-size: 10pt">APELLIDO:</font></font></p>
+		</td>
+		<td width="273" >
+			<p>
+			<?=$n_alumno['apellido']?>
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="280">
+			<p>
+			<font face="Verdana, sans-serif">
+			<font size="2" style="font-size: 10pt">NOMBRES:
+			</font></font></p>
+		</td>
+		<td width="273" >
+			<p>
+			<?=$n_alumno['nombre']?>
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="280">
+			<p>
+			<font face="Verdana, sans-serif">
+			<font size="2" style="font-size: 10pt">DNI
+			Nº:</font></font></p>
+		</td>
+		<td width="273" >
+			<p>
+			<?=$n_alumno['nro_documento']?>
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="280">
+			<p><font face="Verdana, sans-serif">
+			<font size="2" style="font-size: 10pt">LEGAJO
+			Nº:</font></font></p>
+		</td>
+		<td width="273" >
+			<p>
+			<?=$n_alumno['legajo']?>
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="280">
+			<p><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">DOMICILIO
+			CONSTITUIDO (en el radio de CABA):</font></font></p>
+		</td>
+		<td width="273" >
+			<p><br>
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="280">
+			<p><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">TEL.
+			PARTICULAR:</font></font></p>
+		</td>
+		<td width="273" >
+			<p><br>
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="280">
+			<p><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">TEL.
+			LABORAL: </font></font>
+			</p>
+		</td>
+		<td width="273" >
+			<p><br>
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="280">
+			<p><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">CORREO
+			ELECTRÓNICO OFICIAL: </font></font>
+			</p>
+		</td>
+		<td width="273" >
+			<p>                  
+			  <font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">@jusbaires.gov.ar</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="280">
+			<p><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">FECHA
+			DE INGRESO AL PJCABA:</font></font></p>
+		</td>
+		<td width="273" >
+			<p><br>
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="280">
+			<p><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">CARGO
+			ACTUAL:</font></font></p>
+		</td>
+		<td width="273" >
+			<p><br>
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="280">
+			<p><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">DEPENDENCIA:</font></font></p>
+		</td>
+		<td width="273" >
+			<p><br>
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="280">
+			<p><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">TITULO
+			DE GRADO: </font></font>
+			</p>
+		</td>
+		<td width="273" >
+			<p><br>
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="280">
+			<p><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">INSTITUCIÓN:</font></font></p>
+		</td>
+		<td width="273" >
+			<p><br>
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="280">
+			<p><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">FACULTAD:</font></font></p>
+		</td>
+		<td width="273" >
+			<p><br>
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="280">
+			<p><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">INSTITUCIÓN
+			PROPUESTA PARA LA ACTIVIDAD:</font></font></p>
+		</td>
+		<td width="273" >
+			<p><br>
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="280">
+			<p><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">CARRERA/CURSO/ACTIVIDAD:</font></font></p>
+		</td>
+		<td width="273" >
+			<p><br>
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="280">
+			<p><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">FECHA
+			DE INICIO:</font></font></p>
+		</td>
+		<td width="273" >
+			<p><br>
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="280">
+			<p><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">FECHA
+			DE FINALIZACIÓN: </font></font>
+			</p>
+		</td>
+		<td width="273" >
+			<p><br>
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="280">
+			<p><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">DURACIÓN
+			TOTAL DE LA CARRERA/CURSO/ACTIVIDAD:</font></font></p>
+		</td>
+		<td width="273" >
+			<p><br>
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="280">
+			<p><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">COSTO
+			TOTAL DE LA CARRERA/ CURSO/ACTIVIDAD</font></font><sup><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt"><a class="sdfootnoteanc" name="sdfootnote2anc" href="#sdfootnote2sym"><sup>2</sup></a></font></font></sup><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">:
+			: </font></font>
+			</p>
+		</td>
+		<td width="273" >
+			<p><br>
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="280">
+			<p><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">MONTO
+			SOLICITADO: </font></font>
+			</p>
+		</td>
+		<td width="273" >
+			<p><br>
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="280">
+			<p><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">DICTAMEN
+			EVALUATIVO SUSCRIPTO POR:</font></font></p>
+		</td>
+		<td width="273" >
+			<p><br>
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="280">
+			<p><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">SUPERPOSICIÓN
+			HORARIA SI/NO:</font></font></p>
+		</td>
+		<td width="273" >
+			<p><br>
+			</p>
+		</td>
+	</tr>
+</table>
+</div>

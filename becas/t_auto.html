@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Autocomplete - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script>
+  $(function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+
+    var availableTags = [{value:1,label:'javascript'},{value:2,label:'java'}];
+    //console.debug(availableTags);
+
+    $( "#g_cargo_actual_label" ).autocomplete({
+      source: "cargo.php"
+      ,focus: function(event, ui) {
+          // prevent autocomplete from updating the textbox
+          event.preventDefault();
+          // manually update the textbox
+          $(this).val(ui.item.label);
+        }
+      ,select: function(event, ui){
+        event.preventDefault();
+        $(this).val(ui.item.label);
+        
+        var a = $('#tags_id').val(ui.item.value);
+        console.debug(a.val());
+      }
+    });
+            
+/**
+$("#autocomplete2").autocomplete({
+        source: data,
+        focus: function(event, ui) {
+          // prevent autocomplete from updating the textbox
+          event.preventDefault();
+          // manually update the textbox
+          $(this).val(ui.item.label);
+        },
+        select: function(event, ui) {
+          // prevent autocomplete from updating the textbox
+          event.preventDefault();
+          // manually update the textbox and hidden field
+          $(this).val(ui.item.label);
+          $("#autocomplete2-value").val(ui.item.value);
+        }
+      });
+    });
+
+
+*/
+
+  });
+  </script>
+</head>
+<body>
+ 
+<div class="ui-widget">
+  <label>Tags: </label>
+  <input id="tags" value=""></input>
+</div>
+<input type="text" id="tags_id">
+ 
+ 
+</body>
+</html>

@@ -9,7 +9,7 @@ $query = "SELECT * FROM curso INNER JOIN grupo_curso3 ON curso.cur_gcu3_id = gru
 $r = mysqli_query($c,$query);
 $cursos_activos = array();
 $cursos_actuales = array();
-//echo "<pre>";
+
 while ($row = mysqli_fetch_assoc($r)) {
        	        
         $row['cur_fechaInicio'] = date("d-m-Y", strtotime($row['cur_fechaInicio']));
@@ -17,18 +17,14 @@ while ($row = mysqli_fetch_assoc($r)) {
         
         $cursos_activos[] = $row;
 
-        //echo 'compara esto '.date("d-m-Y").' con '. $row['cur_fechaInicio']. '<br>';
-        //echo ' con esto:'. date("d-m-Y", strtotime($row['cur_fechaInicio'])). '<br>';
 
         if( strtotime(date("d-m-Y")) >= strtotime($row['cur_fechaInicio']) )
         $cursos_actuales[] = $row;
-        //	echo "<br>este lo agrega".date("d-m-Y", strtotime($row['cur_fechaInicio']));
     }
 
-   // echo "<pre>";
-  //  print_r($cursos_actuales);
-  //  exit;
 $cant_cursos_activos = sizeof($cursos_activos);
+$cant_cursos_actuales = sizeof($cursos_actuales);
+
 //Usuarios para validar
 $query = "SELECT count(*) as validar FROM usuario_sitio WHERE usi_validado =  '-'";
 $r = mysqli_query($c,$query);
@@ -93,7 +89,32 @@ session_start();
                         </a>
                     </div>
                 </div>
-                           <div class="col-lg-3 col-md-6">
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-show">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-list fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"><?=$cant_cursos_actuales?></div>
+                                    <!--div>Cursos Activos</div-->
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <a href="#" class="pull-left" target="_blank">Actividades en curso</a>
+                                <!--span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span-->
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-6">
                     <div class="panel panel-show">
                         <div class="panel-heading">
                             <div class="row">
@@ -108,7 +129,7 @@ session_start();
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <a href="http://cfj.gov.ar/src/index.php?frm=principal&nxt=curso" class="pull-left" target="_blank">Cursos Activos</a>
+                                <a href="http://cfj.gov.ar/src/index.php?frm=principal&nxt=curso" class="pull-left" target="_blank">Actividades activas</a>
                                 <!--span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span-->
                                 <div class="clearfix"></div>
                             </div>
@@ -116,7 +137,7 @@ session_start();
                     </div>
                 </div>
 
-                           <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="panel panel-show">
                         <div class="panel-heading">
                             <div class="row">
@@ -138,26 +159,7 @@ session_start();
                         </a>
                     </div>
                 </div>
-                           <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-show">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-9 text-center">
-                                    <div class="huge">108</div>
-                                    <!--div>...............</div-->
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">Alg&uacute;n otro indicador</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
+                
 <!-- Cursos Actuales -->
 
 
@@ -220,7 +222,7 @@ session_start();
 							<td><?=$validar?></td>
 							<td><?=$res_cant_inscriptos['inscriptos']?></td>
 							<td>100</td>
-							<td><a href="http://cfj.gov.ar/src/index.php?frm=curso&nxt=curso_usuario&cur_id=<?=$curso['cur_id'];?>">Ver</a></td>
+							<td><a href="http://cfj.gov.ar/src/index.php?frm=curso&nxt=curso_usuario&cur_id=<?=$curso['cur_id'];?>" target="_blank">Ver</a></td>
 						</tr>
 				
 					<?php endforeach;?>
@@ -235,20 +237,12 @@ session_start();
 	<!-- FIN CURSOS ACTUALES -->
 
 
-
-
-
-
-
-
-
-
 <div class="col-xs-12 col-sm-12">
 		<div class="box">
 			<div class="box-header">
 				<div class="box-name">
 					<i class="fa fa-table"></i>
-					<span>Cursos Activos</span>
+					<span>Actividades Activas</span>
 				</div>
 				<div class="box-icons">
 					<a class="collapse-link">

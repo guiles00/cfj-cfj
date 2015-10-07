@@ -1,0 +1,118 @@
+<html>
+<head>
+	<script src="./js/jquery-1.11.2.js"></script>
+	<script src="./js/jquery.validate.js"></script>
+<script>
+	
+				$(document).ready(function() {
+					$("#entityDataForm").validate({
+						errorContainer: "#errores",
+						errorLabelContainer: "#errores ul",
+						wrapper: "li",
+			  			errorElement: "em",
+			 			rules: {
+			 				login:   {required: true, remote: {url: "check-login.php", type: "get"}},
+			 				pass:    {required: true, minlength: 4},
+			 				pass2: 	 {required: true, minlength: 4, equalTo: "#pass"}, 				
+			 				name:  	 {required: true}, 		
+			 				email: 	 {required: true,  email: true},
+			 				website: {required: false, url: true},
+			 				fnac: 	 {required: false, date: true},
+			 				antiguedad:  {required: true, number: true, min: 1, max: 50},
+			 				numPersonas: {required: true, range: [0, 1000]},
+			 				secreto: 	 {basicoCaptcha: 10}
+			 			},
+						messages: {
+							login: 	 {
+								required: "Campo requerido: Login",
+								remote:	  "Ya existe un usuario con ese login"
+							},
+							email:		 {
+								required: "Campo requerido: E-Mail",
+								email:	  "Formato no valido: E-Mail"
+							},
+							secreto: {
+								basicoCaptcha: "Introduzca el secreto"
+							}
+			 			}
+					});
+					$.validator.methods.basicoCaptcha = function(value, element, param) {return value == param;};
+					
+					<!--  Cuándo hagamos clic en el enlace manual mostraremos el número de errores del formulario -->
+					$("#manual").click(function() {
+						  alert("¿Formulario válido?: " + $("#entityDataForm").validate().form());
+						  alert("Existen " + $("#entityDataForm").validate().numberOfInvalids() + " errores.");  
+					});
+					
+					<!--  Cuándo hagamos clic en el enlace addRule agregaremos una regla de validación al campo con identificador campoX -->
+					$("#addRule").click(function() {
+							$("#campoX").rules("add", {
+								required: true, minlength: 3,
+							 	messages: {
+							   		required: "Ahora el campo es requerido",
+							   		minlength: jQuery.format("Son necesarios al menos {0} caracteres")
+							 	}
+							});
+					});
+				});
+			
+
+</script>
+</head>	
+<body>
+
+				<form id="entityDataForm" action="#" method="post">
+					<fieldset>
+						<legend>Datos del Usuario</legend>
+						<div class="field">
+							<label for="login">Login:</label>
+							<input type="text" id="login" name="login" size="20" maxlength="50" tabindex="1"/>
+						</div>
+						<div class="field">
+							<label for="pass">Contraseña: (dos veces)</label>
+							<input type="password" id="pass"  name="pass"  size="5"/>
+							<input type="password" id="pass2" name="pass2" size="5"/>
+						</div>
+						<div class="field">
+							<label for="name">Nombre completo:</label>
+							<input name="name" id="name" size="35" maxlength="100"/>
+						</div>
+						<div class="field">
+							<label for="email">E-Mail:</label>
+							<input type="text" id="email" name="email" size="20" maxlength="100"/>
+						</div>
+						<div class="field">
+							<label for="website">Página web:</label>
+							<input name="website" id="website" size="35" maxlength="100"/>
+						</div>
+						<div class="field">
+							<label for="fnac">Fecha de nacimiento (dd/mm/aaaa):</label>
+							<input type="text" name="fnac" id="fnac" size="20"/>
+						</div>
+						<div class="field">
+							<label for="antiguedad">Nº años de antigüedad:</label>
+							<input type="text" name="antiguedad" id="antiguedad" />
+						</div>
+						<div class="field">
+							<label for="numPersonas">Nº personas a su cargo:</label>
+							<input type="text" name="numPersonas"  id="numPersonas" size="10"/>
+						</div>
+						<div class="field">
+							<label for="secreto">Secreto: ¿5+5?:</label>
+							<input type="text" name="secreto"  id="secreto"/>
+						</div>
+						<div class="field">
+							<label for="campoX">CampoX:</label>
+							<input type="text" name="campoX"  id="campoX"/>
+						</div>
+					</fieldset>
+					<div id="entity_commands">
+						<input type="submit" value="Aceptar"/>
+						<input type="submit" value="Cancelar" class="cancel"/>
+						
+						<a href="#" id="manual">Validacion manual</a>
+						<a href="#" id="addRule">Agrega una regla a CampoX</a>
+					</div>
+				</form>
+	</body>
+	</html>		

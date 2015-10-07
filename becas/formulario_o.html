@@ -1,0 +1,179 @@
+<html>
+<head>
+<script type="text/javascript" charset="utf8" src="./js/jquery-1.11.2.js"></script>
+<script src="./js/formulario.js"></script>
+<style type="text/css">
+	p {
+    font-family: Georgia;
+    /*font-size: 28px;*/
+	}
+
+	td {
+    font-family: Georgia, Times, serif;
+    /*font-size: 24px;*/
+	}
+	.large{
+
+		width: 300px;
+	}
+	input {
+		/*border:none ;*/
+		width: 300px;
+	}
+
+
+	.field-row {
+  		overflow: hidden;
+	}
+
+	.field-row label {
+	  display: block;
+	  width: 30%;
+	  float: left;
+    padding-bottom: 5;
+	}
+
+	.field-row .field-container {
+	  width: 50%;
+	  float: left;
+    padding-bottom: 5;
+	}
+
+</style>
+</head>
+<body>
+<div align="center" style="background-color:#6796C8;">
+<img src="./iso-logo.png" width="205" height="89"></img>
+</div>
+<br>
+<p align="center">
+<b>
+ANEXO II</br>
+SISTEMA DE BECAS DEL CENTRO DE FORMACI&Oacute;N JUDICIAL  
+(Res. CACFJ Nro 25/11)</br>
+FORMULARIO DE SOLICITUD</b>
+</p>
+<hr>
+<div id="g_container" align="left">
+<form id="g_formulario_beca"  action="./ingresa_formulario.php" method="POST">
+
+<div class="field-row">
+ <label>Tipo de Beca:</label>
+  <div class="field-container">
+    <select id="g_tipo_beca" name="tipo_beca">
+      <option value="1">Acogimiento a beneficio convenio</option>
+      <option value="2">Acogimiento a beneficio convenio y beca</option>
+      <option value="3">Beca (Sin Convenio)</option>
+  </select>
+  </div>
+  <label>DNI:</label>
+  <div class="field-container">
+    <input type='text' value='' id='g_dni' name='nro_documento' requiredd>
+  </div>
+  <label>Nombres:</label>
+  <div class="field-container">
+    <input class="large" type='text' value='' id='g_nombre' name="nombre" required></input>
+  </div>
+  <label>Apellido:</label>
+  <div class="field-container">
+    <input type='text' value='' id='g_apellido' name="apellido" required></input>
+  </div>
+  <label>Legajo:</label>
+  <div class="field-container">
+    <input type='text' value='' id='g_legajo' name="legajo" requiredd></input>
+  </div>
+  <label>Domicilio:(?)</label>
+  <div class="field-container">
+    <input type='text' value='' id='g_domicilio' name="domicilio" requiredd></input>
+  </div>
+  <label>Tel. Particular:</label>
+  <div class="field-container">
+    <input type='text' value='' id='g_domicilio' name="tel_particular" requiredd></input>
+  </div>
+  <label>Tel. Laboral:</label>
+  <div class="field-container">
+    <input type='text' value='' id='g_nombre' name="tel_laboral" requiredd></input>
+  </div>
+  <label>Correo Electronico(Oficial):</label>
+  <div class="field-container">
+    <input type='text' id='g_email' name="email" value='' required></input>@jusbaires.gov.ar
+  </div>
+  <label>Superposici&oacute;n horaria:</label>
+  <div class="field-container">
+  <select>
+	<option value="1">SI</option>
+	<option value="2">NO</option>
+	</select>
+   </div>
+  <label>Fecha de ingreso PJCABA:</label>
+  <div class="field-container">
+  <input type='text' id='g_domicilio' name="domicilio" value='' requiredd></input>
+  </div>
+  <label>Cargo Actual:</label>
+  <div class="field-container">
+  <select>
+  <option value="1">Juez</option>
+  <option value="2">Secretario</option>
+  <option value="3">Prosecretario</option>
+  <option value="4">Auxiliar</option>
+  </select>
+  
+  </div>
+  <label>Dependencia:</label>
+  <div class="field-container">
+  <input type='text' id='g_domicilio' name="domicilio" value='' requiredd></input>
+  </div>
+  <label>Titulo de grado:</label>
+  <div class="field-container">
+  <input type='text' id='g_domicilio' name="domicilio" value='' requiredd></input>
+  </div>
+  <label>Instituci&oacute;n (?):</label>
+  <div class="field-container">
+  <input type='text' id='g_domicilio' name="domicilio" value='' requiredd></input>
+  </div>
+  <label>Facultad:</label>
+  <div class="field-container">
+  <input type='text' id='g_domicilio' name="domicilio" value='' requiredd></input>
+  </div>
+  <label>Instituci&oacute;n propuesta para la actividad:</label>
+  <div class="field-container">
+  <input type='text' id='g_domicilio' name="domicilio" value='' requiredd></input>
+  </div>
+  <label>Carrera/Curso/Actividad:</label>
+  <div class="field-container">
+  <input type='text' id='g_domicilio' name="domicilio" value='' requiredd></input>
+  </div>
+  <label>Fecha de inicio:</label>
+  <div class="field-container">
+  <input type='text' id='g_domicilio' name="domicilio" value='' requiredd></input>
+  </div>
+  <label>Fecha de finalizaci&oacute;n</label>
+  <div class="field-container">
+  <input type='text' id='g_domicilio' name="domicilio" value='' requiredd></input>
+  </div>
+  <label>Duraci&oacute;n total:</label>
+  <div class="field-container">  
+  <input type='text' id='g_domicilio' name="domicilio" value='' requiredd></input>
+  </div>
+  <label>Costo total:</label>
+  <div class="field-container">  
+  <input type='text' id='g_domicilio' name="domicilio" value='' requiredd></input>
+  </div>
+  <label>Monto solicitado:</label>
+  <div class="field-container">
+  <input type='text' id='g_domicilio' name="domicilio" value='' requiredd></input>
+  </div>
+  <label>Dictamen evaluativo suscripto por:</label>
+  <div class="field-container">
+  <input type='text' id='g_domicilio' name="domicilio" value='' requiredd></input>
+  </div>
+<div class="field-container">
+<br>
+<input type="submit" value="Confirmar" id="aceptar" onclick="return confirm('Desear confirmar la solicitud, todos los datos son correctos?')"></input>
+</div>
+</form>
+</div>
+<div align="center" id="g_result"></div>
+
+</body>
+</html>

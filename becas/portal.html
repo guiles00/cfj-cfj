@@ -1,0 +1,32 @@
+<html>
+<head>
+<script type="text/javascript" charset="utf8" src="./js/jquery.js"></script>
+<script>
+$(document).ready(function() {
+
+    $('#g_dni').click(function(){
+
+        $.ajax({
+                url : "./test.html",
+                success : function(result) {
+                $('#g_panel').html(result);
+                }
+              });
+    });
+
+});
+</script>
+</head>
+<body>
+Ingresa DNI:
+<input type='text' value='Todas' id='g_dni'></input>
+<input type='button' value='Por Persona' id='g_show_personas'></input>
+<input type='button' value='Por Comision' id='g_show_por_comision'></input>
+<input type='button' value='Por Estado' id='g_show_por_estado'></input>
+<input type='button' value='Por Asunto' id='g_show_por_asunto'></input>
+<input type='button' value='Por Tipo de Rechazo' id='g_show_por_rechazo'></input>
+<hr>
+<div id='g_panel'>
+</div>
+</body>
+</html>

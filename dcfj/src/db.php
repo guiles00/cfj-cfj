@@ -5,12 +5,12 @@ class DBConn {
 
 function connect() {
 //Archivo temporal
-//$username = 'guiles';
-//$password = 'guiles';
-//$dbname = 'sitio_cfj';
-$username = 'uv1777';
-$password = 'astro5578pep';
-$dbname = 'uv1777_sitio';
+$username = 'guiles';
+$password = 'guiles';
+$dbname = 'sitio_cfj';
+//$username = 'uv1777';
+//$password = 'astro5578pep';
+//$dbname = 'uv1777_sitio';
 
 
 
