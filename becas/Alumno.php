@@ -16,8 +16,9 @@ class Alumno {
 	function getAlumnoId($dni){
 		//acoplo conexion a DB
 		$db = Db::getInstance();
-		$sqli = "select alumno_id from alumno where nro_documento='$dni'";
-
+		//$sqli = "select usi_id from usuario_sitio where usi_dni='$dni'";
+		$sqli = "select usi_id from usuario_sitio where usi_dni = '$dni'";
+		
 		//execute query
 		$res = $db->exec_query($sqli);
 		$res = mysqli_fetch_array($res);
@@ -25,13 +26,13 @@ class Alumno {
 		if(empty($res)){ 
 			return false;
 		}else{
-			return $res['alumno_id'];
+			return $res['usi_id'];
 		}
 	}
 	function getAlumno($dni){
 		//acoplo conexion a DB
 		$db = Db::getInstance();
-		$sqli = "select * from alumno where nro_documento='$dni'";
+		$sqli = "select * from usuario_sitio where usi_dni='$dni'";
 
 		//execute query
 		$res = $db->exec_query($sqli);
@@ -44,11 +45,11 @@ class Alumno {
 		}
 	}
 
-	function getAlumnoById($alumno_id){
+	function getAlumnoById($usi_id){
 		//acoplo conexion a DB
 		$db = Db::getInstance();
-		$sqli = "select * from alumno where alumno_id=$alumno_id";
-		//LEFT JOIN titulo on alumno.titulo_id = titulo.titulo_id";
+		$sqli = "select * from usuario_sitio where usi_id=$usi_id";
+		//LEFT JOIN titulo on usuario_sitio.titulo_id = titulo.titulo_id";
 
 		//execute query
 		$res = $db->exec_query($sqli);
@@ -60,12 +61,12 @@ class Alumno {
 			return $res;
 		}
 	}
-	function getDatosAlumnos($alumno_id,$params){
+	function getDatosAlumnos($usi_id,$params){
 		//acoplo conexion a DB
 		$db = Db::getInstance();
-		$sqli = "select * from alumno 
-		LEFT JOIN titulo on alumno.titulo_id = titulo.titulo_id
-		where alumno_id=$alumno_id";
+		$sqli = "select * from usuario_sitio 
+		LEFT JOIN titulo on usuario_sitio.titulo_id = titulo.titulo_id
+		where usi_id=$usi_id";
 
 		//execute query
 		$res = $db->exec_query($sqli);
@@ -80,14 +81,16 @@ class Alumno {
 
 	function save($params){
 		$db = Db::getInstance();		
-		$alumno_id = $this->getAlumnoId($params['nro_documento']);
-		//print_r($alumno_id);
+		$usi_id = $this->getAlumnoId($params['usi_dni']);
+
 		//Si no esta inserto
-		if(!$alumno_id){
-			//echo "inserto alumno y devuelvo id";
-			$sqli = "insert into alumno (nombre,apellido,nro_documento,legajo,domicilio,telefono_particular,email) 
-			values ('$params[nombre]','$params[apellido]','$params[nro_documento]','$params[legajo]'
-				,'$params[domicilio]','$params[tel]','$params[email]')";
+		if(!$usi_id){
+			
+			$sqli = "insert into usuario_sitio (usi_nombre,usi_dni,usi_legajo,usi_email,usi_genero,usi_tel_particular)
+			values ('$params[nombre]','$params[usi_dni]','$params[legajo]'
+				,'$params[email]','$params[b_genero]','$params[tel]')";
+//,domicilio,telefono_particular,email) 
+//,'$params[domicilio]','$params[tel]'
 			//execute query
 			$res = $db->exec_query($sqli);
 			//echo "last inserted id";
@@ -95,15 +98,15 @@ class Alumno {
 
 		}else{
 
-			$sqli = "update alumno set nombre = '$params[nombre]', apellido = '$params[apellido]' 
-			, nro_documento = '$params[nro_documento]', legajo = '$params[legajo]' 
-			, domicilio = '$params[domicilio]', telefono_particular = '$params[tel]'
-			where alumno_id = $alumno_id";
-		
+			$sqli = "update usuario_sitio set usi_nombre = '$params[nombre]', 
+			 usi_dni = '$params[usi_dni]', usi_legajo = '$params[legajo]', 
+			 usi_tel_particular = '$params[tel]',usi_genero = '$params[b_genero]',usi_email = '$params[email]'
+			where usi_id = $usi_id";
+		//, domicilio = '$params[domicilio]',
 			$res = $db->exec_query($sqli);
 		
 		//echo "acutalizo y devuelvo id";
-		return $alumno_id;	
+		return $usi_id;	
 		}
 	}
 }

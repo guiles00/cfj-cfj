@@ -66,7 +66,7 @@ jQuery.validator.addMethod("monto", function(value, element) {
 
 /**/
 
-    $('#g_formulario_beca').validate(
+    $('#ng_formulario_beca').validate(
         {
             rules:{
                 nombre: "required"
@@ -214,10 +214,10 @@ jQuery.validator.addMethod("monto", function(value, element) {
                 ,data:{ 'dni': dni }
                 ,success : function(result) {
                 var res = JSON.parse(result);
-                    if(res.nombre){ //Si trajo datos voy a completar domicilio
-						$('#g_nombre').val(res.nombre);
-						$('#g_apellido').val(res.apellido);
-						$('#g_legajo').val(res.legajo);
+                    if(res.usi_nombre){ //Si trajo datos voy a completar domicilio
+						$('#g_nombre').val(res.usi_nombre);
+						//$('#g_apellido').val(res.apellido);
+						$('#g_legajo').val(res.usi_legajo);
 						$('#g_domicilio').focus();
 		       		}
                 }

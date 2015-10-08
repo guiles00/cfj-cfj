@@ -26,7 +26,7 @@ class Mailer{
 		$mail->isHTML(true);                                  // Set email format to HTML
 
 		$mail->Subject = 'Solicitud de Beca';
-		$mail->Body    = 'Estimado/a: '.$params['nombre'].' '.$params['apellido'].',<br>
+		$mail->Body    = 'Estimado/a: '.$params['nombre'].',<br>
 		Para finalizar con la solicitud de beca <a href="http://guiles-guiles.rhcloud.com/confirma_solicitud.php?a='.$params['md5'].'" style="color:red;">
 		confirme su correo electr&oacute;nico aqu&iacute;</a>
 		<br>

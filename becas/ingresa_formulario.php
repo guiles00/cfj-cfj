@@ -12,14 +12,21 @@ $params = $_POST;
 //$fecha_inicio = date("Y-m-d", strtotime($params['f_inicio_b'])); ;
 //$fecha_fin = date("Y-m-d", strtotime($params['f_final_b'])); ;
 
+echo "<pre>";
+print_r($params);
+//exit;
+
 $fecha_ingreso_caba = $params['g_f_a_ingreso_caba'].'-'.$params['g_f_m_ingreso_caba'];
 $f_i_caba_datetime = new DateTime($fecha_ingreso_caba);
 
 $md5 = md5(time());
 $alumno = new Alumno();
 $beca = new Beca();
+
+$params['usi_dni'] = $params['nro_documento'];
 //Agrego alumno, devuelve id
 $alumno_id = $alumno->save($params);
+
 
 //Le agrego unos campos que no vienen desde el formulario
 $d_beca = $params;

@@ -66,14 +66,15 @@ class Beca {
 		$sqli = "insert into beca (tipo_beca_id,alumno_id,md5,cargo_id,dependencia_id
 			,universidad_id,f_ingreso_caba,facultad_id,titulo_id,telefono_laboral
 			,institucion_propuesta,fecha_inicio,fecha_fin,duracion
-			,costo,monto,dictamen_por,sup_horaria,tipo_actividad_id,actividad_id) 
+			,costo,monto,dictamen_por,sup_horaria,tipo_actividad_id,actividad_id,domicilio_constituido) 
 			values ('$params[tipo_beca_id]','$params[alumno_id]','$params[md5]','$params[cargo_id]'
 			,'$params[dependencia_id]','$params[universidad_id]','$params[f_ingreso_caba]'
 			,'$params[facultad_id]','$params[titulo_id]','$params[telefono_laboral]',
 			'$params[inst_prop_id]','$params[f_inicio_b]','$params[f_final_b]'
 			,'$params[duracion]','$params[costo]','$params[monto]'
 			,'$params[dictamen]','$params[s_horaria]'
-			,'$params[tipo_actividad_id]','$params[actividad_id]' )";
+			,'$params[tipo_actividad_id]','$params[actividad_id]'
+			,'$params[domicilio]')";
 			//echo $sqli;
 			//execute query
 			$res = $db->exec_query($sqli);

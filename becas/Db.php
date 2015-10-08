@@ -11,7 +11,7 @@ class Db
       $username = "guiles";
       $password = "guiles";
       $hostname = "localhost";
-      $dbname = "dev_becas";
+      $dbname = "sitio_cfj";
 
       $this->connection = mysqli_connect($hostname,$username,$password,$dbname);
       mysqli_set_charset($this->connection, 'utf8');
