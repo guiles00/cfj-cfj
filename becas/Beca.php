@@ -62,7 +62,8 @@ class Beca {
 	}
 	function save($params){
 		$db = Db::getInstance();		
-		//Siembre agrego beca		
+		//Siembre agrego beca
+		$domicilio = addslashes($params['domicilio']);		
 		$sqli = "insert into beca (tipo_beca_id,alumno_id,md5,cargo_id,dependencia_id
 			,universidad_id,f_ingreso_caba,facultad_id,titulo_id,telefono_laboral
 			,institucion_propuesta,fecha_inicio,fecha_fin,duracion
@@ -74,7 +75,7 @@ class Beca {
 			,'$params[duracion]','$params[costo]','$params[monto]'
 			,'$params[dictamen]','$params[s_horaria]'
 			,'$params[tipo_actividad_id]','$params[actividad_id]'
-			,'$params[domicilio]')";
+			,'$domicilio')";
 			//echo $sqli;
 			//execute query
 			$res = $db->exec_query($sqli);

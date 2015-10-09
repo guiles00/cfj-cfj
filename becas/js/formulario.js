@@ -64,9 +64,39 @@ jQuery.validator.addMethod("monto", function(value, element) {
    return this.optional(element); //13478.40$
 }, "Supera el Monto aprobado (S&oacute;lo hasta dos decimales con punto)");
 
+
+jQuery.validator.addMethod("dependencia_id", function(value, element) {
+   
+   //traigo si es curso/carrera/actividad
+   var b_dependencia_id = $('#b_dependencia_id').val();
+   console.debug(b_dependencia_id);
+   if(b_dependencia_id == 0){
+    return false;
+   }
+
+   return this.optional(element); //13478.40$
+}, "Elegi una dependencia");
+
+
+jQuery.validator.addMethod("cargo_id", function(value, element) {
+   
+   //traigo si es curso/carrera/actividad
+   var b_cargo = $('#b_cargo').val();
+   console.debug('b_cargo_id');
+    console.debug(b_cargo);   
+     console.debug('b_cargo_id');
+   if(b_cargo == 0){
+    console.debug( 'no deberia entrar aca');
+
+    console.debug(b_cargo);
+    return false;
+   }
+
+   return true;//this.optional(element); //13478.40$
+}, "Elegi cargo");
 /**/
 
-    $('#ng_formulario_beca').validate(
+    $('#g_formulario_beca').validate(
         {
             rules:{
                 nombre: "required"
@@ -104,7 +134,16 @@ jQuery.validator.addMethod("monto", function(value, element) {
                 ,r_email: {
                     equalTo: "#g_email"
                 }
-                ,duracion: {
+                /*,dependencia_id:
+                {
+                    required: true
+                    ,dependencia_id: {dependencia_id:true}
+                }*/,cargo_id:
+                {
+                    required: true
+                    ,cargo_id: {cargo_id:true}
+                }
+                /*,duracion: {
                     required: true
                     ,horas: {horas:true}
                 }
@@ -124,6 +163,7 @@ jQuery.validator.addMethod("monto", function(value, element) {
                 ,f_ingreso_caba:"required"
                 ,universidad_label:"required"
                 ,inst_prop_id:"required"
+                */
 
             }
             ,messages: {
@@ -225,7 +265,7 @@ jQuery.validator.addMethod("monto", function(value, element) {
     });
 
 
- $.getJSON("cargo.php", function (data) {
+/* $.getJSON("cargo.php", function (data) {
         $("#g_cargo_actual_label").autocomplete({
             source: data
             ,focus: function(event, ui) {
@@ -243,7 +283,7 @@ jQuery.validator.addMethod("monto", function(value, element) {
             }
         });
     });
-
+*/
  $.getJSON("dependencia.php", function (data) {
         $("#g_dependencia_label").autocomplete({
             source: data
@@ -297,7 +337,7 @@ jQuery.validator.addMethod("monto", function(value, element) {
         });
     });
 
- $.getJSON("universidad.php", function (data) {
+ /*$.getJSON("universidad.php", function (data) {
         $("#g_inst_prop_label").autocomplete({
             source: data
             ,focus: function(event, ui) {
@@ -324,7 +364,7 @@ jQuery.validator.addMethod("monto", function(value, element) {
             }
         });
     });
-
+*/
 
 
  $.getJSON("titulo.php", function (data) {
@@ -354,6 +394,7 @@ jQuery.validator.addMethod("monto", function(value, element) {
         });
     });
 
+/*
  $.getJSON("facultad.php", function (data) {
         $("#g_facultad_label").autocomplete({
             source: data
@@ -379,7 +420,7 @@ jQuery.validator.addMethod("monto", function(value, element) {
             }
         });
     });
-
+*/
 
  $.getJSON("actividad.php", function (data) {
         $("#g_actividad_label").autocomplete({
@@ -417,7 +458,7 @@ $('#g_f_ingreso_caba').datepicker({
             changeYear: true
         });
 
-$('#g_fec_nac').datepicker({
+$('#b_fec_nac').datepicker({
             dateFormat:"yy-mm-dd",  
             yearRange: "-80:+0",
             changeMonth: true,
@@ -500,6 +541,73 @@ for (var i = 0; i < select.length; i++) {
 })();
 
 
+
+   
+
+//Completo el select de cargo
+ $.getJSON("cargo.php", function (data) {
+        //console.debug('completo cargo');
+        var b_cargo = document.getElementById('b_cargo');
+        for(i in data){
+
+            var option = document.createElement('option');
+            var texto = document.createTextNode(data[i].label);
+            option.value = data[i].value;            
+            option.appendChild(texto);
+            b_cargo.appendChild(option);   
+            //console.debug(data); 
+        }
+    });
+
+//Completo el select de universidad
+$.getJSON("universidad.php", function (data) {
+        
+        var b_universidad = document.getElementById('b_universidad_id');
+        
+        for(i in data){
+
+            var option = document.createElement('option');
+            var texto = document.createTextNode(data[i].label);
+            option.value = data[i].value;            
+            option.appendChild(texto);
+            b_universidad.appendChild(option);   
+        }
+    });
+
+//Completo el select de titulo
+$.getJSON("titulo.php", function (data) {
+        
+        var b_titulo = document.getElementById('b_titulo_id');
+        
+        for(i in data){
+
+            var option = document.createElement('option');
+            var texto = document.createTextNode(data[i].label);
+            option.value = data[i].value;            
+            option.appendChild(texto);
+            b_titulo_id.appendChild(option);   
+            
+        }
+    });
+
+//Completo el select de facultad
+$.getJSON("facultad.php", function (data) {
+        
+        var b_facultad = document.getElementById('b_facultad_id');
+        
+        for(i in data){
+
+            var option = document.createElement('option');
+            var texto = document.createTextNode(data[i].label);
+            option.value = data[i].value;            
+            option.appendChild(texto);
+            b_facultad_id.appendChild(option);   
+            
+        }
+    });
+
+
+$(".select2").select2();
 });
 
 

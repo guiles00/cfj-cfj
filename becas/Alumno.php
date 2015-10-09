@@ -83,22 +83,39 @@ class Alumno {
 		$db = Db::getInstance();		
 		$usi_id = $this->getAlumnoId($params['usi_dni']);
 
+		/**
+		Chequear SQL INJECTION
+		**/
 		//Si no esta inserto
 		if(!$usi_id){
+			/*
+			$dbcon = $db->getConnection();
+			$stmt = $dbcon->prepare('insert into usuario_sitio (usi_nombre,usi_dni,usi_legajo,usi_email,usi_genero,usi_tel_particular,usi_fecha_nacimiento) 
+				values(?,?,?,?,?,?,?)');
+			$stmt->bind_param('sssssss', $params['nombre'],$params['usi_dni'],$params['legajo']
+				,$params['email'],$params['b_genero'],$params['tel'],$params['fec_nac']);
 			
-			$sqli = "insert into usuario_sitio (usi_nombre,usi_dni,usi_legajo,usi_email,usi_genero,usi_tel_particular)
-			values ('$params[nombre]','$params[usi_dni]','$params[legajo]'
-				,'$params[email]','$params[b_genero]','$params[tel]')";
-//,domicilio,telefono_particular,email) 
-//,'$params[domicilio]','$params[tel]'
+				
+			$stmt->execute();
+			$stmt->close();
+			*/
+			$nombre = addslashes($params['nombre']);
+			
+			//$domicilio = addcslashes()
+			$sqli = "insert into usuario_sitio (usi_nombre,usi_dni,usi_legajo,usi_email,usi_genero,usi_tel_particular,usi_fecha_nacimiento)
+			values ('$nombre','$params[usi_dni]','$params[legajo]'
+				,'$params[email]','$params[b_genero]','$params[tel]','$params[fec_nac]')";
+			//,domicilio,telefono_particular,email) 
+			//,'$params[domicilio]','$params[tel]'
 			//execute query
 			$res = $db->exec_query($sqli);
-			//echo "last inserted id";
+			
 			return mysqli_insert_id($db->getConnection());
 
 		}else{
 
-			$sqli = "update usuario_sitio set usi_nombre = '$params[nombre]', 
+			$nombre = $params['nombre'];
+			$sqli = "update usuario_sitio set usi_nombre = '$nombre', 
 			 usi_dni = '$params[usi_dni]', usi_legajo = '$params[legajo]', 
 			 usi_tel_particular = '$params[tel]',usi_genero = '$params[b_genero]',usi_email = '$params[email]'
 			where usi_id = $usi_id";

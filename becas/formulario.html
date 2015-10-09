@@ -2,12 +2,15 @@
 <head>
 <!--script type="text/javascript" charset="utf8" src="./js/jquery-1.11.2.js"></script-->
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet">
+
   <!--link rel="stylesheet" href="./jquery.autocomplete.css"-->
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <script src="./js/jquery.validate.js"></script>
   <script src="./js/datepicker.es.js"></script>
-  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+
   <!--link rel="stylesheet" href="/resources/demos/style.css"-->
 <script src="./js/formulario.js"></script>
 
@@ -20,7 +23,7 @@
 
 	td {
     font-family: Georgia, Times, serif;
-    /*font-size: 24px;*/
+    font-size: 18px;
 	}
 	.large{
 
@@ -58,6 +61,7 @@ input[type=text]{
     border: 1px solid #ccc;
     border-radius: 4px;
     font-family: Arial;
+    height: 24px;
     /*color: #777;*/ 
 }
 legend,p{
@@ -78,6 +82,7 @@ select {
     text-align: left;
     font-size: 11px; 
 }
+td input[type=checkbox] { float: right;}
 
 </style>
 </head>
@@ -108,8 +113,8 @@ SISTEMA DE BECAS DEL CENTRO DE FORMACI&Oacute;N JUDICIAL
   <legend>Datos Personales</legend>
   <table style="margin-left:10px;padding: 10px; ">
     <tr>
-    <td>DNI:</td><td><input type='text' value='' id='g_dni' name='nro_documento' requiredd></td>
-    <td>Legajo:</td><td><input type='text' value='' id='g_legajo' name="legajo" requiredd></input></td>    
+    <td>DNI(*):</td><td><input type='text' value='' id='g_dni' name='nro_documento' requiredd></td>
+    <td>Legajo(*):</td><td><input type='text' value='' id='g_legajo' name="legajo" requiredd></input></td>    
     </tr>
     <tr>
     <td>Apellido y Nombre:</td><td><input type='text' value='' id='g_nombre' name="nombre" requiredd ></input></td>
@@ -120,70 +125,96 @@ SISTEMA DE BECAS DEL CENTRO DE FORMACI&Oacute;N JUDICIAL
     <td>Tel. Particular:</td><td><input type='text' value='' id='g_tel' name="tel" requireddd></input></td>
     </tr>
     <tr><td>G&eacute;nero</td><td>
-      <select name="b_genero" id="b_genero">
+      <select name="b_genero" id="b_genero" class="select2" style="width:100%">
       <option value="1">Masculino</option>
       <option value="2">Femenino</option>
       <option value="3">Otro</option>
       </select>
     </td>
-    <td>Fecha Nacimiento:</td><td><input type="text" value="" id="g_fec_nac" name="g_fec_nac"></input></td></tr>
+    <td>Fecha Nacimiento:</td><td><input type="text" value="" id="b_fec_nac" name="fec_nac"></input></td></tr>
   </table>
 </fieldset>
 
-<fieldset>
+<fieldset>  
   <legend>Datos Laborales</legend>
   <table style="margin-left:10px">
-    <tr rowspan="2">
+    <tr>
     <td>Fecha de Ingreso PJCABA:</td>
     <!--input type='text' value='' id='g_f_ingreso_caba' name='f_ingreso_caba' placeholder='dd/mm/yyyy'requiredd></td-->
     <td>
-      <select id='g_f_m_ingreso_caba' name='g_f_m_ingreso_caba' class="b_fecha_m"></select>      
-      <select id='g_f_a_ingreso_caba' name='g_f_a_ingreso_caba' class="b_fecha_a"></select>
+      <select id='g_f_m_ingreso_caba' name='g_f_m_ingreso_caba' class="b_fecha_m select2" ></select>      
+      <select id='g_f_a_ingreso_caba' name='g_f_a_ingreso_caba' class="b_fecha_a select2" style="width:50%"></select>
     </td>
     
-    <td>Cargo Actual:</td><td><input type='text' value='' id='g_cargo_actual_label' name="cargo_actual_label" placeholder='Ingrese Cargo ej. Auxiliar' requiredd></input>
-    <input type='hidden' value='' id='g_cargo_actual_id' name="cargo_id"></input>
+    <td>Cargo Actual:</td><td>   
+    <select name="cargo_id" class="select2" style="width:100%" id="b_cargo">
+            <option value="0" selected="true"> - </option>
+    </select>
+    <!--input type='text' value='' id='g_cargo_actual_label' name="cargo_actual_label" placeholder='Ingrese Cargo ej. Auxiliar' requiredd></input>
+    <input type='hidden' value='' id='g_cargo_actual_id' name="cargo_id"></input-->
     </td>
+
     </tr>
     <tr>
     <td>Fuero:</td>
     <td>
-    <select>
-    <option value="1">CAyT</option>
-    <option value="1">PCyF</option>
-    <option value="1">MPF</option>
-    <option value="1">MPD</option>
-    <option value="1">MPT</option>
-    <option value="1">CMCABA</option>
+    <select name="b_fuero" class="select2">
+    <option value="1">FUERO CAyT</option>
+    <option value="2">FUERO PCyF</option>
+    <option value="3">CMCABA</option>
+    <option value="4">MINISTERIO PÚBLICO FISCAL</option>
+    <option value="5">MINISTERIO PÚBLICO DE LA DEFENSA</option>
+    <option value="7">MINISTERIO PÚBLICO TUTELAR</option>
+    <option value="8">Tribunal Superior de Justicia</option>
     </select>
     </td>
     
-    <td>Dependencia:</td><td><input type='text' value='' id='g_dependencia_label' name="dependencia_label" placeholder='Ingrese Dependencia, ej. Juzgado' requiredd></input>
-    <input type='hidden' value='' id='g_dependencia_id' name="dependencia_id" requiredd></input>
+    <td>Dependencia:</td>
+    <td>
+      <!--input type='text' value='' id='g_dependencia_label' name="dependencia_label" placeholder='Ingrese Dependencia, ej. Juzgado' requiredd></input>
+    <input type='hidden' value='' id='g_dependencia_id' name="dependencia_id" requiredd></input-->
+
+    <select name="dependencia_id" class="select2" style="width:100%" id="b_dependencia_id">
+            <option value="0" selected="true"> - </option>
+    </select>
+
     </td>
     <tr>
     <td>Tel. Laboral:</td><td><input type='text' value='' id='g_telefono_laboral' name="telefono_laboral" requireddd></input></td>
     
     <td>Titulo de grado:</td><td>
-    <input type='text' value='' id='g_titulo_label' name="titulo_label" placeholder='Ingrese Titulo, ej. Abogado' requiredd>
+    <!--input type='text' value='' id='g_titulo_label' name="titulo_label" placeholder='Ingrese Titulo, ej. Abogado' requiredd>
     <input type='text' style="display:none" value='' id='g_titulo_otro' name="titulo_otro" placeholder="Ingrese el nombre del titulo"></input>
 
-    <input type='hidden' value='' id='g_titulo_id' name="titulo_id" requiredd>  
+    <input type='hidden' value='' id='g_titulo_id' name="titulo_id" requiredd-->  
+
+    <select name="titulo_id" class="select2" style="width:100%" id="b_titulo_id">
+            <option value="0" selected="true"> - </option>
+    </select>
     </input></td>
     
     </tr>
     <tr>
-    <td>Universidad:</td><td><input type='text' value='' id='g_universidad_label' name="universidad_label" placeholder='Ingrese Universidad, ej. UBA' requiredd></input>
-    <input type='text' style="display:none" value='' id='g_universidad_otro' name="universidad_otro" placeholder="Ingrese el nombre de la Universidad"></input>
-    
-    <input type='hidden' value='' id='g_universidad_id' name="universidad_id"></input>
+    <td>Universidad:</td>
+    <td>
+    <!--input type='text' value='' id='g_universidad_label' name="universidad_label" placeholder='Ingrese Universidad, ej. UBA' requiredd></input>
+    <input type='text' style="display:none" value='' id='g_universidad_otro' name="universidad_otro" placeholder="Ingrese el nombre de la Universidad"></input>    
+    <input type='hidden' value='' id='g_universidad_id' name="universidad_id"></input-->
+
+    <select name="universidad_id" class="select2" style="width:100%" id="b_universidad_id">
+            <option value="0" selected="true"> - </option>
+    </select>
     </td>
     
     <td>Facultad:</td><td>
-    <input type='text' value='' id='g_facultad_label' name="facultad_label" placeholder='Ingrese Facultad, ej. Facultad Derecho' requiredd></input>
+    <!--input type='text' value='' id='g_facultad_label' name="facultad_label" placeholder='Ingrese Facultad, ej. Facultad Derecho' requiredd></input>
     <input type='text' style="display:none" value='' id='g_facultad_otro' name="inst_facultad_otro" placeholder="Ingrese el nombre de la Facultad"></input>
     
-    <input type='hidden' value='' id='g_facultad_id' name="facultad_id"></input></td>
+    <input type='hidden' value='' id='g_facultad_id' name="facultad_id"></input></td-->
+
+    <select name="facultad_id" class="select2" style="width:100%" id="b_facultad_id">
+            <option value="0" selected="true"> - </option>
+    </select>
     </tr>
    <tr>
     <td>Correo Electronico(Oficial)</td><td>
