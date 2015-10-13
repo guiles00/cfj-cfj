@@ -117,7 +117,7 @@ class Alumno {
 			$nombre = $params['nombre'];
 			$sqli = "update usuario_sitio set usi_nombre = '$nombre', 
 			 usi_dni = '$params[usi_dni]', usi_legajo = '$params[legajo]', 
-			 usi_tel_particular = '$params[tel]',usi_genero = '$params[b_genero]',usi_email = '$params[email]'
+			 usi_tel_particular = '$params[tel]',usi_genero = '$params[b_genero]',usi_email = '$params[email]',usi_fecha_nacimiento = '$params[fec_nac]'
 			where usi_id = $usi_id";
 		//, domicilio = '$params[domicilio]',
 			$res = $db->exec_query($sqli);
