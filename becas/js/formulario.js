@@ -82,18 +82,67 @@ jQuery.validator.addMethod("cargo_id", function(value, element) {
    
    //traigo si es curso/carrera/actividad
    var b_cargo = $('#b_cargo').val();
-   console.debug('b_cargo_id');
-    console.debug(b_cargo);   
-     console.debug('b_cargo_id');
+   
    if(b_cargo == 0){
-    console.debug( 'no deberia entrar aca');
-
-    console.debug(b_cargo);
     return false;
    }
 
    return true;//this.optional(element); //13478.40$
-}, "Elegi cargo");
+}, "Ingrese cargo");
+
+jQuery.validator.addMethod("universidad_id", function(value, element) {
+   
+   var b_universidad_id = $('#b_universidad_id').val();
+   
+   if(b_universidad_id == 0){
+     return false;
+   }
+   if(b_universidad_id == -1){
+    console.debug('entra aca en universidad');
+        
+        var uni_otro = $('#b_universidad_otro').val();
+        if(uni_otro == '') return false;
+
+   }
+
+   return true;//this.optional(element); //13478.40$
+}, "Complete Universidad");
+
+jQuery.validator.addMethod("facultad_id", function(value, element) {
+   
+   var b_facultad_id = $('#b_facultad_id').val();
+   
+   if(b_facultad_id == 0){
+     return false;
+   }
+   if(b_facultad_id == -1){
+        
+        var fac_otro = $('#b_facultad_otro').val();
+        if(fac_otro == '') return false;
+
+   }
+
+   return true;//this.optional(element); //13478.40$
+}, "Complete Facultad");
+
+jQuery.validator.addMethod("titulo_id", function(value, element) {
+   
+   var b_titulo_id = $('#b_titulo_id').val();
+   
+   if(b_titulo_id == 0){
+     return false;
+   }
+   if(b_titulo_id == -1){
+        
+        var tit_otro = $('#b_titulo_otro').val();
+        if(tit_otro == '') return false;
+
+   }
+
+   return true;//this.optional(element); //13478.40$
+}, "Complete Titulo");
+
+
 /**/
 
     $('#g_formulario_beca').validate(
@@ -142,6 +191,18 @@ jQuery.validator.addMethod("cargo_id", function(value, element) {
                 {
                     required: true
                     ,cargo_id: {cargo_id:true}
+                },universidad_id:
+                {
+                    required: true
+                    ,universidad_id: {universidad_id:true}
+                },facultad_id:
+                {
+                    required: true
+                    ,facultad_id: {facultad_id:true}
+                },titulo_id:
+                {
+                    required: true
+                    ,titulo_id: {titulo_id:true}
                 }
                 /*,duracion: {
                     required: true
@@ -473,7 +534,7 @@ $('#g_f_final_b').datepicker({dateFormat:"yy-mm-dd"});
 var select = $('.b_fecha_m');
 console.debug(select);
 var mes = {"1":"Enero","2":"Febrero","3":"Marzo","4":"Abril","5":"Mayo","6":"Junio","7":"Julio","8":"Agosto","9":"Septiembre","10":"Octubre","11":"Noviembre","12":"Diciembre"};
-
+//"0":"-",
 for (var i = 0; i < select.length; i++) {
       //Insert option
       for (j in mes){
@@ -605,6 +666,65 @@ $.getJSON("facultad.php", function (data) {
             
         }
     });
+
+$("#b_universidad_id").change(function(e){
+
+    if(this.value == -1){
+        $("#b_universidad_otro_label").show();
+        $("#b_universidad_otro").show();
+    }else{
+        $("#b_universidad_otro_label").hide();
+        $("#b_universidad_otro").hide();
+        $("#b_universidad_otro").val('');
+    }
+});
+
+$("#b_facultad_id").change(function(e){
+
+    if(this.value == -1){
+        $("#b_facultad_otro_label").show();
+        $("#b_facultad_otro").show();
+    }else{
+        $("#b_facultad_otro_label").hide();
+        $("#b_facultad_otro").hide();
+        $("#b_facultad_otro").val('');
+    }
+});
+
+$("#b_cargo").change(function(e){
+
+    if(this.value == -1){
+        $("#b_cargo_otro_label").show();
+        $("#b_cargo_otro").show();
+    }else{
+        $("#b_cargo_otro_label").hide();
+        $("#b_cargo_otro").hide();
+    }
+});
+
+$("#b_dependencia_id").change(function(e){
+
+    if(this.value == -1){
+        $("#b_dependencia_otro_label").show();
+        $("#b_dependencia_otro").show();
+    }else{
+        $("#b_dependencia_otro_label").hide();
+        $("#b_dependencia_otro").hide();
+        $("#b_dependencia_otro").val('');
+    }
+});
+
+$("#b_titulo_id").change(function(e){
+
+    if(this.value == -1){
+        $("#b_titulo_otro_label").show();
+        $("#b_titulo_otro").show();
+    }else{
+        $("#b_titulo_otro_label").hide();
+        $("#b_titulo_otro").hide();
+        $("#b_titulo_otro").val('');
+    }
+});
 
 
 $(".select2").select2();
