@@ -727,7 +727,8 @@ $("#b_titulo_id").change(function(e){
 });
 
 
-$(".select2").select2();
+$(".select2").select2({width:"element"});
+
 });
 
 
