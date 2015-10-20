@@ -42,7 +42,7 @@ class Beca {
 		//$sqli = "select * from beca where md5='".$md5."'";
 		$sqli = "select *,prop.universidad as institucion_propuesta_label  from beca 
 		LEFT JOIN titulo on beca.titulo_id = titulo.titulo_id
-		LEFT JOIN cargo on beca.cargo_id = cargo.cargo_id
+		LEFT JOIN cargo on beca.cargo_id = cargo.car_id
 		LEFT JOIN dependencia_fueros on beca.dependencia_id = dependencia_fueros.dependencia_id
 		LEFT JOIN universidad_sigla as prop on beca.institucion_propuesta = prop.universidad_id
 		LEFT JOIN actividad on beca.actividad_id = actividad.actividad_id

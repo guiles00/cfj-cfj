@@ -345,7 +345,7 @@ jQuery.validator.addMethod("titulo_id", function(value, element) {
         });
     });
 */
- $.getJSON("dependencia.php", function (data) {
+ /*$.getJSON("dependencia.php", function (data) {
         $("#g_dependencia_label").autocomplete({
             source: data
             ,focus: function(event, ui) {
@@ -370,9 +370,9 @@ jQuery.validator.addMethod("titulo_id", function(value, element) {
             }
         });
     });
+*/
 
-
- $.getJSON("universidad.php", function (data) {
+ /*$.getJSON("universidad.php", function (data) {
         $("#g_universidad_label").autocomplete({
             source: data
             ,focus: function(event, ui) {
@@ -397,7 +397,7 @@ jQuery.validator.addMethod("titulo_id", function(value, element) {
             }
         });
     });
-
+*/
  /*$.getJSON("universidad.php", function (data) {
         $("#g_inst_prop_label").autocomplete({
             source: data
@@ -646,8 +646,7 @@ $.getJSON("titulo.php", function (data) {
             var texto = document.createTextNode(data[i].label);
             option.value = data[i].value;            
             option.appendChild(texto);
-            b_titulo_id.appendChild(option);   
-            
+            b_titulo.appendChild(option);   
         }
     });
 
@@ -662,11 +661,72 @@ $.getJSON("facultad.php", function (data) {
             var texto = document.createTextNode(data[i].label);
             option.value = data[i].value;            
             option.appendChild(texto);
-            b_facultad_id.appendChild(option);   
+            b_facultad.appendChild(option);   
             
         }
     });
 
+$('#b_fuero_id').change(function(e){
+//console.debug(e.target.value);
+    $("#b_dependencia_id").select2("val", "");
+    
+    $.ajax({
+          dataType: "json",
+          url: "dependencia.php",
+          data: {'fuero_id' : e.target.value},
+          success: function(data){
+
+            var b_dependencia = document.getElementById('b_dependencia_id');
+                b_dependencia.innerHTML = '';
+
+            var option_otro = document.createElement('option');
+                var texto_otro = document.createTextNode('OTRO');
+                option_otro.value = '-1';            
+                option_otro.appendChild(texto_otro);
+                b_dependencia.appendChild(option_otro);       
+
+            for(i in data){
+            //console.debug(data[i]);    
+                var option = document.createElement('option');
+                var texto = document.createTextNode(data[i].label);
+                option.value = data[i].value;            
+                option.appendChild(texto);
+                b_dependencia.appendChild(option);   
+            }
+          }
+        });
+    /*$.getJSON("dependencia.php", function (data) {
+            
+            var b_dependencia = document.getElementById('b_dependencia_id');
+            
+            for(i in data){
+
+                var option = document.createElement('option');
+                var texto = document.createTextNode(data[i].label);
+                option.value = data[i].value;            
+                option.appendChild(texto);
+                b_dependencia.appendChild(option);   
+                
+        }
+    });*/
+
+});
+/*
+$.getJSON("dependencia.php", function (data) {
+        
+        var b_dependencia = document.getElementById('b_dependencia_id');
+        
+        for(i in data){
+
+            var option = document.createElement('option');
+            var texto = document.createTextNode(data[i].label);
+            option.value = data[i].value;            
+            option.appendChild(texto);
+            b_dependencia.appendChild(option);   
+            
+        }
+});
+*/
 $("#b_universidad_id").change(function(e){
 
     if(this.value == -1){
