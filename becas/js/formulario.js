@@ -73,8 +73,14 @@ jQuery.validator.addMethod("dependencia_id", function(value, element) {
    if(b_dependencia_id == 0){
     return false;
    }
+    if(b_dependencia_id == -1){
+        
+        var dep_otro = $('#b_dependencia_otro').val();
+        if(dep_otro == '') return false;
 
-   return this.optional(element); //13478.40$
+   }
+
+   return true;// return this.optional(element); //13478.40$
 }, "Elegi una dependencia");
 
 
@@ -203,6 +209,10 @@ jQuery.validator.addMethod("titulo_id", function(value, element) {
                 {
                     required: true
                     ,titulo_id: {titulo_id:true}
+                },dependencia_id:
+                {
+                    required: true
+                    ,dependencia_id: {dependencia_id:true}
                 }
                 /*,duracion: {
                     required: true
@@ -669,8 +679,9 @@ $.getJSON("facultad.php", function (data) {
 $('#b_fuero_id').change(function(e){
 //console.debug(e.target.value);
     $("#b_dependencia_id").select2("val", "");
-    
-    $.ajax({
+
+
+        $.ajax({
           dataType: "json",
           url: "dependencia.php",
           data: {'fuero_id' : e.target.value},
@@ -679,6 +690,13 @@ $('#b_fuero_id').change(function(e){
             var b_dependencia = document.getElementById('b_dependencia_id');
                 b_dependencia.innerHTML = '';
 
+            var option_null = document.createElement('option');
+            var texto_null = document.createTextNode('-');
+            option_null.selected = true;
+            option_null.value = '0';            
+            option_null.appendChild(texto_null);
+            b_dependencia.appendChild(option_null);      
+                
             var option_otro = document.createElement('option');
                 var texto_otro = document.createTextNode('OTRO');
                 option_otro.value = '-1';            
