@@ -154,7 +154,7 @@ jQuery.validator.addMethod("titulo_id", function(value, element) {
     $('#g_formulario_beca').validate(
         {
             rules:{
-                nombre: "required"
+               /* nombre: "required"
                 ,
                 apellido: "required"
                 ,
@@ -189,11 +189,7 @@ jQuery.validator.addMethod("titulo_id", function(value, element) {
                 ,r_email: {
                     equalTo: "#g_email"
                 }
-                /*,dependencia_id:
-                {
-                    required: true
-                    ,dependencia_id: {dependencia_id:true}
-                }*/,cargo_id:
+                ,cargo_id:
                 {
                     required: true
                     ,cargo_id: {cargo_id:true}
@@ -213,8 +209,8 @@ jQuery.validator.addMethod("titulo_id", function(value, element) {
                 {
                     required: true
                     ,dependencia_id: {dependencia_id:true}
-                }
-                /*,duracion: {
+                }///HASTA ACA ESTA BIEN
+                ,duracion: {
                     required: true
                     ,horas: {horas:true}
                 }
