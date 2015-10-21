@@ -27,7 +27,7 @@ class Mailer{
 
 		$mail->Subject = 'Solicitud de Beca';
 		$mail->Body    = 'Estimado/a: '.$params['nombre'].',<br>
-		Para validar su solicitud de beca <a href="http://cfj.gov.ar/becas/confirma_solicitud.php?a='.$params['md5'].'" style="color:red;">
+		Para validar su solicitud de beca <a href="http://cfj.gov.ar/test/becas/confirma_solicitud.php?a='.$params['md5'].'" style="color:red;">
 		confirme su correo electr&oacute;nico aqu&iacute;</a>
 		<br>
 		A los efectos de completar su  solicitud deber&aacute; imprimir el formulario e ingresarlo junto con toda la documentaci&oacute;n que establece el Art. 13 del Reglamento de Becas,<br>
