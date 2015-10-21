@@ -27,17 +27,18 @@ class Mailer{
 
 		$mail->Subject = 'Solicitud de Beca';
 		$mail->Body    = 'Estimado/a: '.$params['nombre'].',<br>
-		Para finalizar con la solicitud de beca <a href="http://guiles-guiles.rhcloud.com/confirma_solicitud.php?a='.$params['md5'].'" style="color:red;">
+		Para validar su solicitud de beca <a href="http://cfj.gov.ar/becas/confirma_solicitud.php?a='.$params['md5'].'" style="color:red;">
 		confirme su correo electr&oacute;nico aqu&iacute;</a>
 		<br>
-		Luego deber&aacute; imprimir el formulario y presentarlo en la oficina de Becas del CFJ sito en Av. Coronel D&iacute;az 2110 5to Piso.
+		A los efectos de completar su  solicitud deber&aacute; imprimir el formulario e ingresarlo junto con toda la documentaci&oacute;n que establece el Art. 13 del Reglamento de Becas,<br>
+		aprobado por la Res. CACFJ Nro 25/11, a través de la Mesa de Entradas del Consejo de la Magistratura de la Ciudad Aut&oacute;noma de Buenos Aires, sita en Av. Julio A. Roca 530 de la CABA, dentro del plazo de XXXX días.
 		<br>
 		<br>
 		Atte.<br> 
 		Departamento de Coordinaci&oacute;n de Convenios, Becas y Publicaciones.
  		<br><br>
 		<div align="center"><b><i>
-		Av. Coronel D&iacute;az 2110  -  Ciudad Aut&oacute;noma de Buenos Aires  -  CP: C1425BBQ  -  Tel: 4014-5846/6144  -  Email: cursos@jusbaires.gov.ar
+		Bolivar 177 Piso 3ro -  Ciudad Aut&oacute;noma de Buenos Aires  -   CP: C1066AAC   -  Tel: 4008-0284  -  Email: cursos@jusbaires.gov.ar
 		</i></b><div>';
 		//$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 

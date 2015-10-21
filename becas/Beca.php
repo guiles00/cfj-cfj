@@ -45,11 +45,10 @@ class Beca {
 		LEFT JOIN cargo on beca.cargo_id = cargo.car_id
 		LEFT JOIN dependencia_fueros on beca.dependencia_id = dependencia_fueros.dependencia_id
 		LEFT JOIN universidad_sigla as prop on beca.institucion_propuesta = prop.universidad_id
-		LEFT JOIN actividad on beca.actividad_id = actividad.actividad_id
 		LEFT JOIN universidad_sigla on beca.universidad_id = universidad_sigla.universidad_id
 		LEFT JOIN facultad on beca.facultad_id = facultad.facultad_id
 		where md5='".$md5."'";
-
+//LEFT JOIN actividad on beca.actividad_id = actividad.actividad_id
 		//execute query
 		$res = $db->exec_query($sqli);
 		$res = mysqli_fetch_array($res);

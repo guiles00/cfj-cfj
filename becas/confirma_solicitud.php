@@ -25,6 +25,8 @@ $alumno = new Alumno();
 //$res_beca = $beca->save($d_beca);
 //Traigo datos alumno y beca
 $n_alumno = $alumno->getAlumnoById($n_beca['alumno_id']);
+//echo "<pre>";
+//print_r($n_alumno);
 //$n_beca = $beca->getBeca($res_beca);
 
 $datetime = new DateTime($n_beca['timestamp']);
@@ -158,24 +160,11 @@ Aires, <?=$datetime->format("d");?> de <?=$datetime->format("m");?> de <?=$datet
 	<tr>
 		<td>
 			<font face="Verdana, sans-serif">
-			<font size="2" style="font-size: 10pt">APELLIDO:</font></font>
+			<font size="2" style="font-size: 10pt">APELLIDO y NOMBRE:</font></font>
 		</td>
 		<td width="273">
 			
-			<?=$n_alumno['apellido']?>
-			
-		</td>
-	</tr>
-	<tr>
-		<td>
-			
-			<font face="Verdana, sans-serif">
-			<font size="2" style="font-size: 10pt">NOMBRES:
-			</font></font>
-		</td>
-		<td width="273">
-			
-			<?=$n_alumno['nombre']?>
+			<?=$n_alumno['usi_nombre']?>
 			
 		</td>
 	</tr>
@@ -188,7 +177,7 @@ Aires, <?=$datetime->format("d");?> de <?=$datetime->format("m");?> de <?=$datet
 		</td>
 		<td width="273">
 			
-			<?=$n_alumno['nro_documento']?>
+			<?=$n_alumno['usi_dni']?>
 			
 		</td>
 	</tr>
@@ -200,7 +189,7 @@ Aires, <?=$datetime->format("d");?> de <?=$datetime->format("m");?> de <?=$datet
 		</td>
 		<td width="273">
 			
-			<?=$n_alumno['legajo']?>
+			<?=$n_alumno['usi_legajo']?>
 			
 		</td>
 	</tr>
@@ -210,7 +199,7 @@ Aires, <?=$datetime->format("d");?> de <?=$datetime->format("m");?> de <?=$datet
 			CONSTITUIDO (en el radio de CABA):</font></font>
 		</td>
 		<td width="273">
-			<?=$n_alumno['domicilio']?>
+			<?=$n_beca['domicilio_constituido']?>
 			
 		</td>
 	</tr>
@@ -220,7 +209,7 @@ Aires, <?=$datetime->format("d");?> de <?=$datetime->format("m");?> de <?=$datet
 			PARTICULAR:</font></font>
 		</td>
 		<td width="273">
-			<?=$n_alumno['telefono_particular']?>
+			
 			
 		</td>
 	</tr>
@@ -242,7 +231,7 @@ Aires, <?=$datetime->format("d");?> de <?=$datetime->format("m");?> de <?=$datet
 			
 		</td>
 		<td width="273">
-		<?=$n_alumno['email']?>	                  
+		<?=$n_alumno['usi_email']?>	                  
 			  
 		</td>
 	</tr>
@@ -265,7 +254,7 @@ Aires, <?=$datetime->format("d");?> de <?=$datetime->format("m");?> de <?=$datet
 			ACTUAL:</font></font>
 		</td>
 		<td width="273">
-		<?=$n_beca['cargo'];?>
+		<?=$n_beca['car_nombre'];?>
 		</td>
 	</tr>
 	<tr>
@@ -320,7 +309,7 @@ Aires, <?=$datetime->format("d");?> de <?=$datetime->format("m");?> de <?=$datet
 			<font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">CARRERA/CURSO/ACTIVIDAD:</font></font>
 		</td>
 		<td width="273">
-			<?=$n_beca['actividad'];?>
+			<?=$n_beca['actividad_nombre'];?>
 			
 		</td>
 	</tr>
