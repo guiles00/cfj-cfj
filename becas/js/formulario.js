@@ -154,7 +154,7 @@ jQuery.validator.addMethod("titulo_id", function(value, element) {
     $('#g_formulario_beca').validate(
         {
             rules:{
-               /* nombre: "required"
+                nombre: "required"
                 ,
                 apellido: "required"
                 ,
@@ -222,16 +222,11 @@ jQuery.validator.addMethod("titulo_id", function(value, element) {
                     required: true
                     ,monto: {monto:true}
                 }
-                ,dependencia_label:"required"
+                ,actividad_nombre:"required"
                 ,dependencia_id:"required"
-                ,facultad_label:"required"
-                ,titulo_label:"required"
-                ,cargo_acutal_label:"required"
                 ,f_ingreso_caba:"required"
-                ,universidad_label:"required"
                 ,inst_prop_id:"required"
-                */
-
+                ,dictamen:"required"
             }
             ,messages: {
                 nro_documento: {
