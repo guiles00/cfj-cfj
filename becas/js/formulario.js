@@ -149,6 +149,26 @@ jQuery.validator.addMethod("titulo_id", function(value, element) {
 }, "Complete Titulo");
 
 
+jQuery.validator.addMethod("inst_prop_id", function(value, element) {
+   
+   var b_inst_prop_id = $('#b_inst_prop_id').val();
+   
+   if(b_inst_prop_id == 0){
+     return false;
+   }
+   if(b_inst_prop_id == -1){
+        
+        var inst_prop_otro = $('#b_inst_prop_otro').val();
+        if(inst_prop_otro == '') return false;
+
+   }
+
+   return true;//this.optional(element); //13478.40$
+}, "Complete Institucion Propuesta");
+
+
+
+
 /**/
 
     $('#g_formulario_beca').validate(
@@ -209,7 +229,7 @@ jQuery.validator.addMethod("titulo_id", function(value, element) {
                 {
                     required: true
                     ,dependencia_id: {dependencia_id:true}
-                }///HASTA ACA ESTA BIEN
+                }
                 ,duracion: {
                     required: true
                     ,horas: {horas:true}
@@ -225,7 +245,11 @@ jQuery.validator.addMethod("titulo_id", function(value, element) {
                 ,actividad_nombre:"required"
                 ,dependencia_id:"required"
                 ,f_ingreso_caba:"required"
-                ,inst_prop_id:"required"
+                ,inst_prop_id:
+                {
+                    required: true
+                    ,inst_prop_id: {inst_prop_id:true}
+                }
                 ,dictamen:"required"
             }
             ,messages: {
@@ -812,6 +836,17 @@ $("#b_titulo_id").change(function(e){
     }
 });
 
+$("#b_inst_prop_id").change(function(e){
+
+    if(this.value == -1){
+        $("#b_inst_prop_otro_label").show();
+        $("#b_inst_prop_otro").show();
+    }else{
+        $("#b_inst_prop_otro_label").hide();
+        $("#b_inst_prop_otro").hide();
+        $("#b_inst_prop_otro").val('');
+    }
+});
 
 
 $('#b_s_horaria').change(function(){
