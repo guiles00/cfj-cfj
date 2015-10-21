@@ -672,6 +672,23 @@ $.getJSON("facultad.php", function (data) {
         }
     });
 
+//Completo el select de facultad
+$.getJSON("universidad.php", function (data) {
+        
+        var b_inst_prop = document.getElementById('b_inst_prop_id');
+        
+        for(i in data){
+
+            var option = document.createElement('option');
+            var texto = document.createTextNode(data[i].label);
+            option.value = data[i].value;            
+            option.appendChild(texto);
+            b_inst_prop.appendChild(option);   
+            
+        }
+    });
+
+
 $('#b_fuero_id').change(function(e){
 //console.debug(e.target.value);
     $("#b_dependencia_id").select2("val", "");
@@ -800,6 +817,17 @@ $("#b_titulo_id").change(function(e){
     }
 });
 
+
+
+$('#b_s_horaria').change(function(){
+
+    if( $('#b_s_horaria').val() == 0){
+    $('#b_s_horaria_text').hide();    
+    }else{
+        $('#b_s_horaria_text').show();
+    }
+
+});
 
 $(".select2").select2({width:"element"});
 

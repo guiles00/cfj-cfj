@@ -34,8 +34,15 @@ $d_beca['alumno_id'] = $alumno_id;
 $d_beca['md5'] = $md5;
 $d_beca['f_ingreso_caba'] = $f_i_caba_datetime->format('Y-m-d');
 
-//$d_beca['f_inicio_b'] = $fecha_inicio;
-//$d_beca['f_final_b'] = $fecha_fin;
+$fecha_inicio = '1-'.$params['f_sem_inicio_b'].'-'.$params['f_inicio_b'];
+$f_i_datetime = (new DateTime($fecha_inicio))->format('Y-m-d');;
+
+$fecha_fin = '1-'.$params['f_sem_final_b'].'-'.$params['f_final_b'];
+$f_f_datetime = (new DateTime($fecha_fin))->format('Y-m-d');;
+
+$d_beca['f_inicio_b'] = $f_i_datetime;
+$d_beca['f_final_b'] = $f_f_datetime;
+
 
 $res_beca = $beca->save($d_beca);
 

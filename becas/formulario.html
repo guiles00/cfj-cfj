@@ -34,8 +34,7 @@
 		width: 300px;
    /*font-size: 11px;*/ 
 	}
-
-
+  
 	.field-row {
   		overflow: hidden;
 	}
@@ -64,14 +63,21 @@ input[type=text]{
     height: 24px;
     /*color: #777;*/ 
 }
+
+.sel{
+     border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: Arial;
+    height: 24px;
+ 
+}
 legend,p{
   font-family: Arial;
 }
 
 select {
   background: transparent;
-  /*border: none;*/
-   
+  /*border: none;*/ 
 }
 
 
@@ -109,215 +115,211 @@ SISTEMA DE BECAS DEL CENTRO DE FORMACI&Oacute;N JUDICIAL
 <div id="g_container" align="left" style="margin-left:0px">
 <form id="g_formulario_beca"  action="./ingresa_formulario.php" method="POST">
 
-<fieldset>
-  <legend>Datos Personales</legend>
+
   <table style="margin-left:10px;padding: 10px; ">
-    <tr>
-    <td>DNI<span style="font-size:15px">(*)</span>:</td><td><input type='text' value='' id='g_dni' name='nro_documento' requireddd></td>
-    <td>Legajo<span style="font-size:15px">(*)</span>:</td><td><input type='text' value='' id='g_legajo' name="legajo" requireddd></input></td>    
+    <tr colspan="4">
+      <td><span style="color:#6796C8;font-size:22px">Datos Personales</span><hr></td>
     </tr>
     <tr>
-    <td>Apellido y Nombre<span style="font-size:15px">(*)</span>:</td><td><input type='text' value='' id='g_nombre' name="nombre" requireddd ></input></td>
-    <!--td>Apellido:</td><td><input type='text' value='' id='g_apellido' name="apellido" requireddd></input></td-->
+      <td>DNI<span style="font-size:15px">(*)</span>:</td>
+      <td><input type='text' value='' id='g_dni' name='nro_documento' requireddd></td>
+      <td>Legajo<span style="font-size:15px">(*)</span>:</td>
+      <td><input type='text' value='' id='g_legajo' name="legajo" requireddd></input></td>    
     </tr>
     <tr>
-    <td>Domicilio Constitu&iacute;do (S&oacute;lo CABA)<span style="font-size:15px">(*)</span>:</td><td><input type='text' value='' id='g_domicilio' name="domicilio" requireddd></input></td>
-    <td>Tel. Particular<span style="font-size:15px">(*)</span>:</td><td><input type='text' value='' id='g_tel' name="tel" requiredddd></input></td>
+      <td>Apellido y Nombre<span style="font-size:15px">(*)</span>:</td>
+      <td><input type='text' value='' id='g_nombre' name="nombre" requireddd ></input></td>
+      <!--td>Apellido:</td><td><input type='text' value='' id='g_apellido' name="apellido" requireddd></input></td-->
     </tr>
-    <tr><td>G&eacute;nero:</td><td>
-      <select name="b_genero" id="b_genero" class="select2" style="width:100%">
-      <option value="1">Masculino</option>
-      <option value="2">Femenino</option>
-      <option value="3">Otro</option>
-      </select>
-    </td>
-    <td>Fecha Nacimiento:</td><td><input type="text" value="" id="b_fec_nac" name="fec_nac"></input></td></tr>
-  </table>
-</fieldset>
+    <tr>
+      <td>Domicilio Constitu&iacute;do (S&oacute;lo CABA)<span style="font-size:15px">(*)</span>:</td>
+      <td><input type='text' value='' id='g_domicilio' name="domicilio" requireddd></input></td>
+      <td>Tel. Particular<span style="font-size:15px">(*)</span>:</td>
+      <td><input type='text' value='' id='g_tel' name="tel" requiredddd></input></td>
+    </tr>
+    <tr>
+      <td>G&eacute;nero:</td>
+      <td>
+        <select name="b_genero" id="b_genero" class="select2" style="width:100%">
+          <option value="1">Masculino</option>
+          <option value="2">Femenino</option>
+          <option value="3">Otro</option>
+        </select>
+      </td>
+      <td>Fecha Nacimiento:</td>
+      <td><input type="text" value="" id="b_fec_nac" name="fec_nac"></input></td>
+    </tr>
+    <tr colspan="4">
+      <td><span style="color:#6796C8;font-size:22px">Datos Laborales<span><hr></td>
+    </tr>
+    <tr>
+      <td>Fecha de Ingreso PJCABA<span style="font-size:15px">(*)</span>:</td>
+      <td>
+        <select id='g_f_m_ingreso_caba' name='g_f_m_ingreso_caba' class="b_fecha_m select2" ></select>      
+        <select id='g_f_a_ingreso_caba' name='g_f_a_ingreso_caba' class="b_fecha_a select2" style="width:50%"></select>
+      </td>
+      <td>Cargo Actual<span style="font-size:15px">(*)</span>:</td>
+      <td style="width:50px"> 
+        <select name="cargo_id" class="select2" style="width:300px" id="b_cargo">
+          <option value="0" selected="true"> - </option>
+        </select>
+      </td>
+      <td><span style="display:none" id="b_cargo_otro_label" >Otro:<span></td>
+      <td><input type="text" name="cargo_otro" id="b_cargo_otro" placeholder="Ingrese Valor" style="display:none"></input></td>
+    </tr>
+    <tr>
+      <td>Fuero<span style="font-size:15px">(*)</span>:</td>
+      <td>
+        <select name="b_fuero" id="b_fuero_id" class="select2">
+          <option value="0" selected>-</option>
+          <option value="1">FUERO CAyT</option>
+          <option value="2">FUERO PCyF</option>
+          <option value="3">CMCABA</option>
+          <option value="4">MINISTERIO PUBLICO FISCAL</option>
+          <option value="5">MINISTERIO PUBLICO DE LA DEFENSA</option>
+          <option value="7">MINISTERIO PUBLICO TUTELAR</option>
+          <option value="8">Tribunal Superior de Justicia</option>
+        </select>
+      </td>
+      <td>Dependencia<span style="font-size:15px">(*)</span>:</td>
+      <td>
+        <select name="dependencia_id" class="select2"  id="b_dependencia_id" style="width:100%">
+          <option value="0" selected="true"> - </option>
+        </select>
+      </td>
+      <td><span style="display:none" id="b_dependencia_otro_label" >Otro:<span></td>
+      <td><input type="text" name="cargo_otro" id="b_dependencia_otro" placeholder="Ingrese Valor" style="display:none"></input></td>
+      <tr>
+        <td>Tel. Laboral<span style="font-size:15px">(*)</span>:</td><td><input type='text' value='' id='g_telefono_laboral' name="telefono_laboral" requiredddd></input></td> 
+        <td>Universidad<span style="font-size:15px">(*)</span>:</td>
+        <td>
 
-<fieldset>  
-  <legend>Datos Laborales</legend>
-  <table style="margin-left:10px">
-    <tr>
-    <td>Fecha de Ingreso PJCABA<span style="font-size:15px">(*)</span>:</td>
-    <!--input type='text' value='' id='g_f_ingreso_caba' name='f_ingreso_caba' placeholder='dd/mm/yyyy'requireddd></td-->
-    <td>
-      <select id='g_f_m_ingreso_caba' name='g_f_m_ingreso_caba' class="b_fecha_m select2" ></select>      
-      <select id='g_f_a_ingreso_caba' name='g_f_a_ingreso_caba' class="b_fecha_a select2" style="width:50%"></select>
-    </td>
-    
-    <td>Cargo Actual<span style="font-size:15px">(*)</span>:
-    </td>
-    <td style="width:50px">   
-    <select name="cargo_id" class="select2" style="width:300px" id="b_cargo">
+          <select name="universidad_id" class="select2" style="width:100%" id="b_universidad_id">
             <option value="0" selected="true"> - </option>
-    </select>
-    </td>
-
-    <td><span style="display:none" id="b_cargo_otro_label" >Otro:<span></td><td>
-    <input type="text" name="cargo_otro" id="b_cargo_otro" placeholder="Ingrese Valor" style="display:none"></input>
-    </td>
-    
+          </select>
+        </td>
+        <td><span style="display:none" id="b_universidad_otro_label" >Otro:<span></td><td>
+        <input type="text" name="universidad_otro" id="b_universidad_otro" placeholder="Ingrese Valor" style="display:none"></input>
+      </td>
 
     </tr>
     <tr>
-    <td>Fuero<span style="font-size:15px">(*)</span>:</td>
-    <td>
-    <select name="b_fuero" id="b_fuero_id" class="select2">
-    <option value="0" selected>-</option>
-    <option value="1">FUERO CAyT</option>
-    <option value="2">FUERO PCyF</option>
-    <option value="3">CMCABA</option>
-    <option value="4">MINISTERIO PUBLICO FISCAL</option>
-    <option value="5">MINISTERIO PUBLICO DE LA DEFENSA</option>
-    <option value="7">MINISTERIO PUBLICO TUTELAR</option>
-    <option value="8">Tribunal Superior de Justicia</option>
-    </select>
-    </td>
-     <td>Dependencia<span style="font-size:15px">(*)</span>:</td>
-    <td>
-    <select name="dependencia_id" class="select2"  id="b_dependencia_id" style="width:100%">
-            <option value="0" selected="true"> - </option>
-    </select>
-    </td>
-    <td><span style="display:none" id="b_dependencia_otro_label" >Otro:<span></td><td>
-    <input type="text" name="cargo_otro" id="b_dependencia_otro" placeholder="Ingrese Valor" style="display:none"></input>
-    </td>
-    <tr>
-    <td>Tel. Laboral<span style="font-size:15px">(*)</span>:</td><td><input type='text' value='' id='g_telefono_laboral' name="telefono_laboral" requiredddd></input></td>
-    
-    <td>Universidad<span style="font-size:15px">(*)</span>:</td>
-    <td>
-    
-    <select name="universidad_id" class="select2" style="width:100%" id="b_universidad_id">
-            <option value="0" selected="true"> - </option>
-    </select>
-    <!--input type="text" name="universidad_otro" id="b_universidad_otro" style="display:none" placeholder="Ingrese Valor"></input-->
-    </td>
-    <td><span style="display:none" id="b_universidad_otro_label" >Otro:<span></td><td>
-    <input type="text" name="universidad_otro" id="b_universidad_otro" placeholder="Ingrese Valor" style="display:none"></input>
-    </td>
-   
-    </tr>
-    <tr>
-    <td>Correo Electronico Oficial <span style="font-size:15px">(*)</span>:</td><td>
-    <input type='text' id='g_email' name="email" value='' placeholder="@jusbaires.gov.ar" requireddd></input></td>
-       <td>Facultad<span style="font-size:15px">(*)</span>:
-   </td>
-   <td style="width:25%">
-     <select name="facultad_id" class="select2" style="width:100%" id="b_facultad_id">
-              <option value="0" selected="true"> - </option>
+      <td>Correo Electronico Oficial <span style="font-size:15px">(*)</span>:</td><td>
+      <input type='text' id='g_email' name="email" value='' placeholder="@jusbaires.gov.ar" requireddd></input></td>
+      <td>Facultad<span style="font-size:15px">(*)</span>:
+      </td>
+      <td style="width:25%">
+       <select name="facultad_id" class="select2" style="width:100%" id="b_facultad_id">
+        <option value="0" selected="true"> - </option>
       </select>
     </td>
     <td><span style="display:none" id="b_facultad_otro_label" >Otro:<span></td><td>
     <input type="text" name="facultad_otro" id="b_facultad_otro" placeholder="Ingrese Valor" style="display:none"></input>
-    </td>
-  </tr>
-  <tr>
-  <td>Repetir Correo<span style="font-size:15px">(*)</span>:
   </td>
-  <td>
-    <input type='text' id='g_email_again' name="r_email" value='' placeholder="@jusbaires.gov.ar" ></input>
-  </td>
-   
-    <td>Titulo de grado<span style="font-size:15px">(*)</span>:</td><td>
-    
-    <select name="titulo_id" class="select2" style="width:100%" id="b_titulo_id">
-            <option value="0" selected="true"> - </option>
-    </select>
-  </td>
-  <td><span style="display:none" id="b_titulo_otro_label" >Otro:<span></td><td>
-    <input type="text" name="titulo_otro" id="b_titulo_otro" placeholder="Ingrese Valor" style="display:none"></input>
-    </td>
-    </tr>
-  </table>
-</fieldset>
+</tr>
+<tr>
+  <td>Repetir Correo<span style="font-size:15px">(*)</span>:</td>
+  <td><input type='text' id='g_email_again' name="r_email" value='' placeholder="@jusbaires.gov.ar" ></input></td>
 
-<fieldset>
-  <legend>Datos Beca</legend>
-  <table style="margin-left:10px">
-    <tr>
-    <td>Tipo de Beca:</td><td><select id="g_tipo_beca" name="tipo_beca_id">
-      <option value="1">Acogimiento a beneficio convenio</option>
-      <option value="2">Acogimiento a beneficio convenio y beca</option>
-      <option value="3">Beca (Sin Convenio)</option>
+  <td>Titulo de grado<span style="font-size:15px">(*)</span>:</td><td>
+  <select name="titulo_id" class="select2" style="width:100%" id="b_titulo_id">
+    <option value="0" selected="true"> - </option>
+  </select>
+</td>
+<td><span style="display:none" id="b_titulo_otro_label" >Otro:<span></td>
+<td><input type="text" name="titulo_otro" id="b_titulo_otro" placeholder="Ingrese Valor" style="display:none"></input></td>
+</tr>
+<tr colspan="4">
+  <td><span style="color:#6796C8;font-size:22px">Datos Beca</span><hr></td>
+</tr>
+<tr>
+  <td>Tipo de Beca:</td><td><select id="g_tipo_beca" name="tipo_beca_id" class="sel">
+  <option value="1">Acogimiento a beneficio convenio</option>
+  <option value="2">Acogimiento a beneficio convenio y beca</option>
+  <option value="3">Beca (Sin Convenio)</option>
+</select>
+</td>
+<td>Renovaci&oacute;n:</td>
+<td>
+  <select id="g_tipo_beca" name="tipo_beca_id" class="sel">
+    <option value="1">NO</option>
+    <option value="2">SI</option>
+  </select>
+</td>
+</tr>
+<tr>
+  <td>Instituci&oacute;n propuesta para la actividad:</td>
+  <td>
+    <select id='b_inst_prop_id' name="inst_prop_id" class="select2" style="width:100%">
+      <option value="0" selected="true"> - </option>
     </select>
-    </td>
-    <td>Renovaci&oacute;n:</td><td><select id="g_tipo_beca" name="tipo_beca_id">
-      <option value="1">NO</option>
-      <option value="2">SI</option>
-    </select>
-    </td>
-    
-    </tr>
-    <tr>
-    <td>Instituci&oacute;n propuesta para la actividad:</td>
-    <td><input type='text' value='' id='g_inst_prop' name="inst_prop_id" placeholder="Ingrese institucion Ej. UBA " requireddd></input>
-    <!--input type='text' style="display:none" value='' id='g_inst_prop_otro' name="inst_prop_otro" placeholder="Ingrese el nombre de la institucion "></input-->
-    </td>
-    </tr>
-    <tr>    
-    <td>Carrea/Curso/Actividad:</td><td> 
-    <select name="tipo_actividad_id" id="g_tipo_actividad_id">
+  </td>
+</tr>
+<tr>    
+  <td>Carrea/Curso/Actividad:</td><td> 
+  <select name="tipo_actividad_id" id="g_tipo_actividad_id" class="sel">
     <option value="1">Carrera</option>
     <option value="2">Curso</option>
     <option value="3">Actividad</option>
-    </select>
-    </td>
-    <td>Nombre(Carrea/Curso/Actividad):</td>
-    <td>
-    <input type='text' value='' id='g_actividad_label' name="actividad_label" requireddd></input>
-    <!--input type='text' style="display:none" value='' id='g_actividad_otro' name="inst_actividad_otro" placeholder="Ingrese el nombre de la actividad"></input-->
-    <input type='hidden' value='' id='g_actividad_id' name="actividad_id" requireddd></input>
-    </td>
-    </tr>
-    <tr>
-    
-    <td>Fecha de inicio:</td><td>
-     <select id='g_sem_f_inicio_b' name="f_sem_inicio_b">
-      <option value="1">1er Semestre</option>
-       <option value="2">2do Semestre</option>
-      </select> 
-      <select id='g_f_inicio_b' name="f_inicio_b" class="b_fecha_d"></select>
-    </td>
-
-    <td>Fecha de finalizaci&oacute;n</td>
-    <td>
-      <select id='g_sem_f_final_b' name="f_sem_final_b">
-        <option value="1">1er Semestre</option>
-        <option value="2">2do Semestre</option>
-      </select> 
-      <select id='g_f_final_b' name="f_final_b" class="b_fecha_d"></select>
-    </td>
-    <tr>
-    <td>Duraci&oacute;n total(hs):</td><td><input type='text' value='' id='g_duracion' name="duracion" requireddd></input></td>
-    </tr>
-    <tr>
-    <td>Costo total:</td><td><input type='text' value='' id='g_costo' name="costo" placeholder="999.99" requireddd></input></td>
-    <td><span id="g_monto_show">Monto Solicitado(M&aacute;x. 13478.4$)</span>
+  </select>
+</td>
+<td>Nombre(Carrea/Curso/Actividad):</td>
+<td>
+  <input type='text' value='' id='b_actividad_nombre' name="actividad_nombre" requireddd></input>
+</td>
+</tr>
+<tr>
+  <td>Fecha de inicio:</td><td>
+  <select id='g_sem_f_inicio_b' name="f_sem_inicio_b" class="sel">
+    <option value="1">1er Semestre</option>
+    <option value="6">2do Semestre</option>
+  </select> 
+  <select id='g_f_inicio_b' name="f_inicio_b" class="b_fecha_d sel"></select>
+</td>
+<td>Fecha de finalizaci&oacute;n</td>
+<td>
+  <select id='g_sem_f_final_b' name="f_sem_final_b" class="sel">
+    <option value="1">1er Semestre</option>
+    <option value="6">2do Semestre</option>
+  </select> 
+  <select id='g_f_final_b' name="f_final_b" class="b_fecha_d sel"></select>
+</td>
+<tr>
+  <td>Duraci&oacute;n total(hs):</td><td><input type='text' value='' id='g_duracion' name="duracion" requireddd></input></td>
+</tr>
+<tr>
+  <td>Costo total:</td><td><input type='text' value='' id='g_costo' name="costo" placeholder="999.99" requireddd></input></td>
+  <td><span id="g_monto_show">Monto Solicitado(M&aacute;x. 13478.4$)</span>
     <a class="notaArt6" name="notaArt6" href="#notaArt6"><sup>1</sup></a></font></font></sup><font face="Verdana, sans-serif"><font size="2" style="font-size: 8pt"></font></font>
-    :</td><td><input type='text' value='' id='g_monto' name="monto" placeholder="999.99" requireddd></input></td>
-    </tr>
-    <tr>
+    </td><td><input type='text' value='' id='g_monto' name="monto" placeholder="999.99" requireddd></input></td>
+  </tr>
+  <tr>
     <td>Dictamen evaluativo suscripto por:</td><td><input type='text' value='' id='g_dictamen' name="dictamen" requireddd></input></td>
-    </tr>
-    <tr><td>Superposici&oacute;n horaria:</td>  
-    <td><select id="g_s_horaria" name="s_horaria">
-    <option value="0">NO</option>
-    <option value="1">SI</option>
+  </tr>
+  <tr>
+    <td>Superposici&oacute;n horaria:</td>  
+    <td><select id="b_s_horaria" name="s_horaria" class="sel">
+      <option value="0">NO</option>
+      <option value="1">SI</option>
     </select>
-    </td>
-    </tr>
-    <tr>
-   <td><input style="none"type="submit" value="Confirmar y Enviar Solicitud" id="aceptar"></input></td>
-    <!--onclick="return confirm('Desear confirmar la solicitud, todos los datos son correctos?')" -->
-    </tr>
-  </table>
-</fieldset>
+  </td>
+</tr>
+<tr rowspan="2">
+  <td colspan="4">  
+    <span color="red" style="font-size:11px;display:none" id="b_s_horaria_text">De conformidad con el Art. 17 deber&aacute; solicitar previa conformidad su superior jer&aacute;rquico autorizaci&oacute;n al Presidente del Consejo de la Magistratura, Fiscal General, Defensor General, Asesor General Tutelar o Presidente del Tribunal Superior de Justicia de la Ciudad Aut&oacute;noma de Buenos Aires, seg&uacute;n corresponda, en la que conste la modalidad de recupero de las horas de trabajo. En el caso de Congresos, Jornadas u otros eventos deber&aacute; especificar en su solicitud como justificar&aacute; sus ausencias.</span>
+  </td>
+</tr>
+<tr>  
+ <td><input style="none"type="submit" value="Confirmar y Enviar Solicitud" id="aceptar" onclick="return confirm('Desear confirmar la solicitud, todos los datos son correctos?')"></input></td>
+ <td></td>
+ <!--onclick="return confirm('Desear confirmar la solicitud, todos los datos son correctos?')" -->
+</tr>
+</table>
 </form>
 <div align="right">
 <i  style= "font-size:15px" >*Todos los campos son obligatorios</i>
 </div>
+
 <div id="notaArt6"><p><i style= "font-size:15px">
 Art&iacute;culo 6&#176;(Res. CACFJ Nro 25/11): Una vez conocido el importe asignado en el presupuesto para becas, el
 Consejo Acad&eacute;mico del Centro de Formaci&oacute;n Judicial establecer&aacute; los montos m&aacute;ximos
