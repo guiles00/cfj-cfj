@@ -16,7 +16,7 @@ $params = $_POST;
 //print_r($params);
 //exit;
 
-$fecha_ingreso_caba = $params['g_f_a_ingreso_caba'].'-'.$params['g_f_m_ingreso_caba'];
+$fecha_ingreso_caba = $params['b_f_a_ingreso_caba'].'-'.$params['b_f_m_ingreso_caba'];
 $f_i_caba_datetime = new DateTime($fecha_ingreso_caba);
 
 $md5 = md5(time());
@@ -70,22 +70,22 @@ $mailer->sendEmail($params);
 	$(document).ready(function() {
 		
 		$('#show').click(function(){
-			$('#g_print_container').toggle();
+			$('#b_print_container').toggle();
 			
 		});
 	});
 </script>
 	<style type="text/css">
-	#g_table_content td{
+	#b_table_content td{
 		border: 1px solid #000000; 
 		padding: 0in 0.05in;
 		width:"273";
 	}
-	#g_table_content p {
+	#b_table_content p {
 		align:"justify";
 		font-family: "Times New Roman", serif; font-size: 12pt;
 	}
-	#g_header p{
+	#b_header p{
 		font-family:"Verdana, sans-serif";
 		font size: "font-size: 9pt";
 	}
@@ -126,9 +126,9 @@ $mailer->sendEmail($params);
 <!--div class="noprint" align="center">
 <input class="noprint" type="button" onClick="imprimir()" value="Imprimir Formulario"/>
 </div-->
-<div class="nodisplay" id="g_print_container">
+<div class="nodisplay" id="b_print_container">
 
-<div title="header" id="g_header">
+<div title="header" id="b_header">
 	<p align="center"><img src="./print-logo.jpg" align="bottom" width="197" height="80" border="0"></p>
 	<p align="center"><i>"2015,
 	Buenos Aires Capital Mundial de ..."</i></p>
@@ -146,7 +146,7 @@ DE SOLICITUD</b></p>
 Aires, <?=$datetime->format("d");?> de <?=$datetime->format("m");?> de <?=$datetime->format("Y");?></font></p>
 </p>
 
-<div id="g_table_content">
+<div id="b_table_content">
 <table>
 	<tr>
 		<td>

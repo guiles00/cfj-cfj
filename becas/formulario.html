@@ -16,6 +16,7 @@
 
 <style type="text/css">
 
+
   p {
     font-family: Georgia;
     /*font-size: 28px;*/
@@ -80,7 +81,11 @@ select {
   /*border: none;*/ 
 }
 
-
+table.contained {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
 
 #g_formulario_beca label.error {
     color: #FB3A3A;
@@ -115,8 +120,7 @@ SISTEMA DE BECAS DEL CENTRO DE FORMACI&Oacute;N JUDICIAL
 <div id="g_container" align="left" style="margin-left:0px">
 <form id="g_formulario_beca"  action="./ingresa_formulario.php" method="POST">
 
-
-  <table style="margin-left:10px;padding: 10px; ">
+  <table style="margin-left:10px;padding: 10px;" class="contained">
     <tr colspan="4">
       <td><span style="color:#6796C8;font-size:22px">Datos Personales</span><hr></td>
     </tr>
@@ -321,6 +325,7 @@ SISTEMA DE BECAS DEL CENTRO DE FORMACI&Oacute;N JUDICIAL
 </tr>
 </table>
 </form>
+</div>
 <div align="right">
 <i  style= "font-size:15px" >*Todos los campos son obligatorios</i>
 </div>
@@ -345,10 +350,5 @@ inscripci&oacute;n. Este monto en ning&uacute;n caso podr&aacute; exceder el cin
 art&iacute;culo.
 </i></p>
 </div>
-<!--/fieldset>
-</form-->
-<!--/div-->
-<div align="center" id="g_result"></div>
-
 </body>
 </html>

@@ -44,7 +44,7 @@ jQuery.validator.addMethod("costo", function(value, element) {
 jQuery.validator.addMethod("monto", function(value, element) {
    
    //traigo si es curso/carrera/actividad
-   var tipo = $('#g_tipo_actividad_id').val();
+   var tipo = $('#b_tipo_actividad_id').val();
    var valor = 14976;   
 
    if(tipo == 1){
@@ -171,7 +171,7 @@ jQuery.validator.addMethod("inst_prop_id", function(value, element) {
 
 /**/
 
-    $('#g_formulario_beca').validate(
+    $('#b_formulario_beca').validate(
         {
             rules:{
                 nombre: "required"
@@ -207,7 +207,7 @@ jQuery.validator.addMethod("inst_prop_id", function(value, element) {
                     ,email : { email : true }
                 }
                 ,r_email: {
-                    equalTo: "#g_email"
+                    equalTo: "#b_email"
                 }
                 ,cargo_id:
                 {
@@ -306,45 +306,45 @@ jQuery.validator.addMethod("inst_prop_id", function(value, element) {
         }
     );	
     
-    $('#g_tipo_actividad_id').change(function(){
+    $('#b_tipo_actividad_id').change(function(){
 
-        var tipo = $('#g_tipo_actividad_id').val();
+        var tipo = $('#b_tipo_actividad_id').val();
 
            var valor = 14976;   
            if(tipo == 1){
             //13478.40
            // if(parseFloat(value) > (valor*.9)) return false;
            var max = parseFloat((14976*.9)).toFixed(2);
-            $('#g_monto_show').html('Monto Solicitado(M&aacute;x. '+max+'$)');
+            $('#b_monto_show').html('Monto Solicitado(M&aacute;x. '+max+'$)');
            }else if(tipo == 2){
             
            var max = parseFloat((14976*.8)).toFixed(2);
-            $('#g_monto_show').html('Monto Solicitado(M&aacute;x. '+max+'$)');
+            $('#b_monto_show').html('Monto Solicitado(M&aacute;x. '+max+'$)');
            }else if(tipo == 3){
             
             var max = parseFloat((14976*.5)).toFixed(2);
-            $('#g_monto_show').html('Monto Solicitado(M&aacute;x. '+max+'$)');
+            $('#b_monto_show').html('Monto Solicitado(M&aacute;x. '+max+'$)');
            }
 
         
     });
     
 
-    $('#g_dni').focus();
+    $('#b_dni').focus();
 
-    $('#g_dni').focusout(function(){
+    $('#b_dni').focusout(function(){
 		
-		var dni = $('#g_dni').val();
+		var dni = $('#b_dni').val();
         $.ajax({
                 url : "./get_alumno.php"
                 ,data:{ 'dni': dni }
                 ,success : function(result) {
                 var res = JSON.parse(result);
                     if(res.usi_nombre){ //Si trajo datos voy a completar domicilio
-						$('#g_nombre').val(res.usi_nombre);
-						//$('#g_apellido').val(res.apellido);
-						$('#g_legajo').val(res.usi_legajo);
-						$('#g_domicilio').focus();
+						$('#b_nombre').val(res.usi_nombre);
+						//$('#b_apellido').val(res.apellido);
+						$('#b_legajo').val(res.usi_legajo);
+						$('#b_domicilio').focus();
 		       		}
                 }
               });    	
@@ -352,7 +352,7 @@ jQuery.validator.addMethod("inst_prop_id", function(value, element) {
 
 
 /* $.getJSON("cargo.php", function (data) {
-        $("#g_cargo_actual_label").autocomplete({
+        $("#b_cargo_actual_label").autocomplete({
             source: data
             ,focus: function(event, ui) {
             // prevent autocomplete from updating the textbox
@@ -364,14 +364,14 @@ jQuery.validator.addMethod("inst_prop_id", function(value, element) {
             event.preventDefault();
             $(this).val(ui.item.label);
             
-            var a = $('#g_cargo_actual_id').val(ui.item.value);
+            var a = $('#b_cargo_actual_id').val(ui.item.value);
             //console.debug(a.val());
             }
         });
     });
 */
  /*$.getJSON("dependencia.php", function (data) {
-        $("#g_dependencia_label").autocomplete({
+        $("#b_dependencia_label").autocomplete({
             source: data
             ,focus: function(event, ui) {
             // prevent autocomplete from updating the textbox
@@ -383,14 +383,14 @@ jQuery.validator.addMethod("inst_prop_id", function(value, element) {
             event.preventDefault();
             $(this).val(ui.item.label);
             
-            var a = $('#g_dependencia_id').val(ui.item.value);
+            var a = $('#b_dependencia_id').val(ui.item.value);
                 
-                if($("#g_dependencia_label").val() == 'OTRO'){
+                if($("#b_dependencia_label").val() == 'OTRO'){
                     
-                    $("#g_dependencia_otro").show();
+                    $("#b_dependencia_otro").show();
                 }else{
-                    $("#g_dependencia_otro").val('');
-                    $("#g_dependencia_otro").hide();
+                    $("#b_dependencia_otro").val('');
+                    $("#b_dependencia_otro").hide();
                 }
             }
         });
@@ -398,7 +398,7 @@ jQuery.validator.addMethod("inst_prop_id", function(value, element) {
 */
 
  /*$.getJSON("universidad.php", function (data) {
-        $("#g_universidad_label").autocomplete({
+        $("#b_universidad_label").autocomplete({
             source: data
             ,focus: function(event, ui) {
             // prevent autocomplete from updating the textbox
@@ -410,21 +410,21 @@ jQuery.validator.addMethod("inst_prop_id", function(value, element) {
             event.preventDefault();
             $(this).val(ui.item.label);
             
-            var a = $('#g_universidad_id').val(ui.item.value);
+            var a = $('#b_universidad_id').val(ui.item.value);
             
-                if($("#g_universidad_label").val() == 'OTRO'){
+                if($("#b_universidad_label").val() == 'OTRO'){
                     
-                    $("#g_universidad_otro").show();
+                    $("#b_universidad_otro").show();
                 }else{
-                    $("#g_universidad_otro").val('');
-                    $("#g_universidad_otro").hide();
+                    $("#b_universidad_otro").val('');
+                    $("#b_universidad_otro").hide();
                 }
             }
         });
     });
 */
  /*$.getJSON("universidad.php", function (data) {
-        $("#g_inst_prop_label").autocomplete({
+        $("#b_inst_prop_label").autocomplete({
             source: data
             ,focus: function(event, ui) {
             // prevent autocomplete from updating the textbox
@@ -436,16 +436,16 @@ jQuery.validator.addMethod("inst_prop_id", function(value, element) {
             event.preventDefault();
             $(this).val(ui.item.label);
             
-            var a = $('#g_inst_prop_id').val(ui.item.value);
+            var a = $('#b_inst_prop_id').val(ui.item.value);
             //console.debug(a.val());
 
-                //console.debug($("#g_inst_prop_label").val());
-                if($("#g_inst_prop_label").val() == 'OTRO'){
+                //console.debug($("#b_inst_prop_label").val());
+                if($("#b_inst_prop_label").val() == 'OTRO'){
                     
-                    $("#g_inst_prop_otro").show();
+                    $("#b_inst_prop_otro").show();
                 }else{
-                    $("#g_inst_prop_otro").val('');
-                    $("#g_inst_prop_otro").hide();
+                    $("#b_inst_prop_otro").val('');
+                    $("#b_inst_prop_otro").hide();
                 }
             }
         });
@@ -454,7 +454,7 @@ jQuery.validator.addMethod("inst_prop_id", function(value, element) {
 
 
  $.getJSON("titulo.php", function (data) {
-        $("#g_titulo_label").autocomplete({
+        $("#b_titulo_label").autocomplete({
             source: data
             ,focus: function(event, ui) {
             // prevent autocomplete from updating the textbox
@@ -466,15 +466,15 @@ jQuery.validator.addMethod("inst_prop_id", function(value, element) {
             event.preventDefault();
             $(this).val(ui.item.label);
             
-            var a = $('#g_titulo_id').val(ui.item.value);
+            var a = $('#b_titulo_id').val(ui.item.value);
                 
-               if($("#g_titulo_label").val() == 'OTRO'){
+               if($("#b_titulo_label").val() == 'OTRO'){
                     
-                    $("#g_titulo_otro").show();
+                    $("#b_titulo_otro").show();
                 }else{
 
-                    $("#g_titulo_otro").val('');
-                    $("#g_titulo_otro").hide();
+                    $("#b_titulo_otro").val('');
+                    $("#b_titulo_otro").hide();
                 }
             }
         });
@@ -482,7 +482,7 @@ jQuery.validator.addMethod("inst_prop_id", function(value, element) {
 
 /*
  $.getJSON("facultad.php", function (data) {
-        $("#g_facultad_label").autocomplete({
+        $("#b_facultad_label").autocomplete({
             source: data
             ,focus: function(event, ui) {
             // prevent autocomplete from updating the textbox
@@ -494,14 +494,14 @@ jQuery.validator.addMethod("inst_prop_id", function(value, element) {
             event.preventDefault();
             $(this).val(ui.item.label);
             
-            var a = $('#g_facultad_id').val(ui.item.value);
+            var a = $('#b_facultad_id').val(ui.item.value);
               
-               if($("#g_facultad_label").val() == 'OTRO'){
+               if($("#b_facultad_label").val() == 'OTRO'){
                     
-                    $("#g_facultad_otro").show();
+                    $("#b_facultad_otro").show();
                 }else{
-                    $("#g_facultad_otro").val('');
-                    $("#g_facultad_otro").hide();
+                    $("#b_facultad_otro").val('');
+                    $("#b_facultad_otro").hide();
                 }      
             }
         });
@@ -509,7 +509,7 @@ jQuery.validator.addMethod("inst_prop_id", function(value, element) {
 */
 
  $.getJSON("actividad.php", function (data) {
-        $("#g_actividad_label").autocomplete({
+        $("#b_actividad_label").autocomplete({
             source: data
             ,focus: function(event, ui) {
             // prevent autocomplete from updating the textbox
@@ -521,14 +521,14 @@ jQuery.validator.addMethod("inst_prop_id", function(value, element) {
             event.preventDefault();
             $(this).val(ui.item.label);
             
-            var a = $('#g_actividad_id').val(ui.item.value);
+            var a = $('#b_actividad_id').val(ui.item.value);
             //console.debug(a.val());
-                if($("#g_actividad_label").val() == 'OTRO'){
+                if($("#b_actividad_label").val() == 'OTRO'){
                     
-                    $("#g_actividad_otro").show();
+                    $("#b_actividad_otro").show();
                 }else{
-                    $("#g_actividad_otro").val('');
-                    $("#g_actividad_otro").hide();
+                    $("#b_actividad_otro").val('');
+                    $("#b_actividad_otro").hide();
                 }
             }
         });
@@ -537,7 +537,7 @@ jQuery.validator.addMethod("inst_prop_id", function(value, element) {
 
 
 // Fechas 
-$('#g_f_ingreso_caba').datepicker({
+$('#b_f_ingreso_caba').datepicker({
             dateFormat:"yy-mm-dd",  
             yearRange: "-20:+0",
             changeMonth: true,
@@ -550,8 +550,8 @@ $('#b_fec_nac').datepicker({
             changeMonth: true,
             changeYear: true
         });
-$('#g_f_inicio_b').datepicker({dateFormat:"yy-mm-dd"});
-$('#g_f_final_b').datepicker({dateFormat:"yy-mm-dd"});
+$('#b_f_inicio_b').datepicker({dateFormat:"yy-mm-dd"});
+$('#b_f_final_b').datepicker({dateFormat:"yy-mm-dd"});
 
 
 
