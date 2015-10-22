@@ -181,53 +181,54 @@ SISTEMA DE BECAS DEL CENTRO DE FORMACI&Oacute;N JUDICIAL
           <option value="8">Tribunal Superior de Justicia</option>
         </select>
       </td>
-      <td>Dependencia<span style="font-size:15px">(*)</span>:</td>
-      <td>
-        <select name="dependencia_id" class="select2"  id="b_dependencia_id" style="width:100%">
-          <option value="0" selected="true"> - </option>
-        </select>
-      </td>
-      <td><span style="display:none" id="b_dependencia_otro_label" >Otro:<span></td>
-      <td><input type="text" name="cargo_otro" id="b_dependencia_otro" placeholder="Ingrese Valor" style="display:none"></input></td>
-      <tr>
-        <td>Tel. Laboral<span style="font-size:15px">(*)</span>:</td><td><input type='text' value='' id='g_telefono_laboral' name="telefono_laboral" requiredddd></input></td> 
-        <td>Universidad<span style="font-size:15px">(*)</span>:</td>
-        <td>
-
-          <select name="universidad_id" class="select2" style="width:100%" id="b_universidad_id">
-            <option value="0" selected="true"> - </option>
-          </select>
-        </td>
-        <td><span style="display:none" id="b_universidad_otro_label" >Otro:<span></td><td>
-        <input type="text" name="universidad_otro" id="b_universidad_otro" placeholder="Ingrese Valor" style="display:none"></input>
-      </td>
-
-    </tr>
-    <tr>
-      <td>Correo Electronico Oficial <span style="font-size:15px">(*)</span>:</td><td>
-      <input type='text' id='g_email' name="email" value='' placeholder="@jusbaires.gov.ar" requireddd></input></td>
-      <td>Facultad<span style="font-size:15px">(*)</span>:
-      </td>
-      <td style="width:25%">
-       <select name="facultad_id" class="select2" style="width:100%" id="b_facultad_id">
-        <option value="0" selected="true"> - </option>
-      </select>
-    </td>
-    <td><span style="display:none" id="b_facultad_otro_label" >Otro:<span></td><td>
-    <input type="text" name="facultad_otro" id="b_facultad_otro" placeholder="Ingrese Valor" style="display:none"></input>
-  </td>
-</tr>
-<tr>
-  <td>Repetir Correo<span style="font-size:15px">(*)</span>:</td>
-  <td><input type='text' id='g_email_again' name="r_email" value='' placeholder="@jusbaires.gov.ar" ></input></td>
-
-  <td>Titulo de grado<span style="font-size:15px">(*)</span>:</td><td>
+        <td>Titulo de grado<span style="font-size:15px">(*)</span>:</td><td>
   <select name="titulo_id" class="select2" style="width:100%" id="b_titulo_id">
     <option value="0" selected="true"> - </option>
   </select>
 </td>
 <td><span style="display:none" id="b_titulo_otro_label" >Otro:<span></td>
-<td><input type="text" name="titulo_otro" id="b_titulo_otro" placeholder="Ingrese Valor" style="display:none"></input></td>
+<td>
+  <input type="text" name="titulo_otro" id="b_titulo_otro" placeholder="Ingrese Valor" style="display:none"></input>
+</td>
+<tr>
+  <td>Tel. Laboral<span style="font-size:15px">(*)</span>:</td><td><input type='text' value='' id='g_telefono_laboral' name="telefono_laboral" requiredddd></input></td> 
+
+  <td>Dependencia<span style="font-size:15px">(*)</span>:</td>
+  <td>
+    <select name="dependencia_id" class="select2"  id="b_dependencia_id" style="width:100%">
+      <option value="0" selected="true"> - </option>
+    </select>
+  </td>
+  <td><span style="display:none" id="b_dependencia_otro_label" >Otro:<span></td>
+  <td><input type="text" name="cargo_otro" id="b_dependencia_otro" placeholder="Ingrese Valor" style="display:none"></input></td>
+</tr>
+<tr>
+  <td>Correo Electronico Oficial <span style="font-size:15px">(*)</span>:</td><td>
+  <input type='text' id='g_email' name="email" value='' placeholder="@jusbaires.gov.ar" requireddd></input></td>
+  <td>Universidad<span style="font-size:15px">(*)</span>:</td>
+  <td>
+
+    <select name="universidad_id" class="select2" style="width:100%" id="b_universidad_id">
+      <option value="0" selected="true"> - </option>
+    </select>
+  </td>
+  <td><span style="display:none" id="b_universidad_otro_label" >Otro:<span></td><td>
+  <input type="text" name="universidad_otro" id="b_universidad_otro" placeholder="Ingrese Valor" style="display:none"></input>
+</td>
+</tr>
+<tr>
+  <td>Repetir Correo<span style="font-size:15px">(*)</span>:</td>
+  <td><input type='text' id='g_email_again' name="r_email" value='' placeholder="@jusbaires.gov.ar" ></input></td>
+  <td>Facultad<span style="font-size:15px">(*)</span>:
+  </td>
+  <td style="width:25%">
+   <select name="facultad_id" class="select2" style="width:100%" id="b_facultad_id">
+    <option value="0" selected="true"> - </option>
+  </select>
+</td>
+<td><span style="display:none" id="b_facultad_otro_label" >Otro:<span></td><td>
+<input type="text" name="facultad_otro" id="b_facultad_otro" placeholder="Ingrese Valor" style="display:none"></input>
+</td>
 </tr>
 <tr colspan="4">
   <td><span style="color:#6796C8;font-size:22px">Datos Beca</span><hr></td>
