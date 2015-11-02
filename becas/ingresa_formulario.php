@@ -1,9 +1,9 @@
  <?php
-include_once('Db.php');
-include_once('Alumno.php');
-include_once('Beca.php');
-include_once('Mailer.php');
-include_once('../lib/PHPMailer/PHPMailerAutoload.php');
+include_once('./src/Db.php');
+include_once('./src/Alumno.php');
+include_once('./src/Beca.php');
+include_once('./src/Mailer.php');
+include_once('./lib/PHPMailer/PHPMailerAutoload.php');
 
 $params = $_POST;
 
@@ -111,7 +111,7 @@ $mailer->sendEmail($params);
 <body>
 
 <div align="center" style="background-color:#6796C8;">
-<img src="../img/iso-logo.png" width="205" height="89"></img>
+<img src="./img/iso-logo.png" width="205" height="89"></img>
 </div>
 <br>
 <div class="noprint" align="center">
