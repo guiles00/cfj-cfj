@@ -1,7 +1,7 @@
 <?php
-include_once('Db.php');
-include_once('Beca.php');
-include_once('Alumno.php');
+include_once('./src/Db.php');
+include_once('./src/Beca.php');
+include_once('./src/Alumno.php');
 
 $params = $_GET;
 if( empty($_GET['a']) ){
@@ -32,8 +32,12 @@ $n_alumno = $alumno->getAlumnoById($n_beca['alumno_id']);
 $datetime = new DateTime($n_beca['timestamp']);
 //echo "<pre>";
 //print_r($n_beca);    
+//exit;
 ?>
 <?if($n_beca):?>
+<div align="center" style="background-color:#6796C8;"  class="noprint">
+<img src="./iso-logo.png" width="205" height="89"></img>
+</div>
 <p>
 <div class="noprint" align="center">
 <b style="color:blue">Solicitud confirmada con &eacute;xito!
@@ -96,7 +100,6 @@ Nro:<?=$n_beca['beca_id']?>
 
 </head>
 <body>
-
 
 <!--input id="show" class="noprint" type="button" value="Mostrar impresion"/-->
 <div class="noprint" align="center">
@@ -262,7 +265,7 @@ Aires, <?=$datetime->format("d");?> de <?=$datetime->format("m");?> de <?=$datet
 			<font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">DEPENDENCIA:</font></font>
 		</td>
 		<td width="273">
-		<?=$n_beca['dependencia'];?>	
+		<?=$n_beca['dep_nombre'];?>	
 		</td>
 	</tr>
 	<tr>
@@ -300,7 +303,7 @@ Aires, <?=$datetime->format("d");?> de <?=$datetime->format("m");?> de <?=$datet
 			PROPUESTA PARA LA ACTIVIDAD:</font></font>
 		</td>
 		<td width="273">
-			<?=$n_beca['institucion_propuesta'];?>
+			<?=$n_beca['institucion_propuesta_label'];?>
 			
 		</td>
 	</tr>
@@ -395,7 +398,7 @@ Aires, <?=$datetime->format("d");?> de <?=$datetime->format("m");?> de <?=$datet
 </div>
 
 
-<p style="page-break-before: always"></p>
+
 <p  align="justify" style="margin-right: -0.1in; page-break-before: always">
 <font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">OBSERVACIONES:
 </font></font>

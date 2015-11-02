@@ -336,7 +336,7 @@ jQuery.validator.addMethod("inst_prop_id", function(value, element) {
 		
 		var dni = $('#b_dni').val();
         $.ajax({
-                url : "./get_alumno.php"
+                url : "./src/get_alumno.php"
                 ,data:{ 'dni': dni }
                 ,success : function(result) {
                 var res = JSON.parse(result);
@@ -351,109 +351,8 @@ jQuery.validator.addMethod("inst_prop_id", function(value, element) {
     });
 
 
-/* $.getJSON("cargo.php", function (data) {
-        $("#b_cargo_actual_label").autocomplete({
-            source: data
-            ,focus: function(event, ui) {
-            // prevent autocomplete from updating the textbox
-            event.preventDefault();
-            // manually update the textbox
-            $(this).val(ui.item.label);
-            }
-            ,select: function(event, ui){
-            event.preventDefault();
-            $(this).val(ui.item.label);
-            
-            var a = $('#b_cargo_actual_id').val(ui.item.value);
-            //console.debug(a.val());
-            }
-        });
-    });
-*/
- /*$.getJSON("dependencia.php", function (data) {
-        $("#b_dependencia_label").autocomplete({
-            source: data
-            ,focus: function(event, ui) {
-            // prevent autocomplete from updating the textbox
-            //event.preventDefault();
-            // manually update the textbox
-            $(this).val(ui.item.label);
-            }
-            ,select: function(event, ui){
-            event.preventDefault();
-            $(this).val(ui.item.label);
-            
-            var a = $('#b_dependencia_id').val(ui.item.value);
-                
-                if($("#b_dependencia_label").val() == 'OTRO'){
-                    
-                    $("#b_dependencia_otro").show();
-                }else{
-                    $("#b_dependencia_otro").val('');
-                    $("#b_dependencia_otro").hide();
-                }
-            }
-        });
-    });
-*/
 
- /*$.getJSON("universidad.php", function (data) {
-        $("#b_universidad_label").autocomplete({
-            source: data
-            ,focus: function(event, ui) {
-            // prevent autocomplete from updating the textbox
-            event.preventDefault();
-            // manually update the textbox
-            $(this).val(ui.item.label);
-            }
-            ,select: function(event, ui){
-            event.preventDefault();
-            $(this).val(ui.item.label);
-            
-            var a = $('#b_universidad_id').val(ui.item.value);
-            
-                if($("#b_universidad_label").val() == 'OTRO'){
-                    
-                    $("#b_universidad_otro").show();
-                }else{
-                    $("#b_universidad_otro").val('');
-                    $("#b_universidad_otro").hide();
-                }
-            }
-        });
-    });
-*/
- /*$.getJSON("universidad.php", function (data) {
-        $("#b_inst_prop_label").autocomplete({
-            source: data
-            ,focus: function(event, ui) {
-            // prevent autocomplete from updating the textbox
-            event.preventDefault();
-            // manually update the textbox
-            $(this).val(ui.item.label);
-            }
-            ,select: function(event, ui){
-            event.preventDefault();
-            $(this).val(ui.item.label);
-            
-            var a = $('#b_inst_prop_id').val(ui.item.value);
-            //console.debug(a.val());
-
-                //console.debug($("#b_inst_prop_label").val());
-                if($("#b_inst_prop_label").val() == 'OTRO'){
-                    
-                    $("#b_inst_prop_otro").show();
-                }else{
-                    $("#b_inst_prop_otro").val('');
-                    $("#b_inst_prop_otro").hide();
-                }
-            }
-        });
-    });
-*/
-
-
- $.getJSON("titulo.php", function (data) {
+ $.getJSON("./src/titulo.php", function (data) {
         $("#b_titulo_label").autocomplete({
             source: data
             ,focus: function(event, ui) {
@@ -480,35 +379,8 @@ jQuery.validator.addMethod("inst_prop_id", function(value, element) {
         });
     });
 
-/*
- $.getJSON("facultad.php", function (data) {
-        $("#b_facultad_label").autocomplete({
-            source: data
-            ,focus: function(event, ui) {
-            // prevent autocomplete from updating the textbox
-            event.preventDefault();
-            // manually update the textbox
-            $(this).val(ui.item.label);
-            }
-            ,select: function(event, ui){
-            event.preventDefault();
-            $(this).val(ui.item.label);
-            
-            var a = $('#b_facultad_id').val(ui.item.value);
-              
-               if($("#b_facultad_label").val() == 'OTRO'){
-                    
-                    $("#b_facultad_otro").show();
-                }else{
-                    $("#b_facultad_otro").val('');
-                    $("#b_facultad_otro").hide();
-                }      
-            }
-        });
-    });
-*/
 
- $.getJSON("actividad.php", function (data) {
+ $.getJSON("./src/actividad.php", function (data) {
         $("#b_actividad_label").autocomplete({
             source: data
             ,focus: function(event, ui) {
@@ -631,7 +503,7 @@ for (var i = 0; i < select.length; i++) {
    
 
 //Completo el select de cargo
- $.getJSON("cargo.php", function (data) {
+ $.getJSON("./src/cargo.php", function (data) {
         //console.debug('completo cargo');
         var b_cargo = document.getElementById('b_cargo');
         for(i in data){
@@ -646,7 +518,7 @@ for (var i = 0; i < select.length; i++) {
     });
 
 //Completo el select de universidad
-$.getJSON("universidad.php", function (data) {
+$.getJSON("./src/universidad.php", function (data) {
         
         var b_universidad = document.getElementById('b_universidad_id');
         
@@ -661,7 +533,7 @@ $.getJSON("universidad.php", function (data) {
     });
 
 //Completo el select de titulo
-$.getJSON("titulo.php", function (data) {
+$.getJSON("./src/titulo.php", function (data) {
         
         var b_titulo = document.getElementById('b_titulo_id');
         
@@ -676,7 +548,7 @@ $.getJSON("titulo.php", function (data) {
     });
 
 //Completo el select de facultad
-$.getJSON("facultad.php", function (data) {
+$.getJSON("./src/facultad.php", function (data) {
         
         var b_facultad = document.getElementById('b_facultad_id');
         
@@ -692,7 +564,7 @@ $.getJSON("facultad.php", function (data) {
     });
 
 //Completo el select de facultad
-$.getJSON("universidad.php", function (data) {
+$.getJSON("./src/universidad.php", function (data) {
         
         var b_inst_prop = document.getElementById('b_inst_prop_id');
         
@@ -715,7 +587,7 @@ $('#b_fuero_id').change(function(e){
 
         $.ajax({
           dataType: "json",
-          url: "dependencia.php",
+          url: "./src/dependencia.php",
           data: {'fuero_id' : e.target.value},
           success: function(data){
 
@@ -745,38 +617,10 @@ $('#b_fuero_id').change(function(e){
             }
           }
         });
-    /*$.getJSON("dependencia.php", function (data) {
-            
-            var b_dependencia = document.getElementById('b_dependencia_id');
-            
-            for(i in data){
 
-                var option = document.createElement('option');
-                var texto = document.createTextNode(data[i].label);
-                option.value = data[i].value;            
-                option.appendChild(texto);
-                b_dependencia.appendChild(option);   
-                
-        }
-    });*/
 
 });
-/*
-$.getJSON("dependencia.php", function (data) {
-        
-        var b_dependencia = document.getElementById('b_dependencia_id');
-        
-        for(i in data){
 
-            var option = document.createElement('option');
-            var texto = document.createTextNode(data[i].label);
-            option.value = data[i].value;            
-            option.appendChild(texto);
-            b_dependencia.appendChild(option);   
-            
-        }
-});
-*/
 $("#b_universidad_id").change(function(e){
 
     if(this.value == -1){
