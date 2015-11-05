@@ -251,6 +251,9 @@ jQuery.validator.addMethod("inst_prop_id", function(value, element) {
                     ,inst_prop_id: {inst_prop_id:true}
                 }
                 ,dictamen:"required"
+                ,observaciones:"required"
+                ,objetivo:"required"
+                ,vinculacion:"required"
             }
             ,messages: {
                 nro_documento: {
@@ -299,6 +302,30 @@ jQuery.validator.addMethod("inst_prop_id", function(value, element) {
                     required:"Este campo es obligatorio"
                 }
                 ,inst_prop_id:{
+                    required:"Este campo es obligatorio"
+                }
+                ,observaciones:{
+                    required:"Este campo es obligatorio"
+                }
+                ,objetivo:{
+                    required:"Este campo es obligatorio"
+                }
+                ,vinculacion:{
+                    required:"Este campo es obligatorio"
+                }
+                ,duracion:{
+                    required:"Este campo es obligatorio"
+                }
+                ,dictamen:{
+                    required:"Este campo es obligatorio"
+                }
+                ,costo:{
+                    required:"Este campo es obligatorio"
+                }
+                ,monto:{
+                    required:"Este campo es obligatorio"
+                }
+                ,actividad_nombre:{
                     required:"Este campo es obligatorio"
                 }
             }
