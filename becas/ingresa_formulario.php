@@ -12,8 +12,8 @@ $params = $_POST;
 //$fecha_inicio = date("Y-m-d", strtotime($params['f_inicio_b'])); ;
 //$fecha_fin = date("Y-m-d", strtotime($params['f_final_b'])); ;
 
-echo "<pre>";
-print_r($params);
+//echo "<pre>";
+//print_r($params);
 //exit;
 
 $fecha_ingreso_caba = $params['b_f_a_ingreso_caba'].'-'.$params['b_f_m_ingreso_caba'];
