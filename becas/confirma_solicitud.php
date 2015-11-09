@@ -397,88 +397,29 @@ Aires, <?=$datetime->format("d");?> de <?=$datetime->format("m");?> de <?=$datet
 </table>
 </div>
 
-
-
 <p  align="justify" style="margin-right: -0.1in; page-break-before: always">
-<font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">OBSERVACIONES:
+<font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt"><b>OBSERVACIONES:</b>
 </font></font>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p  align="justify"><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">Detalle
+<br>
+<?=$n_beca['observaciones'];?>
+<p  align="justify"><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt"><b>Detalle
 sus objetivos profesionales y cómo cree Ud. que el curso o carrera
-de posgrado influirá en ellos.</font></font>
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><a name="OLE_LINK1"></a><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p  align="justify"><br>
-
-<p  align="justify"><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">Indique
+de posgrado influirá en ellos.</b></font></font>
+<br>
+<?=$n_beca['objetivo'];?>
+<p  align="justify"><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt"><b>Indique
 cuáles son los elementos que vinculan su actividad en el Poder
 Judicial de la CABA con los contenidos del curso o carrera de
 posgrado y qué entiende que aportará el curso o carrera para su
-función.</font></font>
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p lang="en-US" align="justify"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAU4AAAABCAYAAACxKkdkAAAACXBIWXMAAA7EAAAaCwHCZs42AAAAHElEQVR4nGN5//69wJkzZ0wYRsEoGAWjYBQQBQCF/AV61vml7AAAAABJRU5ErkJggg==" align="left" hspace="12"><br>
-
-<p  align="justify"><br>
-
-<p  align="justify"><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt">Manifiesto
+función.</b></font></font>
+<br>
+<?=$n_beca['vinculacion'];?>
+<p  align="justify"><font face="Verdana, sans-serif"><font size="2" style="font-size: 10pt"><b>Manifiesto
 en carácter de declaración jurada que los datos aportados son
 completos y correctos y que conozco y acepto el régimen establecido
-en la Res. CACFJ Nº   /11.</font></font>
-<p  align="justify"><br>
-
+en la Res. CACFJ Nro   /11.</b></font></font>
+<p  align="justify">
+<br>
 <p  align="justify"><br>
 
 <p  align="center"><br>
