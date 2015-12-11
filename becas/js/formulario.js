@@ -19,9 +19,11 @@ jQuery.validator.addMethod("email", function(value, element) {
   if(value.indexOf('@') < 0) return this.optional(element);
 
   if(value.split('@')[1] == 'jusbaires.gov.ar') return true;
+  if(value.split('@')[1] == 'tsjbaires.gov.ar') return true;
+  if(value.split('@')[1] == 'fiscalias.gob.ar') return true;
 
     return this.optional(element);
-}, "El email tiene que ser de @jusbaires.gov.ar");
+}, "El email tiene que ser de @jusbaires.gov.ar,@tsjbaires.gov.ar,@fiscalias.gob.ar");
 //Hora
 
 jQuery.validator.addMethod("horas", function(value, element) {
@@ -104,7 +106,7 @@ jQuery.validator.addMethod("universidad_id", function(value, element) {
      return false;
    }
    if(b_universidad_id == -1){
-    console.debug('entra aca en universidad');
+    //alert('universidad es otro');
         
         var uni_otro = $('#b_universidad_otro').val();
         if(uni_otro == '') return false;
@@ -652,10 +654,10 @@ $("#b_universidad_id").change(function(e){
 
     if(this.value == -1){
         $("#b_universidad_otro_label").show();
-        $("#b_universidad_otro").show();
+        $("#b_universidad_otro_c").show();
     }else{
         $("#b_universidad_otro_label").hide();
-        $("#b_universidad_otro").hide();
+        $("#b_universidad_otro_c").hide();
         $("#b_universidad_otro").val('');
     }
 });
@@ -664,10 +666,10 @@ $("#b_facultad_id").change(function(e){
 
     if(this.value == -1){
         $("#b_facultad_otro_label").show();
-        $("#b_facultad_otro").show();
+        $("#b_facultad_otro_c").show();
     }else{
         $("#b_facultad_otro_label").hide();
-        $("#b_facultad_otro").hide();
+        $("#b_facultad_otro_c").hide();
         $("#b_facultad_otro").val('');
     }
 });
@@ -730,10 +732,8 @@ $('#b_s_horaria').change(function(){
 
 });
 
+
 $(".select2").select2({width:"element"});
 
+
 });
-
-
-
-

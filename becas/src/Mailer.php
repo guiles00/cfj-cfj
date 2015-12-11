@@ -27,21 +27,22 @@ class Mailer{
 
 		$mail->Subject = 'Solicitud de Beca';
 		$mail->Body    = 'Estimado/a: '.$params['nombre'].',<br>
+		<p style="font-size:22px">
 		Para validar su solicitud de beca <a href="http://cfj.gov.ar/test/becas/confirma_solicitud.php?a='.$params['md5'].'" style="color:red;">
 		confirme su correo electr&oacute;nico aqu&iacute;</a>
+		<p>
+		<p style="font-size:22px">
+		A los efectos de completar su solicitud deber&aacute; imprimir el formulario e ingresarlo por Mesa de Entradas del Centro de Formaci&oacute;n Judicial, Bol&iacute;var 177, piso 2&#176; de la CABA, en el horario de 11.00 a 16.00 hs. (conf. Disp. N&#176; SECFJ N&#176; 155/15)  junto con toda la documentaci&oacute;n que establece el Art. 13 del Reglamento de Becas, aprobado por la Res. CACFJ N&#176; 25/11.
+		</p>
 		<br>
-		A los efectos de completar su  solicitud deber&aacute; imprimir el formulario e ingresarlo junto con toda la documentaci&oacute;n que establece el Art. 13 del Reglamento de Becas,<br>
-		aprobado por la Res. CACFJ Nro 25/11, a través de la Mesa de Entradas del Consejo de la Magistratura de la Ciudad Aut&oacute;noma de Buenos Aires, sita en Av. Julio A. Roca 530 de la CABA, dentro del plazo de XXXX días.
-		<br>
-		<br>
+		<p style="font-size:16px">
 		Atte.<br> 
 		Departamento de Coordinaci&oacute;n de Convenios, Becas y Publicaciones.
+		</p>
  		<br><br>
 		<div align="center"><b><i>
 		Bolivar 177 Piso 3ro -  Ciudad Aut&oacute;noma de Buenos Aires  -   CP: C1066AAC   -  Tel: 4008-0284  -  Email: cursos@jusbaires.gov.ar
 		</i></b><div>';
-		//$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
 		if(!$mail->send()) {
 		    echo 'Message could not be sent.';
 		    echo 'Mailer Error: ' . $mail->ErrorInfo;

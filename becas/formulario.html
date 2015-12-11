@@ -13,6 +13,20 @@
 
 
 <script src="./js/formulario.js"></script>
+<script>
+function aceptaCondiciones(){
+  var el = document.getElementById('b_acepta_condiciones_id');
+
+  if(el.checked){
+    return true;
+  } else{
+    alert('Debe aceptar conocimiento de reglamento de Becas.')
+    return false;
+  }
+  
+}
+
+</script>
 <style>
 #b_formulario_beca label.error {
     color: #FB3A3A;
@@ -40,9 +54,9 @@
   </div>
 
   <div class="col-sm-12" align="center">
-  <b>RES. CACFJ Nro: 25/11 - ANEXO II</br>
+  <b>RES. CACFJ N&#176;: 25/11 - ANEXO II</br>
   SISTEMA DE BECAS DEL CENTRO DE FORMACI&Oacute;N JUDICIAL  
-  (Res. CACFJ Nro 25/11)</b>
+  (Res. CACFJ N&#176; 25/11)</b>
   </div>
 
     <div class="row">
@@ -92,7 +106,7 @@
         <div class="row">
           <div class="col-sm-2">
             <div class="form-group">
-              <label class="control-label">Domicilio</label>
+              <label class="control-label">Domicilio Constitu&iacute;do (S&oacute;lo CABA)</label>
             </div>
           </div>
           <div class="col-sm-4">
@@ -220,7 +234,7 @@
           </div>
           <div class="col-sm-4" id="b_dependencia_otro" style="display:none">
             <div class="form-group">
-              <input class="form-control input-sm" name="dependencia_otro" placeholder="Ingrese Valor"></input>
+              <input class="form-control input-sm" name="dependencia_otro" placeholder="Ingrese Dependencia"></input>
             </div>
           </div>
         </div>
@@ -256,7 +270,7 @@
           </div>
           <div class="col-sm-4" style="display:none" id="titulo_otro">
             <div class="form-group">
-              <input class="form-control input-sm" name="titulo_otro" id="b_titulo_otro" placeholder="Ingrese Valor" style="display:none"></input>
+              <input class="form-control input-sm" name="titulo_otro" id="b_titulo_otro" placeholder="Ingrese T&iacute;tulo" style="display:none"></input>
             </div>
           </div>
         </div>
@@ -269,7 +283,7 @@
           </div>
           <div class="col-sm-4">
             <div class="form-group">
-            <input class="form-control input-sm" id='b_email' name="email" placeholder="@jusbaires.gov.ar"></input>
+            <input class="form-control input-sm" id='b_email' name="email" placeholder="Ingrese correo institucional"></input>
             </div>
           </div>
           <div class="col-sm-2">
@@ -291,9 +305,9 @@
               <label class="control-label">OTRO</label>
             </div>
           </div>
-          <div class="col-sm-4" id="b_universidad_otro" style="display:none">
+          <div class="col-sm-4" id="b_universidad_otro_c" style="display:none">
             <div class="form-group">
-              <input class="form-control input-sm" name="universidad_otro" placeholder="Ingrese Valor"></input>
+              <input class="form-control input-sm" name="universidad_otro" id="b_universidad_otro" placeholder="Ingrese Universidad"></input>
             </div>
           </div>
         </div>
@@ -306,7 +320,7 @@
           </div>
           <div class="col-sm-4">
             <div class="form-group">
-            <input class="form-control input-sm" id='b_email_again' name="r_email" placeholder="@jusbaires.gov.ar"></input>
+            <input class="form-control input-sm" id='b_email_again' name="r_email" placeholder="repita correo institucional"></input>
             </div>
           </div>
           <div class="col-sm-2">
@@ -328,9 +342,9 @@
               <label class="control-label">OTRO</label>
             </div>
           </div>
-          <div class="col-sm-4" id="b_facultad_otro" style="display:none">
+          <div class="col-sm-4" id="b_facultad_otro_c" style="display:none">
             <div class="form-group">
-              <input class="form-control input-sm" name="facultad_otro" placeholder="Ingrese Valor"></input>
+              <input class="form-control input-sm" name="facultad_otro" id="b_facultad_otro" placeholder="Ingrese Facultad"></input>
             </div>
           </div>
         </div>  
@@ -398,7 +412,7 @@
           </div>
           <div class="col-sm-4" id="b_inst_prop_otro" style="display:none">
             <div class="form-group">
-              <input class="form-control input-sm" name="inst_prop_otro"  placeholder="Ingrese Valor"></input>
+              <input class="form-control input-sm" name="inst_prop_otro"  placeholder="Ingrese Instituci&oacute;n"></input>
             </div>
           </div>
           </div>
@@ -419,7 +433,7 @@
           </div>
           <div class="col-sm-2">
             <div class="form-group">
-              <label class="control-label">Nombre (Carrea - Curso - Actividad)</label>
+              <label class="control-label">Nombre (Carrera - Curso - Actividad)</label>
             </div>
           </div>
           <div class="col-sm-4">
@@ -571,17 +585,24 @@ del curso o carrera de posgrado y qu&eacute; entiende que aportar&aacute; el cur
      <div class="col-sm-12">
             <hr>
      </div>       
-      <div class="col-sm-12">
+      
         <div class="form-group">
+          <div class="col-sm-12"><h4>
+          <input type="checkbox" name="acepta_condiciones" id="b_acepta_condiciones_id"> Manifiesto conocer y aceptar el reglamento de Becas establecido por Res. CACFJ Nro 25/11.</h4></input>
+        </div>
           <!--button type="submit" class="btn btn-default">Aceptar</button> <a href="#" class="btn btn-default">Cancel</a-->
-          <button class="btn btn-default" type="submit" id="aceptar" onclick="return confirm('Desear confirmar la solicitud, todos los datos son correctos?')">
+
+          <div class="col-sm-12">
+          <button class="btn btn-default" type="submit" id="aceptar" onclick="return aceptaCondiciones()">
           Confirmar y Enviar Solicitud
           </button>
         </div>
-      </div>
+        </div>
+      
       <div class="col-sm-12">
+        <br>
         <i style= "font-size:15px">
-        Art&iacute;culo 6&#176;(Res. CACFJ Nro 25/11): Una vez conocido el importe asignado en el presupuesto para becas, el
+        Art&iacute;culo 6&#176; (Res. CACFJ Nro 25/11): Una vez conocido el importe asignado en el presupuesto para becas, el
         Consejo Acad&eacute;mico del Centro de Formaci&oacute;n Judicial establecer&aacute; los montos m&aacute;ximos
         a otorgar para cada tipo de actividad, de acuerdo al siguiente criterio:<br>
         1. Carreras de Doctorado, Maestr&iacute;a y Especializaci&oacute;n: hasta el noventa por ciento

@@ -17,7 +17,10 @@ $params = $_POST;
 //exit;
 
 $fecha_ingreso_caba = $params['b_f_a_ingreso_caba'].'-'.$params['b_f_m_ingreso_caba'];
-$f_i_caba_datetime = new DateTime($fecha_ingreso_caba);
+
+$f_i_caba_datetime = date_create($fecha_ingreso_caba);
+
+//$date = date_create($fecha_ingreso_caba);
 
 $md5 = md5(time());
 $alumno = new Alumno();
@@ -32,13 +35,17 @@ $alumno_id = $alumno->save($params);
 $d_beca = $params;
 $d_beca['alumno_id'] = $alumno_id;
 $d_beca['md5'] = $md5;
-$d_beca['f_ingreso_caba'] = $f_i_caba_datetime->format('Y-m-d');
-
+//$d_beca['f_ingreso_caba'] = $f_i_caba_datetime->format('Y-m-d');
+$d_beca['f_ingreso_caba'] = date_format($f_i_caba_datetime,"Y-m-d");
+//echo date_format($f_i_caba_datetime,"Y-m-d");
+//exit;
 $fecha_inicio = '1-'.$params['f_sem_inicio_b'].'-'.$params['f_inicio_b'];
-$f_i_datetime = (new DateTime($fecha_inicio))->format('Y-m-d');;
+$f_inicio = date_create($fecha_inicio);
+$f_i_datetime = date_format($f_inicio,"Y-m-d");
 
 $fecha_fin = '1-'.$params['f_sem_final_b'].'-'.$params['f_final_b'];
-$f_f_datetime = (new DateTime($fecha_fin))->format('Y-m-d');;
+$f_fin = date_create($fecha_fin);
+$f_f_datetime = date_format($f_fin,"Y-m-d");
 
 $d_beca['f_inicio_b'] = $f_i_datetime;
 $d_beca['f_final_b'] = $f_f_datetime;
@@ -50,7 +57,7 @@ $res_beca = $beca->save($d_beca);
 $n_alumno = $alumno->getAlumnoById($alumno_id);
 $n_beca = $beca->getBeca($res_beca);
 
-$datetime = new DateTime($n_beca['timestamp']);
+//$datetime = new DateTime($n_beca['timestamp']);
 
 //if($params['mail'] == $params['mail'])//if ok - send email
 
@@ -120,7 +127,9 @@ $mailer->sendEmail($params);
 <br>
 <span style="color:black; font-size:20px"><br>Recibir&aacute; un email para confirmar su solicitud dentro de las pr&oacute;ximas 24 hs.</span>
 <br>
-<br><i style="color:black; font-size:15px">Por cualquier inconveniente comun&iacute;quese al Centro de Formaci&oacute;n Judicial - Tel: 4014-5846/6144 - Email: cursos@jusbaires.gov.ar</i>
+<span style="color:red; font-size:24px"><br>IMPORTANTE: Deber&aacute; imprimir el formulario de solicitud y presentarlo en la mesa de entrada del Centro de Formaci&oacute;n Judicial sito en Bolivar 177 piso 3.</span>
+<br>
+<br><i style="color:black; font-size:15px">Por cualquier inconveniente comun&iacute;quese al Centro de Formaci&oacute;n Judicial - Tel: 4008-0284 - Email: cursos@jusbaires.gov.ar</i>
 </div>
 <!--input id="show" class="noprint" type="button" value="Mostrar impresion"/-->
 <!--div class="noprint" align="center">
@@ -130,8 +139,8 @@ $mailer->sendEmail($params);
 
 <div title="header" id="b_header">
 	<p align="center"><img src="./print-logo.jpg" align="bottom" width="197" height="80" border="0"></p>
-	<p align="center"><i>"2015,
-	Buenos Aires Capital Mundial de ..."</i></p>
+	<p align="center"><i>"2011,
+	Buenos Aires Capital Mundial del libro"</i></p>
 	<p align="center"><b>ANEXO II
 	</b></p>
 </div>
@@ -143,7 +152,7 @@ DE BECAS DEL CENTRO DE FORMACIÓN JUDICIAL (Res. CACFJ Nº 25/11)</b>
 DE SOLICITUD</b></p>
 <p align="right">
 <font size="2" style="font-size: 10pt">Buenos
-Aires, <?=$datetime->format("d");?> de <?=$datetime->format("m");?> de <?=$datetime->format("Y");?></font></p>
+Aires, <?=date_format(date_create(),"d");;?> de <?=date_format(date_create(),"m");?> de <?=date_format(date_create(),"Y");?></font></p>
 </p>
 
 <div id="b_table_content">
