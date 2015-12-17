@@ -713,11 +713,11 @@ $("#b_inst_prop_id").change(function(e){
 
     if(this.value == -1){
         $("#b_inst_prop_otro_label").show();
-        $("#b_inst_prop_otro").show();
+        $("#b_inst_prop_otro_c").show();
     }else{
         $("#b_inst_prop_otro_label").hide();
-        $("#b_inst_prop_otro").hide();
-        $("#b_inst_prop_otro").val('');
+        $("#b_inst_prop_otro_c").hide();
+        $("#b_inst_prop_otro_c").val('');
     }
 });
 
