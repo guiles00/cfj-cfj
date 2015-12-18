@@ -735,5 +735,13 @@ $('#b_s_horaria').change(function(){
 
 $(".select2").select2({width:"element"});
 
+//Para evitar el enter
+$("#b_formulario_beca").keypress(function(e) {
+  
+  //Enter key
+  if (e.which == 13) {
+    return false;
+  }
+});
 
 });

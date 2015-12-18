@@ -16,13 +16,14 @@ class Mailer{
 		$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 		$mail->Port = 587;                                    // TCP port to connect to
 
-		$mail->From = 'cursos@jusbaires.gov.ar';
-		$mail->FromName = 'Cursos';
+		$mail->From = 'becas@jusbaires.gov.ar';
+		$mail->FromName = 'Becas';
 		//$email = $params['email']."@jusbaires.gov.ar";
 		$email = $params['email'];
 		$mail->addAddress($email);     // Por ahora lo saco de parametros 
-		$mail->addReplyTo('cursos@jusbaires.gov.ar', 'Cursos');
+		$mail->addReplyTo('becas@jusbaires.gov.ar', 'Cursos');
 		$mail->addBCC('gcaserotto@jusbaires.gov.ar');
+		$mail->addBCC('cursos@jusbaires.gov.ar');
 		$mail->isHTML(true);                                  // Set email format to HTML
 
 		$mail->Subject = 'Solicitud de Beca';
@@ -32,7 +33,7 @@ class Mailer{
 		confirme su correo electr&oacute;nico aqu&iacute;</a>
 		<p>
 		<p style="font-size:22px">
-		A los efectos de completar su solicitud deber&aacute; imprimir el formulario e ingresarlo por Mesa de Entradas del Centro de Formaci&oacute;n Judicial, Bol&iacute;var 177, piso 2&#176; de la CABA, en el horario de 11.00 a 16.00 hs. (conf. Disp. N&#176; SECFJ N&#176; 155/15)  junto con toda la documentaci&oacute;n que establece el Art. 13 del Reglamento de Becas, aprobado por la Res. CACFJ N&#176; 25/11.
+		A los efectos de completar su solicitud deber&aacute; imprimir el formulario e ingresarlo por Mesa de Entradas del Centro de Formaci&oacute;n Judicial, Bol&iacute;var 177, piso 3&#176; de la CABA, en el horario de 11.00 a 16.00 hs. (conf. Disp. N&#176; SECFJ N&#176; 155/15)  junto con toda la documentaci&oacute;n que establece el Art. 13 del Reglamento de Becas, aprobado por la Res. CACFJ N&#176; 25/11.
 		</p>
 		<br>
 		<p style="font-size:16px">
