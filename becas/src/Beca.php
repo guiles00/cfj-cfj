@@ -64,13 +64,13 @@ class Beca {
 		
 		//Siembre agrego beca
 		$domicilio = addslashes($params['domicilio']);		
-		$sqli = "insert into beca (tipo_beca_id,alumno_id,md5,cargo_id,fuero_id,dependencia_id
-			,universidad_id,universidad_otro,f_ingreso_caba,facultad_id,facultad_otro,titulo_id,titulo_otro,telefono_laboral
+		$sqli = "insert into beca (tipo_beca_id,alumno_id,md5,cargo_id,fuero_id,dependencia_id,dependencia_otro
+			,universidad_id,universidad_otro,f_ingreso_caba,facultad_id,facultad_otro,titulo_id,titulo_otro,telefono_laboral,telefono_particular
 			,institucion_propuesta,fecha_inicio,fecha_fin,duracion
 			,costo,monto,dictamen_por,sup_horaria,tipo_actividad_id,actividad_nombre,domicilio_constituido,observaciones,objetivo,vinculacion,renovacion_id) 
 			values ('$params[tipo_beca_id]','$params[alumno_id]','$params[md5]','$params[cargo_id]','$params[b_fuero]'
-			,'$params[dependencia_id]','$params[universidad_id]', '$params[universidad_otro]', '$params[f_ingreso_caba]'
-			,'$params[facultad_id]','$params[facultad_otro]','$params[titulo_id]','$params[titulo_otro]','$params[telefono_laboral]',
+			,'$params[dependencia_id]','$params[dependencia_otro]','$params[universidad_id]', '$params[universidad_otro]', '$params[f_ingreso_caba]'
+			,'$params[facultad_id]','$params[facultad_otro]','$params[titulo_id]','$params[titulo_otro]','$params[telefono_laboral]','$params[tel]',
 			'$params[inst_prop_id]','$params[f_inicio_b]','$params[f_final_b]'
 			,'$params[duracion]','$params[costo]','$params[monto]'
 			,'$params[dictamen]','$params[s_horaria]'

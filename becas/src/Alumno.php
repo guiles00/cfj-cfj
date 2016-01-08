@@ -112,7 +112,7 @@ class Alumno {
 			
 			return mysqli_insert_id($db->getConnection());
 
-		}else{
+		}else{	
 
 			$nombre = $params['nombre'];
 			$sqli = "update usuario_sitio set usi_nombre = '$nombre', 
