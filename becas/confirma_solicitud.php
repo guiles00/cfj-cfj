@@ -213,7 +213,7 @@ Aires, <?=$datetime->format("d");?> de <?=$datetime->format("m");?> de <?=$datet
 		</td>
 		<td width="273">
 			
-			
+		<?=$n_beca['telefono_particular']?>	
 		</td>
 	</tr>
 	<tr>
