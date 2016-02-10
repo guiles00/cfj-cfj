@@ -507,6 +507,7 @@ var select = $('.b_fecha_d');
 
 var anios = Array();
 var currentYear = new Date().getFullYear();
+
 var span = 5;
 
 for(var i = 0; i < span;i++){
@@ -527,6 +528,35 @@ for (var i = 0; i < select.length; i++) {
 
 })();
 
+
+(function b_fecha_i(){
+
+var select = $('.b_fecha_i');
+
+var anios = Array();
+var currentYear = new Date().getFullYear();
+
+currentYear = currentYear -2;
+
+var span = 5;
+
+for(var i = 0; i < span;i++){
+anios.push(currentYear);
+currentYear++;
+}
+
+for (var i = 0; i < select.length; i++) {
+      //Insert option
+      for (var j = 0; j < anios.length; j++){
+            var option = document.createElement('option');
+            var texto = document.createTextNode(anios[j]);
+            option.value = anios[j];            
+            option.appendChild(texto);
+            select[i].appendChild(option);
+       } 
+};
+
+})();
 
 
    

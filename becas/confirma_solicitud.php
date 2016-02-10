@@ -109,8 +109,8 @@ Nro:<?=$n_beca['beca_id']?>
 
 <div title="header" id="g_header">
 	<p align="center"><img src="./print-logo.jpg" align="bottom" width="197" height="80" border="0"></p>
-	<p align="center"><i>"2015,
-	Buenos Aires Capital Mundial de ..."</i></p>
+	<p align="center"><i>"2011,
+	A&nacute;o del Bicentenario de la Declaraci&oacute;n de la Independencia de la Rep&uacute;blica Argentina"</i></p>
 	<p align="center"><b>ANEXO II
 	</b></p>
 </div>
