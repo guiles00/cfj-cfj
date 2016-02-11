@@ -47,18 +47,21 @@ jQuery.validator.addMethod("monto", function(value, element) {
    
    //traigo si es curso/carrera/actividad
    var tipo = $('#b_tipo_actividad_id').val();
-   var valor = 14976;   
+   var valor = 13608;   
 
    if(tipo == 1){
     //13478.40
-    if(parseFloat(value) > (valor*.9)) return false;
+    if(parseFloat(value) > (valor*1)) return false;
 
    }else if(tipo == 2){
-    if(parseFloat(value) > (valor*.8)) return false;    
+    if(parseFloat(value) > (valor*.5)) return false;    
    }else if(tipo == 3){
-    if(parseFloat(value) > (valor*.5)) return false;
+    if(parseFloat(value) > (valor*.25)) return false;
+   }else if(tipo == 4){
+    if(parseFloat(value) > (valor*.8)) return false;
    }
 
+   //alert()
    //if(parseFloat(value) > 13478.40) return false;
 
    if( /^(\d+|\d+.\d{1,2})$/.test(value) ) return true;
@@ -339,19 +342,23 @@ jQuery.validator.addMethod("inst_prop_id", function(value, element) {
 
         var tipo = $('#b_tipo_actividad_id').val();
 
-           var valor = 14976;   
+           var valor = 13608;   
            if(tipo == 1){
             //13478.40
            // if(parseFloat(value) > (valor*.9)) return false;
-           var max = parseFloat((14976*.9)).toFixed(2);
+           var max = parseFloat((13608)).toFixed(2);
             $('#b_monto_show').html('Monto Solicitado(M&aacute;x. '+max+'$)');
            }else if(tipo == 2){
             
-           var max = parseFloat((14976*.8)).toFixed(2);
+           var max = parseFloat((13608*.5)).toFixed(2);
             $('#b_monto_show').html('Monto Solicitado(M&aacute;x. '+max+'$)');
            }else if(tipo == 3){
             
-            var max = parseFloat((14976*.5)).toFixed(2);
+            var max = parseFloat((13608*.25)).toFixed(2);
+            $('#b_monto_show').html('Monto Solicitado(M&aacute;x. '+max+'$)');
+           }else if(tipo == 4){
+            
+            var max = parseFloat((13608*.8)).toFixed(2);
             $('#b_monto_show').html('Monto Solicitado(M&aacute;x. '+max+'$)');
            }
 
