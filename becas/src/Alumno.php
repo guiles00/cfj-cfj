@@ -88,6 +88,10 @@ class Alumno {
 		**/
 		//Si no esta inserto
 		if(!$usi_id){
+
+			//echo "<pre>";
+			//print_r($params);
+			//exit;
 			/*
 			$dbcon = $db->getConnection();
 			$stmt = $dbcon->prepare('insert into usuario_sitio (usi_nombre,usi_dni,usi_legajo,usi_email,usi_genero,usi_tel_particular,usi_fecha_nacimiento) 
@@ -102,9 +106,11 @@ class Alumno {
 			$nombre = addslashes($params['nombre']);
 			
 			//$domicilio = addcslashes()
-			$sqli = "insert into usuario_sitio (usi_nombre,usi_dni,usi_legajo,usi_email,usi_genero,usi_tel_particular,usi_fecha_nacimiento)
+			$sqli = "insert into usuario_sitio (usi_nombre,usi_dni,usi_legajo,usi_email,usi_genero,usi_tel_particular
+				,usi_fecha_nacimiento,usi_dep_id,usi_fuero_id,usi_car_id,usi_dep_otro,usi_clave,usi_telefono,usi_direccion)
 			values ('$nombre','$params[usi_dni]','$params[legajo]'
-				,'$params[email]','$params[b_genero]','$params[tel]','$params[fec_nac]')";
+				,'$params[email]','$params[b_genero]','$params[tel]','$params[fec_nac]','$params[dependencia_id]'
+				,'$params[b_fuero]','$params[cargo_id]','$params[dependencia_otro]','$params[usi_dni]','$params[telefono_laboral]','$params[domicilio]')";
 			//,domicilio,telefono_particular,email) 
 			//,'$params[domicilio]','$params[tel]'
 			//execute query
@@ -118,6 +124,7 @@ class Alumno {
 			$sqli = "update usuario_sitio set usi_nombre = '$nombre', 
 			 usi_dni = '$params[usi_dni]', usi_legajo = '$params[legajo]', 
 			 usi_tel_particular = '$params[tel]',usi_genero = '$params[b_genero]',usi_email = '$params[email]',usi_fecha_nacimiento = '$params[fec_nac]'
+			 ,usi_fuero_id = '$params[b_fuero]', usi_dep_id = '$params[dependencia_id]', usi_car_id = '$params[cargo_id]'
 			where usi_id = $usi_id";
 		//, domicilio = '$params[domicilio]',
 			$res = $db->exec_query($sqli);
