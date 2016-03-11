@@ -35,20 +35,21 @@ $alumno_id = $alumno->save($params);
 $d_beca = $params;
 $d_beca['alumno_id'] = $alumno_id;
 $d_beca['md5'] = $md5;
-//$d_beca['f_ingreso_caba'] = $f_i_caba_datetime->format('Y-m-d');
+
 $d_beca['f_ingreso_caba'] = date_format($f_i_caba_datetime,"Y-m-d");
-//echo date_format($f_i_caba_datetime,"Y-m-d");
-//exit;
-$fecha_inicio = '1-'.$params['f_sem_inicio_b'].'-'.$params['f_inicio_b'];
+
+/*$fecha_inicio = '1-'.$params['f_sem_inicio_b'].'-'.$params['f_inicio_b'];
 $f_inicio = date_create($fecha_inicio);
 $f_i_datetime = date_format($f_inicio,"Y-m-d");
 
 $fecha_fin = '1-'.$params['f_sem_final_b'].'-'.$params['f_final_b'];
 $f_fin = date_create($fecha_fin);
 $f_f_datetime = date_format($f_fin,"Y-m-d");
+*/
 
-$d_beca['f_inicio_b'] = $f_i_datetime;
-$d_beca['f_final_b'] = $f_f_datetime;
+
+$d_beca['f_inicio_b'] = $params['f_inicio_b'];//$f_i_datetime;
+$d_beca['f_final_b'] = $params['f_final_b']; //$f_f_datetime;
 
 
 $res_beca = $beca->save($d_beca);

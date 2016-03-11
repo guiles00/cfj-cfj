@@ -458,8 +458,20 @@ $('#b_fec_nac').datepicker({
             changeMonth: true,
             changeYear: true
         });
-$('#b_f_inicio_b').datepicker({dateFormat:"yy-mm-dd"});
-$('#b_f_final_b').datepicker({dateFormat:"yy-mm-dd"});
+
+$('#b_f_inicio_b').datepicker({
+            dateFormat:"yy-mm-dd",  
+            yearRange: "-20:+20",
+            changeMonth: true,
+            changeYear: true
+        });
+
+$('#b_f_final_b').datepicker({
+            dateFormat:"yy-mm-dd",  
+            yearRange: "-20:+20",
+            changeMonth: true,
+            changeYear: true
+        });
 
 
 
