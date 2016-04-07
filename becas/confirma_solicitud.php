@@ -12,10 +12,13 @@ $beca = new Beca();
 $md5 = $_GET['a'];
 $n_beca = $beca->getBecaByMd5($md5);
 
-if(!empty($n_beca)){$beca->confirmar($n_beca['beca_id']);
-}else{
-	exit('<div align="center" style="color:red"> Ups! No existe lo que estas buscando ;)</div>');
+if( $n_beca['estado_id'] == 0){
+	if(!empty($n_beca)){$beca->confirmar($n_beca['beca_id']);
+	}else{
+		exit('<div align="center" style="color:red"> Ups! No existe lo que estas buscando ;)</div>');
+	}
 }
+
 
 $alumno = new Alumno();
 //Agrego alumno, devuelve id
