@@ -4,8 +4,19 @@ require_once('../src/Db.php');
 
 $conn = new DBConn();
 $c = $conn->connect();
+//SELECT grupo_curso3 . * , curso . * 
+//FROM  `curso` 
+//INNER JOIN  `grupo_curso3` ON  `curso`.`cur_gcu3_id` =  `grupo_curso3`.`gcu3_id` 
+//INNER JOIN  `grupo_curso2` ON  `grupo_curso3`.`gcu3_gcu2_id` =  `grupo_curso2`.`gcu2_id` 
+//INNER JOIN  `grupo_curso` ON  `grupo_curso`.`gcu_id` =  `grupo_curso2`.`gcu2_gcu_id` 
+$query = "SELECT  *  
+FROM  curso 
+INNER JOIN  grupo_curso3 ON  curso.cur_gcu3_id =  grupo_curso3.gcu3_id 
+INNER JOIN  grupo_curso2 ON  grupo_curso3.gcu3_gcu2_id =  grupo_curso2.gcu2_id 
+INNER JOIN  grupo_curso ON   grupo_curso.gcu_id =  grupo_curso2.gcu2_gcu_id 
+WHERE curso.cur_ecu_id =1 ORDER BY cur_fechaInicio";
 
-$query = "SELECT * FROM curso INNER JOIN grupo_curso3 ON curso.cur_gcu3_id = grupo_curso3.gcu3_id WHERE curso.cur_ecu_id =1 ORDER BY cur_fechaInicio";
+//$query = "SELECT * FROM curso INNER JOIN grupo_curso3 ON curso.cur_gcu3_id = grupo_curso3.gcu3_id WHERE curso.cur_ecu_id =1 ORDER BY cur_fechaInicio";
 $r = mysqli_query($c,$query);
 $cursos_activos = array();
 $cursos_actuales = array();
