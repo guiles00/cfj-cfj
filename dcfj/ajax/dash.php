@@ -9,13 +9,20 @@ $c = $conn->connect();
 //INNER JOIN  `grupo_curso3` ON  `curso`.`cur_gcu3_id` =  `grupo_curso3`.`gcu3_id` 
 //INNER JOIN  `grupo_curso2` ON  `grupo_curso3`.`gcu3_gcu2_id` =  `grupo_curso2`.`gcu2_id` 
 //INNER JOIN  `grupo_curso` ON  `grupo_curso`.`gcu_id` =  `grupo_curso2`.`gcu2_gcu_id` 
+//->leftJoin('grupo_curso3_grupo_curso2', 'grupo_curso3_grupo_curso2.gcu32_id', '=', 'curso.cur_gcu32_id')
 $query = "SELECT  *  
 FROM  curso 
-INNER JOIN  grupo_curso3 ON  curso.cur_gcu3_id =  grupo_curso3.gcu3_id 
-INNER JOIN  grupo_curso2 ON  grupo_curso3.gcu3_gcu2_id =  grupo_curso2.gcu2_id 
-INNER JOIN  grupo_curso ON   grupo_curso.gcu_id =  grupo_curso2.gcu2_gcu_id 
+LEFT JOIN  grupo_curso3_grupo_curso2 ON grupo_curso3_grupo_curso2.gcu32_id = curso.cur_gcu32_id
+LEFT JOIN  grupo_curso3 ON  curso.cur_gcu3_id =  grupo_curso3.gcu3_id 
+LEFT JOIN  grupo_curso2 ON  grupo_curso3.gcu3_gcu2_id =  grupo_curso2.gcu2_id 
+LEFT JOIN  grupo_curso ON   grupo_curso.gcu_id =  grupo_curso2.gcu2_gcu_id 
 WHERE curso.cur_ecu_id =1 ORDER BY cur_fechaInicio";
-
+$query = "select * from curso
+         inner join grupo_curso3_grupo_curso2 on (gcu32_id = cur_gcu32_id)
+         inner join grupo_curso3 on (gcu3_id = gc32_gcu3_id)
+         inner join grupo_curso2 on (gcu2_id = gc32_gcu2_id)
+         inner join grupo_curso on (gcu_id = gcu2_gcu_id)
+WHERE curso.cur_ecu_id =1 ORDER BY cur_fechaInicio";
 //$query = "SELECT * FROM curso INNER JOIN grupo_curso3 ON curso.cur_gcu3_id = grupo_curso3.gcu3_id WHERE curso.cur_ecu_id =1 ORDER BY cur_fechaInicio";
 $r = mysqli_query($c,$query);
 $cursos_activos = array();
